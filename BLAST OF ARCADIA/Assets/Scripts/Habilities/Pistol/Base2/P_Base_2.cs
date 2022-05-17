@@ -6,6 +6,8 @@ public class P_Base_2 : MonoBehaviour
 {
     private float _damage;
     private float _timer;
+    private int _applyNTimes;
+    private float _perTime;
     [SerializeField] private element _weaponElement;
     public enum element
     {
@@ -19,8 +21,13 @@ public class P_Base_2 : MonoBehaviour
     public element WeaponElement { get => _weaponElement; set => _weaponElement = value; }
 
     public float Damage { get => _damage; set => _damage = value; }
+    public int ApplyNTimes { get => ApplyNTimes1; set => ApplyNTimes1 = value; }
+    public int ApplyNTimes1 { get => _applyNTimes; set => _applyNTimes = value; }
+    public float PerTime { get => _perTime; set => _perTime = value; }
+
     private void Update()
     {
+        
         _timer += Time.deltaTime;
         if (_timer >= 3)
         {
@@ -51,15 +58,20 @@ public class P_Base_2 : MonoBehaviour
             }
 
             collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage);
+            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 4, PerTime);
+            collision.GetComponent<EnemyBase>().Speed = collision.GetComponent<EnemyBase>().Speed / 2;
 
         }
-    
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyBase>().
+            collision.GetComponent<EnemyBase>().Speed = collision.GetComponent<EnemyBase>().Speed * 2;
         }
     }
 }

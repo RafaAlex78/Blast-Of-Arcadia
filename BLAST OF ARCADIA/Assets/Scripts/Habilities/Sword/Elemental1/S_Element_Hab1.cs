@@ -9,6 +9,8 @@ public class S_Element_Hab1 : MonoBehaviour
     private float _speed;
     private Vector2 _playerPos;
     private float _timer=0;
+    private int _applyNTimes;
+    private float _perTime;
     [SerializeField] private element _weaponElement;
     public enum element
     {
@@ -24,6 +26,8 @@ public class S_Element_Hab1 : MonoBehaviour
     public float Range { get => _range; set => _range = value; }
     public Vector2 PlayerPos { get => _playerPos; set => _playerPos = value; }
     public float Speed { get => _speed; set => _speed = value; }
+    public int ApplyNTimes { get => _applyNTimes; set => _applyNTimes = value; }
+    public float PerTime { get => _perTime; set => _perTime = value; }
 
     void Update()
     {
@@ -64,15 +68,9 @@ public class S_Element_Hab1 : MonoBehaviour
                     break;
             }
 
+            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 2, PerTime);
 
-        }       
+        }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
-    }
+
 }

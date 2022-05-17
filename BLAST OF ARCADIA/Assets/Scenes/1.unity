@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203573956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8413429, y: 2.9973469, z: 0}
+  m_LocalPosition: {x: -1.99, y: 2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -660,7 +660,7 @@ MonoBehaviour:
   _actualHP: 0
   _movementSpeed: 2
   _dashCD: 1
-  _equippedWeapon: {fileID: 11400000, guid: 3aa38b0c890afcd439735cab788f2f10, type: 2}
+  _equippedWeapon: {fileID: 11400000, guid: 50dccbe53d46d3e43b682db733e3166d, type: 2}
 --- !u!212 &1680499626
 SpriteRenderer:
   m_ObjectHideFlags: 0

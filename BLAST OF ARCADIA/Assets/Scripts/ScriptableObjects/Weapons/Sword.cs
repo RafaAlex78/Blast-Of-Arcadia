@@ -51,7 +51,8 @@ public class Sword : WeaponScriptableObject
                 }
             }
         }
-        player.AttackCD = 0.5f;          
+        player.AttackCD = 0.5f;
+   
     }
     public override void UseBaseHability1(PlayerController player)
     {
@@ -86,7 +87,8 @@ public class Sword : WeaponScriptableObject
             default:
                 break;
         }
-       
+        HabilityCastTime = 0.3f;
+        HabilityCD = 2.5f;
     } 
     
     public override void UseBaseHability2(PlayerController player)
@@ -126,6 +128,8 @@ public class Sword : WeaponScriptableObject
                     break;
             }
         }
+        HabilityCastTime = 1.2f;
+        HabilityCD = 2.5f;
     }
 
     public override void UseElementalHability1(PlayerController player)
@@ -144,6 +148,8 @@ public class Sword : WeaponScriptableObject
             hab3.PlayerPos = player.transform.position;
             hab3.Damage = Damage * 2f;
             hab3.Speed = 4;
+            hab3.ApplyNTimes = 8;
+            hab3.PerTime = 0.5f;
             switch (WeaponElement)
             {
                 case Element.None:
@@ -168,6 +174,8 @@ public class Sword : WeaponScriptableObject
                 default:
                     break;
             }
+            HabilityCastTime = 1.7f;
+            HabilityCD = 5.5f;
         }
     }
 
@@ -211,6 +219,8 @@ public class Sword : WeaponScriptableObject
                 default:
                     break;
             }
+            HabilityCastTime = 2f;
+            HabilityCD = 10.5f;
         }
     }
 }

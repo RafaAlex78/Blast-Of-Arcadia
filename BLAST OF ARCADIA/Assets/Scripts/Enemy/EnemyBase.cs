@@ -9,9 +9,19 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] element _hitElement;
     [SerializeField] element _weakness;
     [SerializeField] private float _damage;
+    private float _dotTimer;
+    private bool _startDotTimer  =false;
 
     public element HitElement { get => _hitElement; set => _hitElement = value; }
+    public float Speed { get => _speed; set => _speed = value; }
 
+    private void Update()
+    {
+        if(_startDotTimer)
+        {
+            _dotTimer += Time.deltaTime;
+        }
+    }
     public enum element
     {
         None,
@@ -42,6 +52,24 @@ public class EnemyBase : MonoBehaviour, IDamageable
             Die();
         }
     }
+     IEnumerator Dps(int applyDamageNTimes, float damage, float perTime)
+    {
+        int appliedTimes = 0;
+        while (appliedTimes < applyDamageNTimes)
+        {
+            TakeDemage(damage);
+            yield return new WaitForSeconds(perTime);
+            appliedTimes++;
+            Debug.Log(appliedTimes);
+            Debug.Log(applyDamageNTimes);
+        }
+
+    }
+    public void StartDps(int applyDamageNTimes, float damage, float perTime)
+    {
+        StartCoroutine(Dps(applyDamageNTimes, damage, perTime));
+    }
+
 
 
 }

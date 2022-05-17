@@ -9,6 +9,7 @@ public class Pistol : WeaponScriptableObject
     [SerializeField] private GameObject _pistolBullet;
     [SerializeField] private GameObject _hability1Prefab;
     [SerializeField] private GameObject _hability2Prefab;
+    [SerializeField] private GameObject _hability3Prefab;
     [SerializeField] private int _shootCount;
     public override void UseWeapon(PlayerController player)
     {
@@ -80,7 +81,7 @@ public class Pistol : WeaponScriptableObject
             newBullet.GetComponent<Pistol_Bullet>().Damage = Damage*1.5f;
             _shootCount = 0;
         }
-        
+      
     }
     public override void UseBaseHability1(PlayerController player)
     {
@@ -112,13 +113,18 @@ public class Pistol : WeaponScriptableObject
 
                 break;
         }
+        HabilityCastTime = 0.5f;
+        HabilityCD = 1.5f;
     }
 
     public override void UseBaseHability2(PlayerController player)
     {
         GameObject newHab = Instantiate(_hability2Prefab, player.transform.position, player.transform.rotation);
-        P_Base_2 hab2 = newHab.GetComponent<P_Base_2>();
+
+        P_Base_2 hab2 = newHab.GetComponentInChildren<P_Base_2>();
+
         hab2.Damage = Damage;
+
         switch (WeaponElement)
         {
             case Element.None:
@@ -140,11 +146,51 @@ public class Pistol : WeaponScriptableObject
                 hab2.WeaponElement = P_Base_2.element.Lightning;
                 break;
         }
+        Debug.Log("5");
+        hab2.ApplyNTimes = 4;
+        hab2.PerTime = 1.5f;
+
+
+        HabilityCastTime = 1.5f;
+        HabilityCD = 6.5f;
     }
 
     public override void UseElementalHability1(PlayerController player)
     {
-        throw new System.NotImplementedException();
+        GameObject newHab = Instantiate(_hability3Prefab, player.transform.position, player.transform.rotation);
+
+        P_Elemental_1 hab3 = newHab.GetComponentInChildren<P_Elemental_1>();
+
+        hab3.Damage = Damage;
+
+        switch (WeaponElement)
+        {
+            case Element.None:
+                hab3.WeaponElement = P_Elemental_1.element.None;
+                break;
+            case Element.Fire:
+                hab3.WeaponElement = P_Elemental_1.element.Fire;
+
+                break;
+            case Element.Ice:
+                hab3.WeaponElement = P_Elemental_1.element.Ice;
+
+                break;
+            case Element.Poison:
+                hab3.WeaponElement = P_Elemental_1.element.Poison;
+
+                break;
+            case Element.Lightning:
+                hab3.WeaponElement = P_Elemental_1.element.Lightning;
+                break;
+        }
+        hab3.TimeToExplode = 3;
+        hab3.TimeToHit = 7;
+        hab3.ApplyNTimes = 6;
+        hab3.PerTime = 1.2f;
+        HabilityCastTime = 1f;
+        HabilityCD =10f;
+
     }
 
     public override void UseElementalHability2(PlayerController player)

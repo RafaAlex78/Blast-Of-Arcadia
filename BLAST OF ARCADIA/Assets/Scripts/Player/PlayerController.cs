@@ -172,49 +172,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             if(_canHability1)
             {
-                Debug.Log(_equippedWeapon.WeaponType);
-                switch (_equippedWeapon.WeaponType)
-                {
-                    case WeaponScriptableObject.Type.Sword:
-                       
-                        StartCoroutine(SwordHab1());
-
-                        break;
-                    case WeaponScriptableObject.Type.Pistol:
-                        StartCoroutine(PistolHab1());
-                        break;
-                    default:
-                        break;
-                }                           
+                StartCoroutine(UseAbilityOne());
             }          
-            //if (_equippedWeapon. == WeaponScriptableObject.)
-            //{
-
-            //}
-
-            //switch ((string)_equippedWeapon.name)
-            //{
-            //    case "Sword":
-            //        break;
-            //}
         } 
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (_canHability2)
             {
-                switch (_equippedWeapon.WeaponType)
-                {
-                    case WeaponScriptableObject.Type.Sword:
-
-                        StartCoroutine(SwordHab2());
-
-                        break;
-                    case WeaponScriptableObject.Type.Pistol:
-                        break;
-                    default:
-                        break;
-                }
-
+                StartCoroutine(UseAbilityTwo());
 
             }
         } 
@@ -222,18 +187,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             if (_canHability3)
             {
-                switch (_equippedWeapon.WeaponType)
-                {
-                    case WeaponScriptableObject.Type.Sword:
-
-                        StartCoroutine(SwordEle1());
-
-                        break;
-                    case WeaponScriptableObject.Type.Pistol:
-                        break;
-                    default:
-                        break;
-                }
+                StartCoroutine(UseAbilityThree());
 
 
             }
@@ -242,18 +196,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             if (_canHability4)
             {
-                switch (_equippedWeapon.WeaponType)
-                {
-                    case WeaponScriptableObject.Type.Sword:
-
-                        StartCoroutine(SwordEle2());
-
-                        break;
-                    case WeaponScriptableObject.Type.Pistol:
-                        break;
-                    default:
-                        break;
-                }
+                StartCoroutine(UseAbilityFour());
 
 
             }
@@ -265,78 +208,46 @@ public class PlayerController : MonoBehaviour, IDamageable
         _canHability1 = false;
         _canMove = false;
         _equippedWeapon.UseBaseHability1(this);
-
         if(_equippedWeapon is Sword)
         {
             yield return new WaitForSeconds(0.2f);
             _equippedWeapon.UseBaseHability1(this);
-        }
-   
-        yield return new WaitForSeconds(0.3f);
+        }  
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
+        
         _canMove = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability1 = true;
-    }
-    IEnumerator SwordHab1()
-    {
-        _canHability1 = false;
-        _canMove = false;
-        _equippedWeapon.UseBaseHability1(this);
-        yield return new WaitForSeconds(0.2f);
-        _equippedWeapon.UseBaseHability1(this);
-        yield return new WaitForSeconds(0.3f);
-        _canMove =true;
-        yield return new WaitForSeconds(1.5f);
-        _canHability1 = true;
-    } IEnumerator PistolHab1()
-    {
-        _canHability1 = false;
-        _canMove = false;
-        _equippedWeapon.UseBaseHability1(this);
-        yield return new WaitForSeconds(0.1f);
-        _canMove = true;
-        yield return new WaitForSeconds(2.5f);
-        _canHability1 = true;
-    }
-    IEnumerator SwordHab2()
+    } 
+    IEnumerator UseAbilityTwo()
     {
         _canHability2 = false;
         _canMove = false;
         _equippedWeapon.UseBaseHability2(this);
-        yield return new WaitForSeconds(1.5f);
+
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability2 = true;
     }
-    IEnumerator SwordEle1()
+    IEnumerator UseAbilityThree()
     {
         _canHability3 = false;
         _canMove = false;
         _equippedWeapon.UseElementalHability1(this);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability3 = true;
-    }
-    IEnumerator SwordEle2()
+    }IEnumerator UseAbilityFour()
     {
         _canHability4 = false;
         _canMove = false;
         _equippedWeapon.UseElementalHability2(this);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
-        yield return new WaitForSeconds(10.5f);
+        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability4 = true;
-    }
-    IEnumerator PistolHab2()
-    {
-        _canHability2 = false;
-        _canMove = false;
-        _equippedWeapon.UseBaseHability2(this);
-        yield return new WaitForSeconds(0.5f);
-        _canMove = true;
-        yield return new WaitForSeconds(6.5f);
-        _canHability1 = true;
     }
     IEnumerator Dash()
     {

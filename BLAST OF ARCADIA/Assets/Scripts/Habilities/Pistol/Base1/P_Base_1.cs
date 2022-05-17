@@ -67,4 +67,32 @@ public class P_Base_1 : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("1");
+        if (other.CompareTag("Enemy"))
+        {
+            switch (WeaponElement)
+            {
+                case element.None:
+                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.None;
+                    break;
+                case element.Fire:
+                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Fire;
+                    break;
+                case element.Ice:
+                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Ice;
+                    break;
+                case element.Poison:
+                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Poison;
+                    break;
+                case element.Lightning:
+                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Lightning;
+                    break;
+            }
+
+            other.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage + _distance);
+
+        }
+    }
 }
