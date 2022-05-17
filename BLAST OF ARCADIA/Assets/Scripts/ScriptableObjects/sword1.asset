@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
+  m_Name: sword1
+  m_EditorClassIdentifier: 
+  _damage: 5
+  _range: 0.7
+  _angle: 46
+  _level: 1
+  _weaponType: 0
+  _weaponRarity: 2
+  _weaponElement: 1
+  _hability1Prefab: {fileID: 3741784157230723770, guid: 4c39c37377279bd4d882e364ca38f28d, type: 3}
+  _hability2Prefab: {fileID: 8032430868629080469, guid: 3beb11ae32719c24689568181dab41c7, type: 3}
+  _hability3Prefab: {fileID: 56746900692091535, guid: e15ae0dc2e659484093079c39b2c4a7c, type: 3}
+  _hability4Prefab: {fileID: 2732128120369897420, guid: a688cd41afdd0c34a81ec9c72d49a4d6, type: 3}
