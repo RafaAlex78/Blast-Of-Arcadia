@@ -260,6 +260,23 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
 
     }
+    IEnumerator UseAbilityOne()
+    {
+        _canHability1 = false;
+        _canMove = false;
+        _equippedWeapon.UseBaseHability1(this);
+
+        if(_equippedWeapon is Sword)
+        {
+            yield return new WaitForSeconds(0.2f);
+            _equippedWeapon.UseBaseHability1(this);
+        }
+   
+        yield return new WaitForSeconds(0.3f);
+        _canMove = true;
+        yield return new WaitForSeconds(1.5f);
+        _canHability1 = true;
+    }
     IEnumerator SwordHab1()
     {
         _canHability1 = false;
@@ -271,7 +288,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         _canMove =true;
         yield return new WaitForSeconds(1.5f);
         _canHability1 = true;
-    } 
+    } IEnumerator PistolHab1()
+    {
+        _canHability1 = false;
+        _canMove = false;
+        _equippedWeapon.UseBaseHability1(this);
+        yield return new WaitForSeconds(0.1f);
+        _canMove = true;
+        yield return new WaitForSeconds(2.5f);
+        _canHability1 = true;
+    }
     IEnumerator SwordHab2()
     {
         _canHability2 = false;
@@ -302,14 +328,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(10.5f);
         _canHability4 = true;
     }
-    IEnumerator PistolHab1()
+    IEnumerator PistolHab2()
     {
-        _canHability1 = false;
+        _canHability2 = false;
         _canMove = false;
-        _equippedWeapon.UseBaseHability1(this);
-        yield return new WaitForSeconds(0.1f);
+        _equippedWeapon.UseBaseHability2(this);
+        yield return new WaitForSeconds(0.5f);
         _canMove = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(6.5f);
         _canHability1 = true;
     }
     IEnumerator Dash()

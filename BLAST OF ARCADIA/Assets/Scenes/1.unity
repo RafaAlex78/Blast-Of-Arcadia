@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hP: 165.34
+  _speed: 5
   _hitElement: 0
   _weakness: 2
   _damage: 0
@@ -396,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hP: 80
+  _speed: 5
   _hitElement: 0
   _weakness: 4
   _damage: 0
@@ -534,6 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hP: 107.83
+  _speed: 5
   _hitElement: 0
   _weakness: 1
   _damage: 0

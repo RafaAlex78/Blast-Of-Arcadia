@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _hP=10;
+    [SerializeField] private float _speed=5;
     [SerializeField] element _hitElement;
     [SerializeField] element _weakness;
     [SerializeField] private float _damage;

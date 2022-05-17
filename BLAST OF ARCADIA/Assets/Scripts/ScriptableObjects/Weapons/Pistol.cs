@@ -8,6 +8,7 @@ public class Pistol : WeaponScriptableObject
 {
     [SerializeField] private GameObject _pistolBullet;
     [SerializeField] private GameObject _hability1Prefab;
+    [SerializeField] private GameObject _hability2Prefab;
     [SerializeField] private int _shootCount;
     public override void UseWeapon(PlayerController player)
     {
@@ -110,14 +111,35 @@ public class Pistol : WeaponScriptableObject
                 hab1.WeaponElement = P_Base_1.element.Lightning;
 
                 break;
-            default:
-                break;
         }
     }
 
     public override void UseBaseHability2(PlayerController player)
     {
-        throw new System.NotImplementedException();
+        GameObject newHab = Instantiate(_hability2Prefab, player.transform.position, player.transform.rotation);
+        P_Base_2 hab2 = newHab.GetComponent<P_Base_2>();
+        hab2.Damage = Damage;
+        switch (WeaponElement)
+        {
+            case Element.None:
+                hab2.WeaponElement = P_Base_2.element.None;
+                break;
+            case Element.Fire:
+                hab2.WeaponElement = P_Base_2.element.Fire;
+
+                break;
+            case Element.Ice:
+                hab2.WeaponElement = P_Base_2.element.Ice;
+
+                break;
+            case Element.Poison:
+                hab2.WeaponElement = P_Base_2.element.Poison;
+
+                break;
+            case Element.Lightning:
+                hab2.WeaponElement = P_Base_2.element.Lightning;
+                break;
+        }
     }
 
     public override void UseElementalHability1(PlayerController player)

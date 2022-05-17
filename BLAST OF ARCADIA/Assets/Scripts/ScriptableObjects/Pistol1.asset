@@ -21,4 +21,5 @@ MonoBehaviour:
   _weaponElement: 1
   _pistolBullet: {fileID: 4522093662352460384, guid: e5ca7664e240a0b47a659640732f48ee, type: 3}
   _hability1Prefab: {fileID: 2432028131487857452, guid: acdbde6d2c753ef44b027d7b2594d761, type: 3}
-  _shootCount: 4
+  _hability2Prefab: {fileID: 761994832760160424, guid: d404a2264501c0f43ad9c65547faf2cf, type: 3}
+  _shootCount: 2

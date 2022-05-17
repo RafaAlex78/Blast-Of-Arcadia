@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol_Bullet : MonoBehaviour
+public class P_Base_2 : MonoBehaviour
 {
     private float _damage;
-    private float _range;
-    private Vector2 _playerPos;
-
-    public float Damage { get => _damage; set => _damage = value; }
-    public float Range { get => _range; set => _range = value; }
-    public Vector2 PlayerPos { get => _playerPos; set => _playerPos = value; }
-    public element WeaponElement { get => _weaponElement; set => _weaponElement = value; }
-
+    private float _timer;
     [SerializeField] private element _weaponElement;
     public enum element
     {
@@ -21,20 +14,22 @@ public class Pistol_Bullet : MonoBehaviour
         Ice,
         Poison,
         Lightning
-    }   
+    }
 
-   
+    public element WeaponElement { get => _weaponElement; set => _weaponElement = value; }
+
+    public float Damage { get => _damage; set => _damage = value; }
     private void Update()
     {
-    
-        if(Vector2.Distance(PlayerPos,transform.position) >= Range)
+        _timer += Time.deltaTime;
+        if (_timer >= 3)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if(collision.CompareTag("Enemy"))
         {
             switch (WeaponElement)
             {
@@ -54,15 +49,17 @@ public class Pistol_Bullet : MonoBehaviour
                     collision.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Lightning;
                     break;
             }
+
             collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage);
-            Destroy(gameObject);
 
         }
-        else
+    
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            collision.GetComponent<EnemyBase>().
         }
     }
-    
-
 }

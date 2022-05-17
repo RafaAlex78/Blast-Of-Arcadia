@@ -86,6 +86,7 @@ public class Sword : WeaponScriptableObject
             default:
                 break;
         }
+       
     } 
     
     public override void UseBaseHability2(PlayerController player)
