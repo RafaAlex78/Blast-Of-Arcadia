@@ -101,6 +101,8 @@ public class P_Elemental_1 : MonoBehaviour
             else
             {
                 collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage * 2.5f);
+                collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 4, PerTime);
+
                 switch (WeaponElement)
                 {
                     case element.None:

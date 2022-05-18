@@ -224,7 +224,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         _canHability2 = false;
         _canMove = false;
         _equippedWeapon.UseBaseHability2(this);
-
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);

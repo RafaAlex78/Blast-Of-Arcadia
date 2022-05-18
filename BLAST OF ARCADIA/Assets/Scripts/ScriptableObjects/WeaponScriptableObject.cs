@@ -38,7 +38,7 @@ public abstract class WeaponScriptableObject : ScriptableObject
        Lightning
     }
   
-
+    
     public float Damage { get => _damage; set => _damage = value; }
     public float Range { get => _range; set => _range = value; }
     public float Angle { get => _angle; set => _angle = value; }
@@ -47,6 +47,7 @@ public abstract class WeaponScriptableObject : ScriptableObject
     public float HabilityCD { get => _habilityCD; set => _habilityCD = value; }
     public float HabilityCastTime { get => _habilityCastTime; set => _habilityCastTime = value; }
 
+    
     public abstract void UseWeapon(PlayerController player);
     public abstract void UseBaseHability1(PlayerController player);
     public abstract void UseBaseHability2(PlayerController player);
