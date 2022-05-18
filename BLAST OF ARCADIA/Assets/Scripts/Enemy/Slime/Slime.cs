@@ -5,11 +5,7 @@ using UnityEngine;
 public class Slime : EnemyBase
    
 {
-    [Header("Pathing")]
-    [SerializeField] private List<Transform> _waypoints;
-    private int _currentTarget=0;
-    private bool _targetReached=false;
-    private bool _reverse=false;
+    [Header("State")]
     [SerializeField] EnemyState _currenState = EnemyState.Patrol;
     public EnemyState CurrenState { get => _currenState; set => _currenState = value; }
 
@@ -50,11 +46,12 @@ public class Slime : EnemyBase
         Vector2 dir = _player.transform.position - transform.position;
         transform.up = dir;
         float distance = Vector2.Distance(transform.position,_player.transform.position);
-        if (Vector2.Angle(dir, _player.transform.up) <= _angle && distance <=_attackRange)
+        if (Vector2.Angle(dir, _player.transform.position) <= _angle && distance <=_attackRange)
         {
+         
             if(_canAttack)
             {
-
+                StartCoroutine(Attack());
             }
             // obj.GetComponent<IDamageable>()?.TakeDemage(Damage);
 
@@ -63,6 +60,26 @@ public class Slime : EnemyBase
     }
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.5f);
+        _canAttack = false;
+        if(_loseSpeedOnAttack)
+        {
+            Speed = Speed / 6;
+
+        }
+        yield return new WaitForSeconds(_timeToAttack);
+        Vector2 dir = _player.transform.position - transform.position;
+        float distance = Vector2.Distance(transform.position, _player.transform.position);
+
+        Debug.Log("1");
+        
+        if (Vector2.Angle(dir, _player.transform.position) <= _angle && distance <= _attackRange)
+        {
+            Debug.Log("2");
+
+            _player.GetComponent<IDamageable>()?.TakeDemage(_damage);
+        }
+        yield return new WaitForSeconds(0.8f);
+        _canAttack = true;
+        Speed = Speed * 6;
     }
 }

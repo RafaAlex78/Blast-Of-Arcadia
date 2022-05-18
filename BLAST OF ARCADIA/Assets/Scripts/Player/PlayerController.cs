@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     [Header("Player Status")]
-    [SerializeField] private int _maxHP;
-    [SerializeField] private int _actualHP;
+    [SerializeField] private float _maxHP = 100;
+    [SerializeField] private float _actualHP;
 
     [Header("Movement")]
     private Vector2 _moveInput;
@@ -275,18 +275,19 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
    
 
-    public void TakeDemage(int amount)
+    public void TakeDemage(float amount)
     {
-        throw new System.NotImplementedException();
+        _actualHP-=amount;
+        if(_actualHP <= 0)
+        {
+            Die();
+        }
     }
 
     public void Die()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("dead");
     }
 
-    public void TakeDemage(float amount)
-    {
-        throw new System.NotImplementedException();
-    }
+   
 }

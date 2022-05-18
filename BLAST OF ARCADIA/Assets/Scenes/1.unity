@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 203573960}
   - component: {fileID: 203573961}
   m_Layer: 3
-  m_Name: Capsule
+  m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,14 +262,13 @@ MonoBehaviour:
   _hitElement: 0
   _weakness: 0
   _damage: 4
-  _attackRange: 0.65
+  _attackRange: 0.7
   _targetRange: 4.5
-  _angle: 40
-  _canAttack: 0
+  _angle: 50
+  _canAttack: 1
+  _loseSpeedOnAttack: 1
+  _timeToAttack: 0.3
   _player: {fileID: 0}
-  _waypoints:
-  - {fileID: 420575295}
-  - {fileID: 225254632}
   _currenState: 0
 --- !u!1 &225254630
 GameObject:
@@ -496,6 +495,8 @@ MonoBehaviour:
   _targetRange: 0
   _angle: 0
   _canAttack: 0
+  _loseSpeedOnAttack: 0
+  _timeToAttack: 0
   _player: {fileID: 0}
 --- !u!1 &420575293
 GameObject:
@@ -722,6 +723,8 @@ MonoBehaviour:
   _targetRange: 0
   _angle: 0
   _canAttack: 0
+  _loseSpeedOnAttack: 0
+  _timeToAttack: 0
   _player: {fileID: 0}
 --- !u!1 &1675943564
 GameObject:

@@ -12,7 +12,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] protected float _attackRange;
     [SerializeField] protected float _targetRange;
     [SerializeField] protected float _angle;
-    [SerializeField] protected bool _canAttack;
+    [SerializeField] protected bool _canAttack = true;
+    [SerializeField] protected bool _loseSpeedOnAttack;
+    [SerializeField] protected float _timeToAttack;
+
     [SerializeField] protected PlayerController _player;
     private float _dotTimer;
     private bool _startDotTimer  =false;

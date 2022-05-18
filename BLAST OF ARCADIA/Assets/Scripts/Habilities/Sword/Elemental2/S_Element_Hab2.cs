@@ -126,6 +126,7 @@ public class S_Element_Hab2 : MonoBehaviour
                         break;
                 }
             }
+      
         }
     }
 }
