@@ -42,8 +42,7 @@ public class Slime : EnemyBase
     }
     private void Chase()
     {
-        Debug.Log(Vector2.Distance(transform.position, _player.transform.position));
-        Debug.Log(Vector2.Angle(transform.up, _player.transform.position));
+       
         transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
         Vector2 dir = _player.transform.position - transform.position;
         transform.up = dir;
