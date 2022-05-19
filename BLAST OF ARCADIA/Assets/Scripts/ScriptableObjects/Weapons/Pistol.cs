@@ -10,6 +10,7 @@ public class Pistol : WeaponScriptableObject
     [SerializeField] private GameObject _hability1Prefab;
     [SerializeField] private GameObject _hability2Prefab;
     [SerializeField] private GameObject _hability3Prefab;
+    [SerializeField] private GameObject _hability4Prefab;
     [SerializeField] private int _shootCount;
     public override void UseWeapon(PlayerController player)
     {
@@ -90,7 +91,7 @@ public class Pistol : WeaponScriptableObject
         bull.velocity = newHab.transform.up * 5;
         P_Base_1 hab1 = newHab.GetComponent<P_Base_1>();
         hab1.PlayerPos = player.transform.position;
-        hab1.Damage = Damage;
+        hab1.Damage = Damage*1.2f;
         switch (WeaponElement)
         {
             case Element.None:
@@ -123,7 +124,7 @@ public class Pistol : WeaponScriptableObject
 
         P_Base_2 hab2 = newHab.GetComponentInChildren<P_Base_2>();
 
-        hab2.Damage = Damage;
+        hab2.Damage = Damage*1.4f;
 
         switch (WeaponElement)
         {
@@ -161,7 +162,7 @@ public class Pistol : WeaponScriptableObject
 
         P_Elemental_1 hab3 = newHab.GetComponentInChildren<P_Elemental_1>();
 
-        hab3.Damage = Damage;
+        hab3.Damage = Damage*2;
 
         switch (WeaponElement)
         {
@@ -195,10 +196,28 @@ public class Pistol : WeaponScriptableObject
 
     public override void UseElementalHability2(PlayerController player)
     {
-        throw new System.NotImplementedException();
+        int temp = 0;
+        Collider2D[] objectsHit = Physics2D.OverlapCircleAll(player.transform.position, Range+2, LayerMask.GetMask("Enemy"));
+        foreach (Collider2D obj in objectsHit)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject newHab = Instantiate(_hability4Prefab, player.transform.position, player.transform.rotation);
+                P_Elemental_2 hab4 = newHab.GetComponent<P_Elemental_2>();
+                hab4.Speed = 2 * (i + 1);
+                hab4.Damage = Damage*1.7f;
+                hab4.Target = objectsHit[temp].gameObject;
+                hab4.ApplyNTimes = 3;
+                hab4.PerTime = 1.4f;
+            }
+           temp++;
+        }
+        HabilityCastTime = .5f;
+        HabilityCD = 15f;
+
     }
 
-  
 
-   
+
+
 }

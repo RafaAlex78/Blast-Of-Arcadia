@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             PlayerInput();
         if(_attacking == false && _canMove ==true)
         {
-            Rotation();
+            FaceDirection();
             
             
         }
@@ -113,43 +113,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
       
 
-    }      
-    private void Rotation()
-    {
-        if(_moveInput.x == 1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -90);
-        }
-        if(_moveInput.x == -1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 90);
-
-        }
-        if(_moveInput.y == 1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
-
-        }if(_moveInput.y == -1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 180);
-        }
-        if(_moveInput.x == 1 && _moveInput.y==1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -45);
-        }
-        if (_moveInput.x == 1 && _moveInput.y == -1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -135);
-        }
-        if (_moveInput.x == -1 && _moveInput.y == 1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 45);
-        }
-        if (_moveInput.x == -1 && _moveInput.y == -1)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 135);
-        }
     }
+    private void FaceDirection()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+        transform.up = direction;
+    }
+   
     private void PlayerInput()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -251,29 +224,14 @@ public class PlayerController : MonoBehaviour, IDamageable
     IEnumerator Dash()
     {
         _canDash = false;
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position = new Vector2(transform.position.x + -2, transform.position.y);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.position = new Vector2(transform.position.x + +2, transform.position.y);
-
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + 2);
-
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + -2);
-        }
-        yield return new WaitForSeconds(_dashCD);
+        Debug.Log("1");
+        _rigidbody.AddForce(transform.up * 6500, ForceMode2D.Force);
+        yield return new WaitForSeconds(4);
         _canDash = true;
 
+
     }
-   
+
 
     public void TakeDemage(float amount)
     {

@@ -71,11 +71,9 @@ public class Archer : EnemyBase
         yield return new WaitForSeconds(_timeToAttack);
         float distance = Vector2.Distance(transform.position, _player.transform.position);
 
-        Debug.Log("1");
 
         if (distance <= _attackRange)
         {
-            Debug.Log("2");
 
             GameObject newArrow = Instantiate(_arrow, transform.position, transform.rotation);
             newArrow.GetComponent<ArrowEnemy>().Damage = _damage;

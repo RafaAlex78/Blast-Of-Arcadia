@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_Base_2 : MonoBehaviour
+public class P_Elemental_2 : MonoBehaviour
 {
+    private GameObject _target;
     private float _damage;
-    private float _timer;
+    private float _speed;
     private int _applyNTimes;
     private float _perTime;
     [SerializeField] private element _weaponElement;
+
     public enum element
     {
         None,
@@ -20,23 +22,21 @@ public class P_Base_2 : MonoBehaviour
 
     public element WeaponElement { get => _weaponElement; set => _weaponElement = value; }
 
+
+    public GameObject Target { get => _target; set => _target = value; }
     public float Damage { get => _damage; set => _damage = value; }
-    public int ApplyNTimes { get => ApplyNTimes1; set => ApplyNTimes1 = value; }
-    public int ApplyNTimes1 { get => _applyNTimes; set => _applyNTimes = value; }
+    public float Speed { get => _speed; set => _speed = value; }
+    public int ApplyNTimes { get => _applyNTimes; set => _applyNTimes = value; }
     public float PerTime { get => _perTime; set => _perTime = value; }
 
-    private void Update()
+    void Update()
     {
-        
-        _timer += Time.deltaTime;
-        if (_timer >= 3)
-        {
-            Destroy(transform.parent.gameObject);
-        }
+        transform.Rotate(new Vector3(0,0,1000 * Time.deltaTime));
+        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, Speed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             switch (WeaponElement)
             {
@@ -56,20 +56,12 @@ public class P_Base_2 : MonoBehaviour
                     collision.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Lightning;
                     break;
             }
-
             collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage);
             collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 4, PerTime);
-            collision.GetComponent<EnemyBase>().Speed = collision.GetComponent<EnemyBase>().Speed / 2;
-
+            Destroy(gameObject);
         }
 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            collision.GetComponent<EnemyBase>().Speed = collision.GetComponent<EnemyBase>().Speed * 2;
-        }
+        
+        
     }
 }

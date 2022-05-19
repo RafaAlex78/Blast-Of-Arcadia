@@ -70,11 +70,9 @@ public class Slime : EnemyBase
         yield return new WaitForSeconds(_timeToAttack);
         float distance = Vector2.Distance(transform.position, _player.transform.position);
 
-        Debug.Log("1");
         
         if (Vector2.Angle(transform.position, _player.transform.position) <= _angle && distance <= _attackRange)
         {
-            Debug.Log("2");
 
             _player.GetComponent<IDamageable>()?.TakeDemage(_damage);
         }
