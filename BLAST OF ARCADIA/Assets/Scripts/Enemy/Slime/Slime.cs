@@ -42,11 +42,13 @@ public class Slime : EnemyBase
     }
     private void Chase()
     {
+        Debug.Log(Vector2.Distance(transform.position, _player.transform.position));
+        Debug.Log(Vector2.Angle(transform.up, _player.transform.position));
         transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
         Vector2 dir = _player.transform.position - transform.position;
         transform.up = dir;
         float distance = Vector2.Distance(transform.position,_player.transform.position);
-        if (Vector2.Angle(dir, _player.transform.position) <= _angle && distance <=_attackRange)
+        if (Vector2.Angle(transform.position, _player.transform.position) <= _angle && distance <=_attackRange)
         {
          
             if(_canAttack)
@@ -67,12 +69,11 @@ public class Slime : EnemyBase
 
         }
         yield return new WaitForSeconds(_timeToAttack);
-        Vector2 dir = _player.transform.position - transform.position;
         float distance = Vector2.Distance(transform.position, _player.transform.position);
 
         Debug.Log("1");
         
-        if (Vector2.Angle(dir, _player.transform.position) <= _angle && distance <= _attackRange)
+        if (Vector2.Angle(transform.position, _player.transform.position) <= _angle && distance <= _attackRange)
         {
             Debug.Log("2");
 

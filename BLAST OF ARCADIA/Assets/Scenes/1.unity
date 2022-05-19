@@ -258,11 +258,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hP: 100
-  speed: 1
+  speed: 0.8
   _hitElement: 0
   _weakness: 0
   _damage: 4
-  _attackRange: 0.7
+  _attackRange: 0.5
   _targetRange: 4.5
   _angle: 50
   _canAttack: 1
@@ -906,8 +906,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680499624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.22, y: -1.62, z: 0}
-  m_LocalScale: {x: 1, y: 0.55, z: 1}
+  m_LocalPosition: {x: -5.3596, y: -1.62, z: 0}
+  m_LocalScale: {x: 0.7209, y: 0.55, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
