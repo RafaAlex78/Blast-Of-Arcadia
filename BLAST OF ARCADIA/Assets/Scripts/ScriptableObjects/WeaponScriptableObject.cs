@@ -12,7 +12,7 @@ public abstract class WeaponScriptableObject : ScriptableObject
     [SerializeField] private float _habilityCastTime;
 
     [SerializeField] private int _level;
-    [SerializeField] Type _weaponType;
+    [SerializeField] private Type _weaponType;
     [SerializeField]
     public enum Type
     {

@@ -12,6 +12,10 @@ public class Pistol : WeaponScriptableObject
     [SerializeField] private GameObject _hability3Prefab;
     [SerializeField] private GameObject _hability4Prefab;
     [SerializeField] private int _shootCount;
+    private void Awake()
+    {
+        WeaponType = Type.Pistol;
+    }
     public override void UseWeapon(PlayerController player)
     {
         GameObject newBullet = Instantiate(_pistolBullet, player.transform.position, player.transform.rotation);

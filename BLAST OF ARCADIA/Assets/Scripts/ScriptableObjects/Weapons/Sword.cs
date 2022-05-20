@@ -9,9 +9,13 @@ public class Sword : WeaponScriptableObject
     [SerializeField] GameObject _hability3Prefab;
     [SerializeField] GameObject _hability4Prefab;
 
-    Type _habilityType = Type.Sword;
+    private void Awake()
+    {
+        WeaponType = Type.Sword;
+    }
     public override void UseWeapon(PlayerController player)
     {       
+
         Collider2D[] objectsHit = Physics2D.OverlapCircleAll(player.transform.position, Range, LayerMask.GetMask("Enemy"));
         foreach (Collider2D obj in objectsHit)
         {

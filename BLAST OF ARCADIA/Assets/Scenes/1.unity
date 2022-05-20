@@ -538,7 +538,7 @@ MonoBehaviour:
   _actualHP: 0
   _movementSpeed: 2
   _dashCD: 1
-  _equippedWeapon: {fileID: 11400000, guid: 50dccbe53d46d3e43b682db733e3166d, type: 2}
+  _equippedWeapon: {fileID: 11400000, guid: 3aa38b0c890afcd439735cab788f2f10, type: 2}
 --- !u!212 &1680499626
 SpriteRenderer:
   m_ObjectHideFlags: 0

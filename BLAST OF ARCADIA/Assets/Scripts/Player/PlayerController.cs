@@ -247,5 +247,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         Debug.Log("dead");
     }
 
+
    
 }
