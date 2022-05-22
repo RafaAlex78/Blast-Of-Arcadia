@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class P_Elemental_2 : MonoBehaviour
 {
-    private GameObject _target;
+   [SerializeField] private GameObject _target;
     private float _damage;
     private float _speed;
     private int _applyNTimes;
@@ -31,8 +31,17 @@ public class P_Elemental_2 : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(new Vector3(0,0,1000 * Time.deltaTime));
-        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, Speed * Time.deltaTime);
+        if (!_target)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.Rotate(new Vector3(0, 0, 1000 * Time.deltaTime));
+            transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, Speed * Time.deltaTime);
+        }
+        
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

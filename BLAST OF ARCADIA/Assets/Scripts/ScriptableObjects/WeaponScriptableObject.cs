@@ -1,9 +1,16 @@
 using UnityEngine;
 
+public enum Type
+{
+    Sword,
+    Pistol,
+}
 
 public abstract class WeaponScriptableObject : ScriptableObject
 {
-  
+    [SerializeField] private Sprite _icon;
+    [SerializeField] private string _name;
+
 
     [SerializeField] private float _damage;
     [SerializeField] private float _range;
@@ -12,13 +19,8 @@ public abstract class WeaponScriptableObject : ScriptableObject
     [SerializeField] private float _habilityCastTime;
 
     [SerializeField] private int _level;
-    [SerializeField] private Type _weaponType;
-    [SerializeField]
-    public enum Type
-    {
-        Sword,
-        Pistol,
-    }
+    [SerializeField] public Type _weaponType;
+   
     [SerializeField] Rarity _weaponRarity;
     [SerializeField] private enum Rarity
     {
@@ -46,8 +48,9 @@ public abstract class WeaponScriptableObject : ScriptableObject
     public Element WeaponElement { get => _weaponElement; set => _weaponElement = value; }
     public float HabilityCD { get => _habilityCD; set => _habilityCD = value; }
     public float HabilityCastTime { get => _habilityCastTime; set => _habilityCastTime = value; }
+    public Sprite Icon { get => _icon; set => _icon = value; }
+    public string Name { get => _name; set => _name = value; }
 
-    
     public abstract void UseWeapon(PlayerController player);
     public abstract void UseBaseHability1(PlayerController player);
     public abstract void UseBaseHability2(PlayerController player);
