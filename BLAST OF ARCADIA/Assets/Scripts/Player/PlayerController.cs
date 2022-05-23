@@ -129,7 +129,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             if(_canAttack)
             {
-                Debug.Log("1");
                 _canAttack = false;
                 _equippedWeapon.UseWeapon(this);
             }

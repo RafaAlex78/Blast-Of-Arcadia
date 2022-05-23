@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
   m_Name: sword1
   m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: 205f8023384c5b2499b9d43506f81304, type: 3}
+  _name: 
   _damage: 5
   _range: 0.7
   _angle: 46

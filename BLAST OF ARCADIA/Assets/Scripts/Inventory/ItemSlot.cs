@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class ItemSlot : MonoBehaviour
+using UnityEngine.EventSystems;
+using System;
+public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image _image;
     [SerializeField] private WeaponScriptableObject _weapon;
-
+    public event Action<WeaponScriptableObject> OnRightClickEvent;
     public WeaponScriptableObject Weapon
     {
         get { return _weapon; }
@@ -21,6 +23,18 @@ public class ItemSlot : MonoBehaviour
                 _image.enabled = true;
             }
 
+        }
+    }
+    
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+    if (eventData !=null &&eventData.button == PointerEventData.InputButton.Right )
+        {
+            if(Weapon != null && OnRightClickEvent !=null)
+            {
+                OnRightClickEvent(Weapon);
+            }
         }
     }
 

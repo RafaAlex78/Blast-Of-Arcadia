@@ -12,16 +12,20 @@ public class EquipmentPanel : MonoBehaviour
         _weaponSlot = _weaponSlotParent.GetComponentInChildren<WeaponSlot>();
     }
 
-    public bool AddItem(WeaponScriptableObject weapon)
+    public bool AddItem(WeaponScriptableObject weapon, out WeaponScriptableObject previousWeapon)
     {
-        _weaponSlot.Weapon=weapon;
-     if(_weaponSlot == null)
+       
+        if(_weaponSlot.Weapon != null)
         {
+            
+            previousWeapon = (WeaponScriptableObject)_weaponSlot.Weapon;
             _weaponSlot.Weapon = weapon;
             return true;
 
         }
-     return false;
+        _weaponSlot.Weapon = weapon;
+        previousWeapon = null;
+         return false;
     }   public bool RemoveItem(WeaponScriptableObject weapon)
     {
         _weaponSlot.Weapon=weapon;
