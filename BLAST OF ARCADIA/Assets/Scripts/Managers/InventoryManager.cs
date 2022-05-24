@@ -20,7 +20,8 @@ public class InventoryManager : MonoBehaviour
 
     public void Equip(WeaponScriptableObject weapon)
     {
-        if(_inventory.RemoveItem(weapon))
+        Debug.Log("123");
+        if (_inventory.RemoveItem(weapon))
         { 
             WeaponScriptableObject previousWeapon;
             
@@ -40,11 +41,11 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    public void Unequip(WeaponScriptableObject weapon)
-    {
-        if(!_inventory.IsFull()&& _equipmentPanel.RemoveItem(weapon))
-        {
-            _inventory.AddItem(weapon);
-        }
-    }
+    //public void Unequip(WeaponScriptableObject weapon)
+    //{
+    //    if(!_inventory.IsFull()&& _equipmentPanel.RemoveItem(weapon))
+    //    {
+    //        _inventory.AddItem(weapon);
+    //    }
+    //}
 }

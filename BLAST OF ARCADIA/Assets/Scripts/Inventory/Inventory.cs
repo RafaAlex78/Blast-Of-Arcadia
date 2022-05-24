@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private ItemSlot[] _itemSlots;
     public event Action<WeaponScriptableObject> OnWeaponRightClickEvent;
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < _itemSlots.Length; i++)
         {

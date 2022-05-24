@@ -31,6 +31,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
     if (eventData !=null &&eventData.button == PointerEventData.InputButton.Right )
         {
+
             if(Weapon != null && OnRightClickEvent !=null)
             {
                 OnRightClickEvent(Weapon);

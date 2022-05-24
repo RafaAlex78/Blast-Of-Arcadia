@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     [Header("My References")]
     private Rigidbody2D _rigidbody;
+    [SerializeField] private WeaponSlot _weapomSlot;
+    [SerializeField] GameManager _gm;
 
     [Header("conditions")]
     private bool _canMove = true;
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private bool _attacking = false;
     private float _attackTimer=0;
     private float _attackCD;
+    private bool _invetoryOpen=false;
+    private bool _pauseOpen=false;
     [SerializeField] private WeaponScriptableObject _equippedWeapon;
 
     [Header("Habilities")]
@@ -43,7 +47,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     void Start()        
     {
-        if(_actualHP ==0)
+        _gm = GameManager.instance;
+        if (_actualHP ==0)
         {
             _actualHP = _maxHP;
         }
@@ -53,43 +58,57 @@ public class PlayerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        _equippedWeapon = _weapomSlot.Weapon;
         _moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
-
-
-            PlayerInput();
-        if(_attacking == false && _canMove ==true)
+        Debug.Log(_gm.CheckIsPaused());
+        Debug.Log(_gm.IsPaused);
+        PlayerInputToPause();
+        if(_gm.CheckIsPaused() == false)
         {
-            FaceDirection();
-            
-            
-        }
-        if(_canMove == false)
-        {
-            _rigidbody.velocity = Vector3.zero;
-        }
-        if(_canAttack ==false)
-        {
-            _attackTimer += Time.deltaTime;
-            if (_attackTimer > AttackCD)
+            if (_equippedWeapon != null)
             {
-                _canAttack = true;
-                _attackTimer = 0;
+                PlayerInput();
             }
 
+            if (_attacking == false && _canMove == true)
+            {
+                FaceDirection();
+
+
+            }
+            if (_canMove == false)
+            {
+                _rigidbody.velocity = Vector3.zero;
+            }
+            if (_canAttack == false)
+            {
+                _attackTimer += Time.deltaTime;
+                if (_attackTimer > AttackCD)
+                {
+                    _canAttack = true;
+                    _attackTimer = 0;
+                }
+
+            }
         }
+
+        
         
     }
     private void OnDrawGizmos()
     {
-
+        if (_equippedWeapon != null)
+        {
         Gizmos.DrawWireSphere(transform.position, _equippedWeapon.Range);
         Vector2 line = transform.up * _equippedWeapon.Range;
         Vector2 rotateLeftLine = Quaternion.AngleAxis(_equippedWeapon.Angle / 2, transform.forward) * line;
         Vector2 rotateRightLine = Quaternion.AngleAxis(-_equippedWeapon.Angle / 2, transform.forward) * line;
 
-        Debug.DrawRay(transform.position,rotateRightLine,Color.blue);
-        Debug.DrawRay(transform.position,rotateLeftLine,Color.blue);
+        Debug.DrawRay(transform.position, rotateRightLine, Color.blue);
+        Debug.DrawRay(transform.position, rotateLeftLine, Color.blue);
+
+        }
     }
     private void FixedUpdate()
     {
@@ -173,7 +192,49 @@ public class PlayerController : MonoBehaviour, IDamageable
 
             }
         }
+        
 
+    }
+    private void PlayerInputToPause()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if(_pauseOpen == false)
+            {
+
+            if (_gm.CheckIsPaused()==false)
+            {
+                _gm.IsPaused = true;
+                _gm.Ui.Inventory.SetActive(true);
+                _invetoryOpen = true;
+                return;
+            }
+            else
+            {
+                _gm.IsPaused = false;
+                _gm.Ui.Inventory.SetActive(false);
+                _invetoryOpen = false;
+            }
+            }
+        }
+        if(_invetoryOpen==false)
+        {
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (_gm.CheckIsPaused() == false)
+                {
+                    _gm.IsPaused = true;
+                    _pauseOpen=true;
+                    return;
+                }
+                else
+                {
+                    _gm.IsPaused = false;
+                    _pauseOpen = false;
+
+                }
+            }
+        }
     }
     IEnumerator UseAbilityOne()
     {
