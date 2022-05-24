@@ -22,7 +22,7 @@ public abstract class WeaponScriptableObject : ScriptableObject
     [SerializeField] public Type _weaponType;
    
     [SerializeField] Rarity _weaponRarity;
-    [SerializeField] private enum Rarity
+    public enum Rarity
     {
         Common,
         Uncommon,
@@ -50,6 +50,8 @@ public abstract class WeaponScriptableObject : ScriptableObject
     public float HabilityCastTime { get => _habilityCastTime; set => _habilityCastTime = value; }
     public Sprite Icon { get => _icon; set => _icon = value; }
     public string Name { get => _name; set => _name = value; }
+    public Rarity WeaponRarity { get => _weaponRarity; set => _weaponRarity = value; }
+    public int Level { get => _level; set => _level = value; }
 
     public abstract void UseWeapon(PlayerController player);
     public abstract void UseBaseHability1(PlayerController player);

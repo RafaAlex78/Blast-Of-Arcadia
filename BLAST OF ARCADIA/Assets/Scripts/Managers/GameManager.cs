@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private UIManager _ui;
     private bool _isPaused= false;
-
+    private int _numberOfEnemies=2;
     public bool IsPaused { get => _isPaused; set => _isPaused = value; }
     public UIManager Ui { get => _ui; set => _ui = value; }
+    public int NumberOfEnemies { get => _numberOfEnemies; set => _numberOfEnemies = value; }
 
     private void Awake()
     {
@@ -22,7 +23,6 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(this);
         }
     }
     private void Update()
@@ -44,5 +44,12 @@ public class GameManager : MonoBehaviour
         }
         return true;
         
+    }
+    public void Checkalldead()
+    {
+        if(NumberOfEnemies>=0)
+        {
+            Ui.ReloadScene();
+        }
     }
 }

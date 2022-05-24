@@ -61,8 +61,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _equippedWeapon = _weapomSlot.Weapon;
         _moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
-        Debug.Log(_gm.CheckIsPaused());
-        Debug.Log(_gm.IsPaused);
+        
         PlayerInputToPause();
         if(_gm.CheckIsPaused() == false)
         {
@@ -304,7 +303,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        Debug.Log("dead");
+        _gm.Ui.ReloadScene();
     }
 
 

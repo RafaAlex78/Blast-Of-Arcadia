@@ -15,6 +15,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] protected bool _canAttack = true;
     [SerializeField] protected bool _loseSpeedOnAttack;
     [SerializeField] protected float _timeToAttack;
+    [SerializeField] protected GameManager _gm;
 
     [SerializeField] protected PlayerController _player;
     private float _dotTimer;
@@ -50,9 +51,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
         Debug.DrawRay(transform.position, rotateRightLine, Color.blue);
         Debug.DrawRay(transform.position, rotateLeftLine, Color.blue);
     }
-
+    private void Awake()
+    {
+        _gm = GameManager.instance;
+    }
     public void Die()
     {
+        _gm.NumberOfEnemies--;
+        _gm.Checkalldead();
         Destroy(gameObject);
     }
 

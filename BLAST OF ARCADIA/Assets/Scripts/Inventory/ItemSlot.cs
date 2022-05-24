@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
-public class ItemSlot : MonoBehaviour, IPointerClickHandler
+public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _image;
     [SerializeField] private WeaponScriptableObject _weapon;
+    [SerializeField] private ItemToolTip _tooltip;
     public event Action<WeaponScriptableObject> OnRightClickEvent;
     public WeaponScriptableObject Weapon
     {
@@ -45,5 +46,29 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         {
             _image = GetComponent<Image>();
         }
+        if(_tooltip == null)
+            _tooltip = FindObjectOfType<ItemToolTip>();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Vector3 mousePos = Input.mousePosition;
+        if(mousePos.x > 1500)
+        {
+            _tooltip.transform.position = new Vector3(mousePos.x-200,mousePos.y,mousePos.z);
+
+        }
+        else
+        {
+            _tooltip.transform.position = new Vector3(mousePos.x + 200, mousePos.y, mousePos.z);
+        }
+        Debug.Log(mousePos);
+
+        _tooltip.ShowToolTip(Weapon);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _tooltip.HideToolTip();
     }
 }
