@@ -6,7 +6,6 @@ public class StatDisplay : MonoBehaviour
 {
     [SerializeField] private TMP_Text _nameText;
     [SerializeField] private TMP_Text _valueText;
-    [SerializeField] private WeaponScriptableObject _equippedWeapon;
 
     public TMP_Text NameText { get => _nameText; set => _nameText = value; }
     public TMP_Text ValueText { get => _valueText; set => _valueText = value; }

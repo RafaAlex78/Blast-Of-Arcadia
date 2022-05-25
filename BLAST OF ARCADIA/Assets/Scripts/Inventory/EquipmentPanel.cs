@@ -6,6 +6,7 @@ public class EquipmentPanel : MonoBehaviour
 {
     [SerializeField] Transform _weaponSlotParent;
     [SerializeField] WeaponSlot _weaponSlot;
+    [SerializeField] UpdateStatus _updateStatus;
 
     private void OnValidate()
     {
@@ -20,12 +21,15 @@ public class EquipmentPanel : MonoBehaviour
             
             previousWeapon = (WeaponScriptableObject)_weaponSlot.Weapon;
             _weaponSlot.Weapon = weapon;
+            _updateStatus.GetInfo(weapon);
             return true;
 
         }
         _weaponSlot.Weapon = weapon;
         previousWeapon = null;
-         return false;
+        _updateStatus.GetInfo(weapon);
+
+        return false;
     }   public bool RemoveItem(WeaponScriptableObject weapon)
     {
         _weaponSlot.Weapon=weapon;

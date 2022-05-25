@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (_canHability2)
+            if (_canHability2 &&  _equippedWeapon.WeaponRarity != WeaponScriptableObject.Rarity.Common)
             {
                 StartCoroutine(UseAbilityTwo());
 
@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (_canHability3)
+            if (_canHability3 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare || _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
             {
                 StartCoroutine(UseAbilityThree());
 
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (_canHability4)
+            if (_canHability4 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
             {
                 StartCoroutine(UseAbilityFour());
 
@@ -306,6 +306,13 @@ public class PlayerController : MonoBehaviour, IDamageable
         _gm.Ui.ReloadScene();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.transform.GetComponent<ICollectable>()!=null)
+        {
+            ICollectable collectable = collision.transform.GetComponent<ICollectable>();
+            collectable.Collect(this);
+        }
+    }
 
-   
 }

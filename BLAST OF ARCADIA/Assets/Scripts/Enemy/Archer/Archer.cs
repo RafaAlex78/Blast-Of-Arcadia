@@ -10,6 +10,10 @@ public class Archer : EnemyBase
     [SerializeField] private GameObject _arrow;
     public EnemyState CurrenState { get => _currenState; set => _currenState = value; }
 
+    private void Start()
+    {
+        _soulFragmentPrefab.GetComponent<SoulFragments>().SoulFragment = Random.Range(3, 10);
+    }
     private void Update()
     {
         switch (CurrenState)

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Pistol1
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c3f262a8121e374439a1b36c5dc5ef47, type: 3}
-  _name: 
+  _name: PIPI
   _damage: 5
   _range: 5
   _angle: 0
   _habilityCD: 6.5
   _habilityCastTime: 1.5
-  _level: 0
+  _level: 1
   _weaponType: 1
-  _weaponRarity: 0
-  _weaponElement: 1
+  _weaponRarity: 3
+  _weaponElement: 2
   _pistolBullet: {fileID: 4522093662352460384, guid: e5ca7664e240a0b47a659640732f48ee, type: 3}
   _hability1Prefab: {fileID: 2432028131487857452, guid: acdbde6d2c753ef44b027d7b2594d761, type: 3}
   _hability2Prefab: {fileID: 761994832760160424, guid: d404a2264501c0f43ad9c65547faf2cf, type: 3}

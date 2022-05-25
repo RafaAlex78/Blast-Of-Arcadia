@@ -5,8 +5,6 @@ using UnityEngine;
 public class UpdateStatus : MonoBehaviour
 {
     [SerializeField] private StatDisplay[] _statDisplays;
-    [SerializeField] private WeaponSlot _weaponSlot;
-    [SerializeField] private WeaponScriptableObject _equippedWeapon;
     [SerializeField] private string[] _status;
 
     private void Awake()
@@ -17,24 +15,24 @@ public class UpdateStatus : MonoBehaviour
     private void Start()
     {
         _status = new string[5];
-        _equippedWeapon = _weaponSlot.Weapon;
-    }
-    private void Update()
-    {
-        _equippedWeapon = _weaponSlot.Weapon;
-        if (_equippedWeapon != null)
+        _status[0] = "None";
+        _status[1] = "None";
+        _status[2] = "None";
+        _status[3] = "None";
+        _status[4] = "None";
+        for (int i = 0; i < _statDisplays.Length; i++)
         {
-            GetInfo();
-
+            _statDisplays[i].ValueText.text = _status[i];
         }
     }
-    private void GetInfo()
+   
+    public void GetInfo(WeaponScriptableObject weapon)
     {
-        _status[0] = (_equippedWeapon.WeaponType.ToString());
-        _status[1] = (_equippedWeapon.WeaponRarity.ToString());
-        _status[2]=(_equippedWeapon.WeaponElement.ToString());
-        _status[3] = (_equippedWeapon.Level.ToString());
-        _status[4]=(_equippedWeapon.Damage.ToString());   
+        _status[0] = (weapon.WeaponType.ToString());
+        _status[1] = (weapon.WeaponRarity.ToString());
+        _status[2]=(weapon.WeaponElement.ToString());
+        _status[3] = (weapon.Level.ToString());
+        _status[4]=(weapon.Damage.ToString());   
         for (int i = 0; i < _statDisplays.Length; i++)
         {
             _statDisplays[i].ValueText.text = _status[i];

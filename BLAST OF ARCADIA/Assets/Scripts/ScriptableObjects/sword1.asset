@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: sword1
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 205f8023384c5b2499b9d43506f81304, type: 3}
-  _name: 
+  _name: SWOOOD
   _damage: 5
   _range: 0.7
   _angle: 46
-  _habilityCD: 10.5
-  _habilityCastTime: 2
+  _habilityCD: 2.5
+  _habilityCastTime: 1.2
   _level: 1
   _weaponType: 0
   _weaponRarity: 2

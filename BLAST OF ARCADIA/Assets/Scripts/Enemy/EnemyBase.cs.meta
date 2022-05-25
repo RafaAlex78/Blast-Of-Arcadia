@@ -3,7 +3,10 @@ guid: 95c8eaffcb77df546b9e41d954feaaa6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _gm: {instanceID: 0}
+  - _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
+  - _player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

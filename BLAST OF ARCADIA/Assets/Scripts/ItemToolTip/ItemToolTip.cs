@@ -4,20 +4,20 @@ using TMPro;
 
 public class ItemToolTip : MonoBehaviour
 {
-    [SerializeField] TMP_Text _ItemNameText;
+    [SerializeField] TMP_Text _itemNameText;
     [SerializeField] TMP_Text _itemStatsText;
 
     private StringBuilder _sb = new StringBuilder();
 
     public void ShowToolTip(WeaponScriptableObject weapon)
     {
-        _itemStatsText.text = weapon.Name;
+        _itemNameText.text = weapon.Name;
         _sb.Length = 0;
-        AddStat(weapon.WeaponType.ToString(), "Type");
-        AddStat(weapon.WeaponRarity.ToString(), "Rarity");
-        AddStat(weapon.WeaponElement.ToString(), "Element");
-        AddStat(weapon.Level.ToString(), "Level");
-        AddStat(weapon.Damage.ToString(), "Damage");
+        AddStat("Type", weapon.WeaponType.ToString());
+        AddStat("Rarity", weapon.WeaponRarity.ToString());
+        AddStat("Element", weapon.WeaponElement.ToString());
+        AddStat( "Level", weapon.Level.ToString());
+        AddStat("Damage", weapon.Damage.ToString());
         _itemStatsText.text = _sb.ToString(); 
 
         gameObject.SetActive(true);
@@ -37,7 +37,7 @@ public class ItemToolTip : MonoBehaviour
            
 
             _sb.Append(value);
-            _sb.Append(" ");
+            _sb.Append(" -> ");
             _sb.Append(statName);
         }
     

@@ -16,6 +16,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] protected bool _loseSpeedOnAttack;
     [SerializeField] protected float _timeToAttack;
     [SerializeField] protected GameManager _gm;
+    [SerializeField] protected GameObject _soulFragmentPrefab;
 
     [SerializeField] protected PlayerController _player;
     private float _dotTimer;
@@ -57,9 +58,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
     public void Die()
     {
-        _gm.NumberOfEnemies--;
-        _gm.Checkalldead();
+        Debug.Log("AIDEAD");
+        Drop();
         Destroy(gameObject);
+    }
+    private void Drop()
+    {
+        _gm.NumberOfEnemies--;
+        Instantiate(_soulFragmentPrefab, transform.position, transform.rotation);
     }
 
     public void TakeDemage(float amount)
@@ -75,8 +81,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
         }
 
         if (_hP <=0)
-        {
+        {            
             Die();
+            _hP = 100;
         }
     }
      IEnumerator Dps(int applyDamageNTimes, float damage, float perTime)

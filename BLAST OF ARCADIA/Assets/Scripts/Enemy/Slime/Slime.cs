@@ -9,6 +9,12 @@ public class Slime : EnemyBase
     [SerializeField] EnemyState _currenState = EnemyState.Patrol;
     public EnemyState CurrenState { get => _currenState; set => _currenState = value; }
 
+    private void Start()
+    {
+    
+         _soulFragmentPrefab.GetComponent<SoulFragments>().SoulFragment = Random.Range(1, 5);
+        
+    }
     private void Update()
     {
         switch (CurrenState)

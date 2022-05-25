@@ -7,6 +7,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] private  List<WeaponScriptableObject> _weapons;
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private ItemSlot[] _itemSlots;
+    [SerializeField] private int _soulFragments;
+
+    public int SoulFragments { get => _soulFragments; set => _soulFragments = value; }
+
     public event Action<WeaponScriptableObject> OnWeaponRightClickEvent;
     private void Start()
     {
