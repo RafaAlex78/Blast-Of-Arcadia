@@ -5,22 +5,22 @@ using System;
 public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _image;
-    [SerializeField] private WeaponScriptableObject _weapon;
+    [SerializeField] private WeaponIntance _weaponInstance;
     [SerializeField] private ItemToolTip _tooltip;
-    public event Action<WeaponScriptableObject> OnRightClickEvent;
-    public WeaponScriptableObject Weapon
+    public event Action<WeaponIntance> OnRightClickEvent;
+    public WeaponIntance Weapon
     {
-        get { return _weapon; }
+        get { return _weaponInstance; }
         set
         {
-            _weapon = value;
-            if (_weapon == null)
+            _weaponInstance = value;
+            if (_weaponInstance == null)
             {
                 _image.enabled = false;
             }
             else
             {
-                _image.sprite = _weapon.Icon;
+                _image.sprite = _weaponInstance.Weapon.Icon;
                 _image.enabled = true;
             }
 

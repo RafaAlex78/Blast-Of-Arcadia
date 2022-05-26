@@ -6,14 +6,14 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private WeaponIntance _weaponIntance;
 
-    [SerializeField] private  List<WeaponScriptableObject> _weapons;
+    [SerializeField] private  List<WeaponScriptableObject> _weapons; //asdas
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private ItemSlot[] _itemSlots;
     [SerializeField] private int _soulFragments;
 
     public int SoulFragments { get => _soulFragments; set => _soulFragments = value; }
 
-    public event Action<WeaponScriptableObject> OnWeaponRightClickEvent;
+    public event Action<WeaponIntance> OnWeaponRightClickEvent;
     private void Start()
     {
         for (int i = 0; i < _itemSlots.Length; i++)
