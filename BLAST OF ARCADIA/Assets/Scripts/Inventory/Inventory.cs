@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private WeaponIntance _weaponIntance;
+    [SerializeField] private WeaponInstance _weaponIntance;
 
-    [SerializeField] private  List<WeaponScriptableObject> _weapons; //asdas
+    [SerializeField] private  List<WeaponInstance> _weapons; 
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private ItemSlot[] _itemSlots;
     [SerializeField] private int _soulFragments;
 
     public int SoulFragments { get => _soulFragments; set => _soulFragments = value; }
 
-    public event Action<WeaponIntance> OnWeaponRightClickEvent;
+    public event Action<WeaponInstance> OnWeaponRightClickEvent;
     private void Start()
     {
         for (int i = 0; i < _itemSlots.Length; i++)
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool AddItem (WeaponScriptableObject weapon)
+    public bool AddItem (WeaponInstance weapon)
     {
         if(IsFull())
         {
@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
         RefreshUI();
         return true;
     }
-    public bool RemoveItem(WeaponScriptableObject weapon)
+    public bool RemoveItem(WeaponInstance weapon)
     {
         if(_weapons.Remove(weapon))
         {

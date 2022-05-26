@@ -5,10 +5,10 @@ using System;
 public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _image;
-    [SerializeField] private WeaponIntance _weaponInstance;
+    [SerializeReference] private WeaponInstance _weaponInstance;
     [SerializeField] private ItemToolTip _tooltip;
-    public event Action<WeaponIntance> OnRightClickEvent;
-    public WeaponIntance Weapon
+    public event Action<WeaponInstance> OnRightClickEvent;
+    public WeaponInstance Weapon
     {
         get { return _weaponInstance; }
         set
@@ -64,7 +64,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
         }
         Debug.Log(mousePos);
 
-        _tooltip.ShowToolTip(Weapon);
+        _tooltip.ShowToolTip(Weapon.Weapon);
     }
 
     public void OnPointerExit(PointerEventData eventData)

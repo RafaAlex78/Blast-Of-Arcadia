@@ -61,7 +61,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        _equippedWeapon = _weapomSlot.Weapon;
+        if(_weapomSlot.Weapon != null)
+        {
+        _equippedWeapon = _weapomSlot.Weapon.Weapon;
+
+        }
         _moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
         

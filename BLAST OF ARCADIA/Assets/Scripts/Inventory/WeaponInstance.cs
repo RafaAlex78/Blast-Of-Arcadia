@@ -7,9 +7,9 @@ using UnityEngine;
 [Serializable]
 
 
-public class WeaponIntance 
+public class WeaponInstance 
 {
-    public WeaponIntance(WeaponScriptableObject weapon, int id)
+    public WeaponInstance(WeaponScriptableObject weapon, int id)
     {
         _id = id;
         _weapon = weapon;

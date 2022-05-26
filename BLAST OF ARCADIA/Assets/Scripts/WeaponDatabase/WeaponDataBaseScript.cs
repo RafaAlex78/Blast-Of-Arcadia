@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WeaponDataBaseScript :MonoBehaviour
 {
-   [SerializeField] List<WeaponIntance> _weaponDataBase = new List<WeaponIntance>();
+   [SerializeField] List<WeaponInstance> _weaponDataBase = new List<WeaponInstance>();
 
-    public List<WeaponIntance> WeaponDataBase { get => _weaponDataBase; set => _weaponDataBase = value; }
+    public List<WeaponInstance> WeaponDataBase { get => _weaponDataBase; set => _weaponDataBase = value; }
 
     public bool ContainsID(int id)
     {

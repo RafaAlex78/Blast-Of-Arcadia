@@ -10,20 +10,20 @@ public class InventoryManager : MonoBehaviour
     {
         _inventory.OnWeaponRightClickEvent += EquipFromInventory;
     }
-    private void EquipFromInventory(WeaponScriptableObject weapon)
+    private void EquipFromInventory(WeaponInstance weapon)
     {
-        if(weapon is WeaponScriptableObject)
+        if(weapon is WeaponInstance)
         {
-            Equip((WeaponScriptableObject)weapon);
+            Equip((WeaponInstance)weapon);
         }
     }
 
-    public void Equip(WeaponScriptableObject weapon)
+    public void Equip(WeaponInstance weapon)
     {
         Debug.Log("123");
         if (_inventory.RemoveItem(weapon))
         { 
-            WeaponScriptableObject previousWeapon;
+            WeaponInstance previousWeapon;
             
 
             if (_equipmentPanel.AddItem(weapon, out previousWeapon))
@@ -41,11 +41,5 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    //public void Unequip(WeaponScriptableObject weapon)
-    //{
-    //    if(!_inventory.IsFull()&& _equipmentPanel.RemoveItem(weapon))
-    //    {
-    //        _inventory.AddItem(weapon);
-    //    }
-    //}
+  
 }
