@@ -664,7 +664,7 @@ MonoBehaviour:
   _timeToAttack: 0.3
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
-  _weaponDrop: {fileID: 0}
+  _weaponDrop: {fileID: 11400000, guid: 3aa38b0c890afcd439735cab788f2f10, type: 2}
   _player: {fileID: 0}
   _currenState: 0
 --- !u!1 &290579865
@@ -3521,7 +3521,7 @@ MonoBehaviour:
   _timeToAttack: 0.2
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
-  _weaponDrop: {fileID: 0}
+  _weaponDrop: {fileID: 11400000, guid: 3aa38b0c890afcd439735cab788f2f10, type: 2}
   _player: {fileID: 0}
   _currenState: 0
   _arrow: {fileID: 2006556536621947769, guid: c6d2fcd8c6fef7f4eb6576666646bdad, type: 3}
@@ -5201,7 +5201,7 @@ MonoBehaviour:
   _dashCD: 1
   _weapomSlot: {fileID: 436458662}
   _gm: {fileID: 0}
-  _equippedWeapon: {fileID: 11400000, guid: 50dccbe53d46d3e43b682db733e3166d, type: 2}
+  _equippedWeapon: {fileID: 0}
 --- !u!212 &1680499626
 SpriteRenderer:
   m_ObjectHideFlags: 0
