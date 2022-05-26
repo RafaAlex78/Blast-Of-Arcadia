@@ -17,6 +17,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] protected float _timeToAttack;
     [SerializeField] protected GameManager _gm;
     [SerializeField] protected GameObject _soulFragmentPrefab;
+    [SerializeField] protected WeaponScriptableObject _weaponDrop;
 
     [SerializeField] protected PlayerController _player;
     private float _dotTimer;
@@ -65,6 +66,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     private void Drop()
     {
         _gm.NumberOfEnemies--;
+        _gm.CreateInstance(_weaponDrop);
         Instantiate(_soulFragmentPrefab, transform.position, transform.rotation);
     }
 
@@ -103,7 +105,6 @@ public class EnemyBase : MonoBehaviour, IDamageable
     {
         StartCoroutine(Dps(applyDamageNTimes, damage, perTime));
     }
-
 
 
 }

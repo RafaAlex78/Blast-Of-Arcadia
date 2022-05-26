@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
+
+
+
     [Header("Player Status")]
     [SerializeField] private float _maxHP = 100;
     [SerializeField] private float _actualHP;

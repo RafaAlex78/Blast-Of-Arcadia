@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private WeaponIntance _weaponIntance;
+
     [SerializeField] private  List<WeaponScriptableObject> _weapons;
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private ItemSlot[] _itemSlots;

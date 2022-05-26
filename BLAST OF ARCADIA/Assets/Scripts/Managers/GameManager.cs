@@ -7,13 +7,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] private UIManager _ui;
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private Inventory _inventory;
+    [SerializeField] private CreateInstance _createInstance;
     private bool _isPaused= false;
     private int _numberOfEnemies=2;
     public bool IsPaused { get => _isPaused; set => _isPaused = value; }
     public UIManager Ui { get => _ui; set => _ui = value; }
     public int NumberOfEnemies { get => _numberOfEnemies; set => _numberOfEnemies = value; }
-    public Inventory Inventory { get => inventory; set => inventory = value; }
+    public Inventory Inventory { get => _inventory; set => _inventory = value; }
 
     private void Awake()
     {
@@ -47,11 +48,8 @@ public class GameManager : MonoBehaviour
         return true;
         
     }
-    //public void Checkalldead()
-    //{
-    //    if(NumberOfEnemies<=0)
-    //    {
-    //        Ui.ReloadScene();
-    //    }
-    //}
+    public void CreateInstance(WeaponScriptableObject weapon)
+    {
+        _createInstance.CreateWeaponInstance(weapon);
+    }
 }
