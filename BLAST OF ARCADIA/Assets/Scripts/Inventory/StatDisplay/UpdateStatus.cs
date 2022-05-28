@@ -26,13 +26,13 @@ public class UpdateStatus : MonoBehaviour
         }
     }
    
-    public void GetInfo(WeaponScriptableObject weapon)
+    public void GetInfo(WeaponScriptableObject weapon, WeaponInstance weaponInstance)
     {
         _status[0] = (weapon.WeaponType.ToString());
         _status[1] = (weapon.WeaponRarity.ToString());
         _status[2]=(weapon.WeaponElement.ToString());
-        _status[3] = (weapon.Level.ToString());
-        _status[4]=(weapon.Damage.ToString());   
+        _status[3] = (weaponInstance.NewLevel.ToString());
+        _status[4]=(weaponInstance.NewDamage.ToString());   
         for (int i = 0; i < _statDisplays.Length; i++)
         {
             _statDisplays[i].ValueText.text = _status[i];

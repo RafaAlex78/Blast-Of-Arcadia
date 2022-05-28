@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private  List<WeaponInstance> _weapons; 
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private ItemSlot[] _itemSlots;
+    [SerializeField] private ItemSlot _equippedWeappon;
     [SerializeField] private int _soulFragments;
     [SerializeField] CristalType _cristalType;
     public enum CristalType
@@ -27,6 +28,7 @@ public class Inventory : MonoBehaviour
 
     public event Action<WeaponInstance> OnWeaponRightClickEvent;
     public event Action<WeaponInstance> OnWeaponRightClickEvent2;
+    public event Action<WeaponInstance> OnWeaponRightClickEvent3;
     private void Start()
     {
         
@@ -43,6 +45,7 @@ public class Inventory : MonoBehaviour
             _itemSlots[i].OnRightClickEvent += OnWeaponRightClickEvent;
             _itemSlots[i].OnRightClickEvent2 += OnWeaponRightClickEvent2;
         }
+        _equippedWeappon.OnRightClickEvent3 += OnWeaponRightClickEvent3;
     }
     private void OnValidate()
     {
@@ -72,12 +75,13 @@ public class Inventory : MonoBehaviour
             return false;
         }
         _weapons.Add(weapon);
+        _equippedWeappon.Tooltip.HideToolTip();
+            
         RefreshUI();
         return true;
     }
     public bool RemoveItem(WeaponInstance weapon)
     {
-        Debug.Log("4");
         if(_weapons.Remove(weapon))
         {
             RefreshUI();

@@ -12,7 +12,7 @@ public abstract class WeaponScriptableObject : ScriptableObject
     [SerializeField] private string _name;
 
 
-    [SerializeField] private float _damage;
+    [SerializeField] private int _damage;
     [SerializeField] private float _range;
     [SerializeField] private float _angle;
     [SerializeField] private float _habilityCD;
@@ -41,7 +41,7 @@ public abstract class WeaponScriptableObject : ScriptableObject
     }
   
     
-    public float Damage { get => _damage; set => _damage = value; }
+    public int Damage { get => _damage; set => _damage = value; }
     public float Range { get => _range; set => _range = value; }
     public float Angle { get => _angle; set => _angle = value; }
     public Type WeaponType { get => _weaponType; set => _weaponType = value; }
@@ -52,12 +52,12 @@ public abstract class WeaponScriptableObject : ScriptableObject
     public string Name { get => _name; set => _name = value; }
     public Rarity WeaponRarity { get => _weaponRarity; set => _weaponRarity = value; }
     public int Level { get => _level; set => _level = value; }
-
-    public abstract void UseWeapon(PlayerController player);
-    public abstract void UseBaseHability1(PlayerController player);
-    public abstract void UseBaseHability2(PlayerController player);
-    public abstract void UseElementalHability1(PlayerController player);
-    public abstract void UseElementalHability2(PlayerController player);
+    
+    public abstract void UseWeapon(PlayerController player,WeaponInstance weaponInstance);
+    public abstract void UseBaseHability1(PlayerController player,WeaponInstance weaponInstance);
+    public abstract void UseBaseHability2(PlayerController player, WeaponInstance weaponInstance);
+    public abstract void UseElementalHability1(PlayerController player,WeaponInstance weaponInstance);
+    public abstract void UseElementalHability2(PlayerController player, WeaponInstance weaponInstance);
 
 
 }

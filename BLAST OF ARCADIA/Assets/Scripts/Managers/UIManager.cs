@@ -10,9 +10,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _soulFragmentsText;
     [SerializeField] private List<TMP_Text> _cristals;
     [SerializeField] private GameObject _ShopConfirmation;
+    [SerializeField] private List<Sprite> _cristalsImage;
+    [SerializeField] private GameObject _TypeCristalGain;
+    [SerializeField] private GameObject _TypeCristalCost;
 
 
     public GameObject Inventory { get => _inventory; set => _inventory = value; }
+    public GameObject TypeCristalGain { get => _TypeCristalGain; set => _TypeCristalGain = value; }
+    public List<Sprite> CristalsImage { get => _cristalsImage; set => _cristalsImage = value; }
+    public GameObject TypeCristalCost { get => _TypeCristalCost; set => _TypeCristalCost = value; }
 
     private void Start()
     {

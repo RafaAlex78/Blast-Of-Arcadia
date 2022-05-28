@@ -15,8 +15,10 @@ public class Pistol : WeaponScriptableObject
     private void Awake()
     {
         WeaponType = Type.Pistol;
+                
+        
     }
-    public override void UseWeapon(PlayerController player)
+    public override void UseWeapon(PlayerController player,WeaponInstance weaponInstance)
     {
         GameObject newBullet = Instantiate(_pistolBullet, player.transform.position, player.transform.rotation);
         newBullet.GetComponent<Pistol_Bullet>().Range = Range;
@@ -29,7 +31,7 @@ public class Pistol : WeaponScriptableObject
             player.AttackCD = 0.3f;
             _shootCount++;
            
-            bull.Damage = Damage;
+            bull.Damage = weaponInstance.NewDamage;
             
             switch (WeaponElement)
             {
@@ -83,19 +85,19 @@ public class Pistol : WeaponScriptableObject
                     break;
             }
             player.AttackCD = 1f;
-            newBullet.GetComponent<Pistol_Bullet>().Damage = Damage*1.5f;
+            newBullet.GetComponent<Pistol_Bullet>().Damage = weaponInstance.NewDamage * 1.5f;
             _shootCount = 0;
         }
       
     }
-    public override void UseBaseHability1(PlayerController player)
+    public override void UseBaseHability1(PlayerController player, WeaponInstance weaponInstance)
     {
         GameObject newHab = Instantiate(_hability1Prefab, player.transform.position, player.transform.rotation);
         Rigidbody2D bull = newHab.GetComponent<Rigidbody2D>();
         bull.velocity = newHab.transform.up * 5;
         P_Base_1 hab1 = newHab.GetComponent<P_Base_1>();
         hab1.PlayerPos = player.transform.position;
-        hab1.Damage = Damage*1.2f;
+        hab1.Damage = weaponInstance.NewDamage * 1.2f;
         switch (WeaponElement)
         {
             case Element.None:
@@ -122,13 +124,13 @@ public class Pistol : WeaponScriptableObject
         HabilityCD = 1.5f;
     }
 
-    public override void UseBaseHability2(PlayerController player)
+    public override void UseBaseHability2(PlayerController player,WeaponInstance weaponInstance)
     {
         GameObject newHab = Instantiate(_hability2Prefab, player.transform.position, player.transform.rotation);
 
         P_Base_2 hab2 = newHab.GetComponentInChildren<P_Base_2>();
 
-        hab2.Damage = Damage*1.4f;
+        hab2.Damage = weaponInstance.NewDamage * 1.4f;
 
         switch (WeaponElement)
         {
@@ -160,13 +162,13 @@ public class Pistol : WeaponScriptableObject
         HabilityCD = 6.5f;
     }
 
-    public override void UseElementalHability1(PlayerController player)
+    public override void UseElementalHability1(PlayerController player, WeaponInstance weaponInstance)
     {
         GameObject newHab = Instantiate(_hability3Prefab, player.transform.position, player.transform.rotation);
 
         P_Elemental_1 hab3 = newHab.GetComponentInChildren<P_Elemental_1>();
 
-        hab3.Damage = Damage*2;
+        hab3.Damage = weaponInstance.NewDamage * 2;
 
         switch (WeaponElement)
         {
@@ -198,7 +200,7 @@ public class Pistol : WeaponScriptableObject
 
     }
 
-    public override void UseElementalHability2(PlayerController player)
+    public override void UseElementalHability2(PlayerController player, WeaponInstance weaponInstance)
     {
         int temp = 0;
         Collider2D[] objectsHit = Physics2D.OverlapCircleAll(player.transform.position, Range+2, LayerMask.GetMask("Enemy"));
@@ -209,7 +211,7 @@ public class Pistol : WeaponScriptableObject
                 GameObject newHab = Instantiate(_hability4Prefab, player.transform.position, player.transform.rotation);
                 P_Elemental_2 hab4 = newHab.GetComponent<P_Elemental_2>();
                 hab4.Speed = 2 * (i + 1);
-                hab4.Damage = Damage*1.7f;
+                hab4.Damage = weaponInstance.NewDamage * 1.7f;
                 hab4.Target = objectsHit[temp].gameObject;
                 hab4.ApplyNTimes = 3;
                 hab4.PerTime = 1.4f;

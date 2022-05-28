@@ -11,7 +11,8 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         _inventory.OnWeaponRightClickEvent += EquipFromInventory;
-        _inventory.OnWeaponRightClickEvent2 += teste;
+        _inventory.OnWeaponRightClickEvent2 += StorePanel;
+        _inventory.OnWeaponRightClickEvent3 += EquippedStoredPanel;
     }
     private void Start()
     {
@@ -46,11 +47,19 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    private void teste(WeaponInstance weapon)
+    private void StorePanel(WeaponInstance weapon)
     {
-        _gm.StoreManager.ShowButtons();
-        _gm.StoreManager.WeaponInstance=weapon;
-       
+        _gm.StoreManager.WeaponInstance = weapon;
+        _gm.StoreManager.IsTheEquipped = false;
+
+        _gm.StoreManager.ShowButtons();               
+    }
+    private void EquippedStoredPanel(WeaponInstance weapon)
+    {
+        _gm.StoreManager.WeaponInstance = weapon;
+        _gm.StoreManager.IsTheEquipped = true;
+        _gm.StoreManager.ShowButtons();        
+        
     }
   
 }

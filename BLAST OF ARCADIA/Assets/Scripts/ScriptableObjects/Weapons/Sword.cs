@@ -13,7 +13,7 @@ public class Sword : WeaponScriptableObject
     {
         WeaponType = Type.Sword;
     }
-    public override void UseWeapon(PlayerController player)
+    public override void UseWeapon(PlayerController player,WeaponInstance weaponInstance)
     {       
 
         Collider2D[] objectsHit = Physics2D.OverlapCircleAll(player.transform.position, Range, LayerMask.GetMask("Enemy"));
@@ -25,7 +25,7 @@ public class Sword : WeaponScriptableObject
             if (Vector2.Angle(dir, player.transform.up) <= Angle)
             {
                 Debug.Log("hit");
-                obj.GetComponent<IDamageable>()?.TakeDemage(Damage);
+                obj.GetComponent<IDamageable>()?.TakeDemage(weaponInstance.NewDamage);
 
                 if(obj.CompareTag("Enemy"))
                 {
@@ -58,7 +58,7 @@ public class Sword : WeaponScriptableObject
         player.AttackCD = 0.5f;
    
     }
-    public override void UseBaseHability1(PlayerController player)
+    public override void UseBaseHability1(PlayerController player, WeaponInstance weaponInstance)
     {
         GameObject newHab = Instantiate(_hability1Prefab, player.transform.position, player.transform.rotation);
         Rigidbody2D bull = newHab.GetComponent<Rigidbody2D>();
@@ -66,7 +66,7 @@ public class Sword : WeaponScriptableObject
         SwordBaseHab1 hab1 = newHab.GetComponent<SwordBaseHab1>();
         hab1.Range = Range*4;
         hab1.PlayerPos = player.transform.position;
-        hab1.Damage = Damage * 1.2f;
+        hab1.Damage = weaponInstance.NewDamage * 1.2f;
         switch (WeaponElement)
         {
             case Element.None:
@@ -95,7 +95,7 @@ public class Sword : WeaponScriptableObject
         HabilityCD = 2.5f;
     } 
     
-    public override void UseBaseHability2(PlayerController player)
+    public override void UseBaseHability2(PlayerController player, WeaponInstance weaponInstance)
     {
         GameObject newHab = Instantiate(_hability2Prefab, player.transform.position, player.transform.rotation);
         SwordBaseHab2[] swordScrpt;
@@ -106,7 +106,7 @@ public class Sword : WeaponScriptableObject
             hab2.Speed = 5;
             hab2.Range = Range*6;
             hab2.PlayerPos= player.transform.position;
-            hab2.Damage = Damage * 1.4f;
+            hab2.Damage = weaponInstance.NewDamage * 1.4f;
             switch (WeaponElement)
             {
                 case Element.None:
@@ -136,7 +136,7 @@ public class Sword : WeaponScriptableObject
         HabilityCD = 2.5f;
     }
 
-    public override void UseElementalHability1(PlayerController player)
+    public override void UseElementalHability1(PlayerController player, WeaponInstance weaponInstance)
     {
         if(WeaponElement == Element.None)
         {
@@ -150,7 +150,7 @@ public class Sword : WeaponScriptableObject
             S_Element_Hab1 hab3 = bull.GetComponent<S_Element_Hab1>();
             hab3.Range = Range*10;
             hab3.PlayerPos = player.transform.position;
-            hab3.Damage = Damage * 2f;
+            hab3.Damage = weaponInstance.NewDamage * 2f;
             hab3.Speed = 4;
             hab3.ApplyNTimes = 8;
             hab3.PerTime = 0.5f;
@@ -183,7 +183,7 @@ public class Sword : WeaponScriptableObject
         }
     }
 
-    public override void UseElementalHability2(PlayerController player)
+    public override void UseElementalHability2(PlayerController player, WeaponInstance weaponInstance)
     {
         if (WeaponElement == Element.None)
         {
@@ -197,7 +197,7 @@ public class Sword : WeaponScriptableObject
             S_Element_Hab2 hab4 = bull.GetComponent<S_Element_Hab2>();
             hab4.Range = Range * 10;
             hab4.PlayerPos = player.transform.position;
-            hab4.Damage = Damage * 2.3f;
+            hab4.Damage = weaponInstance.NewDamage * 2.3f;
             hab4.Speed = 7;
             switch (WeaponElement)
             {

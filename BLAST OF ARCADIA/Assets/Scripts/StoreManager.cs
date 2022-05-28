@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class StoreManager : MonoBehaviour
 {
     private GameManager _gm;
     private WeaponInstance _weaponInstance;
+    private WeaponInstance _equipedWeapon;
+    [SerializeField] private UpdateStatus _updateStatus;
+    private bool _isTheEquipped = false;
 
     public WeaponInstance WeaponInstance { get => _weaponInstance; set => _weaponInstance = value; }
+    public WeaponInstance EquipedWeapon { get => _equipedWeapon; set => _equipedWeapon = value; }
+    public bool IsTheEquipped { get => _isTheEquipped; set => _isTheEquipped = value; }
 
     private void Start()
     {
@@ -18,7 +24,7 @@ public class StoreManager : MonoBehaviour
     public void GiveCristals(WeaponInstance weaponInstance)
     {
         float baseCristals = 5;
-        int level = weaponInstance.Weapon.Level;
+        int level = weaponInstance.NewLevel;
         for (int i = 1; i <= level; i++)
         {
             baseCristals *= 1.4f;
@@ -50,16 +56,81 @@ public class StoreManager : MonoBehaviour
                 break;
         }
     }
+    public void UpgradeWeapon()
+    {
+        float critals = 5;
+        for (int nivel = 1; nivel <= _weaponInstance.NewLevel+1; nivel++)
+        {
+            critals *= 1.7f;
+        }
+        int cristalsNeeded = Mathf.RoundToInt(critals);
+        _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage* 1.2f);
+        _weaponInstance.NewLevel++;
+        _gm.Ui.HideConfirmation();
+        if(_isTheEquipped)
+        {
+
+        _updateStatus.GetInfo(_weaponInstance.Weapon, _weaponInstance);
+        }
+
+
+    }
     public void ShowButtons()
     {
+        //mostrar custo upgrade
         _gm.Ui.ShowConfirmation();
+        float baseCristals = 5;
+        int level = WeaponInstance.NewLevel;
+        for (int i = 1; i <= level; i++)
+        {
+            baseCristals *= 1.5f;
+        }
+        float critals = 5;
+        for (int nivel = 1; nivel <= _weaponInstance.NewLevel + 1; nivel++)
+        {
+            critals *= 1.7f;
+        }
+        int cristalsNeeded = Mathf.RoundToInt(critals);
+
+
+
+        int cristalsToGain = Mathf.RoundToInt(baseCristals);
+        if (_weaponInstance.Weapon.WeaponRarity==WeaponScriptableObject.Rarity.Common)
+        {
+            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[0];
+            _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text="+ "+ cristalsToGain.ToString(); 
+            _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[0];
+            _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text="- "+ cristalsNeeded.ToString();
+        }
+        if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Uncommon)
+        {
+            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[1];
+            _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+            _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[1];
+            _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
+
+        }
+        if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare)
+        {
+            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[2];
+            _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+            _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[2];
+            _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
+
+        }
+        if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
+        {
+            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[3];
+            _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+            _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[3];
+            _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
+
+        }
     }
     public void Sell()
     {
-        Debug.Log(_weaponInstance.Id);
 
         _gm.StoreManager.GiveCristals(_weaponInstance);
-        Debug.Log(_weaponInstance.Id);
         _gm.DataBase.DeleteWeapon(_weaponInstance.Id);
         _gm.Inventory.RemoveItem(_weaponInstance);
         _gm.Ui.HideConfirmation();

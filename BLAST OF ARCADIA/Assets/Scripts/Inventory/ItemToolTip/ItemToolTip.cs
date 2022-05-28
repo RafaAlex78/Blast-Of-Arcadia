@@ -9,15 +9,15 @@ public class ItemToolTip : MonoBehaviour
 
     private StringBuilder _sb = new StringBuilder();
 
-    public void ShowToolTip(WeaponScriptableObject weapon)
+    public void ShowToolTip(WeaponInstance weaponInstance)
     {
-        _itemNameText.text = weapon.Name;
+        _itemNameText.text = weaponInstance.Weapon.Name;
         _sb.Length = 0;
-        AddStat("Type", weapon.WeaponType.ToString());
-        AddStat("Rarity", weapon.WeaponRarity.ToString());
-        AddStat("Element", weapon.WeaponElement.ToString());
-        AddStat( "Level", weapon.Level.ToString());
-        AddStat("Damage", weapon.Damage.ToString());
+        AddStat("Type", weaponInstance.Weapon.WeaponType.ToString());
+        AddStat("Rarity", weaponInstance.Weapon.WeaponRarity.ToString());
+        AddStat("Element", weaponInstance.Weapon.WeaponElement.ToString());
+        AddStat( "Level", weaponInstance.NewLevel.ToString());
+        AddStat("Damage", weaponInstance.NewDamage.ToString());
         _itemStatsText.text = _sb.ToString(); 
 
         gameObject.SetActive(true);

@@ -9,6 +9,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
     [SerializeField] private ItemToolTip _tooltip;
     public event Action<WeaponInstance> OnRightClickEvent;
     public event Action<WeaponInstance> OnRightClickEvent2;
+    public event Action<WeaponInstance> OnRightClickEvent3;
     private GameManager _gm;
     public WeaponInstance Weapon
     {
@@ -28,6 +29,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
 
         }
     }
+
+    public ItemToolTip Tooltip { get => _tooltip; set => _tooltip = value; }
 
     private void Start()
     {
@@ -59,6 +62,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
                 {
                     OnRightClickEvent2(Weapon);
                 }
+                if (Weapon != null && OnRightClickEvent3 != null)
+                {
+                    OnRightClickEvent3(Weapon);
+                }
             }
             return ;
         }
@@ -70,8 +77,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
         {
             _image = GetComponent<Image>();
         }
-        if(_tooltip == null)
-            _tooltip = FindObjectOfType<ItemToolTip>();
+        if(Tooltip == null)
+            Tooltip = FindObjectOfType<ItemToolTip>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -79,19 +86,19 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
         Vector3 mousePos = Input.mousePosition;
         if(mousePos.x > 1500)
         {
-            _tooltip.transform.position = new Vector3(mousePos.x-200,mousePos.y,mousePos.z);
+            Tooltip.transform.position = new Vector3(mousePos.x-200,mousePos.y,mousePos.z);
 
         }
         else
         {
-            _tooltip.transform.position = new Vector3(mousePos.x + 200, mousePos.y, mousePos.z);
+            Tooltip.transform.position = new Vector3(mousePos.x + 200, mousePos.y, mousePos.z);
         }
 
-        _tooltip.ShowToolTip(Weapon.Weapon);
+        Tooltip.ShowToolTip(Weapon);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _tooltip.HideToolTip();
+        Tooltip.HideToolTip();
     }
 }

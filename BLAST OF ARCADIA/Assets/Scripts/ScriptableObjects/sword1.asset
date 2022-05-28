@@ -19,7 +19,7 @@ MonoBehaviour:
   _angle: 46
   _habilityCD: 2.5
   _habilityCastTime: 1.2
-  _level: 1
+  _level: 5
   _weaponType: 0
   _weaponRarity: 2
   _weaponElement: 1

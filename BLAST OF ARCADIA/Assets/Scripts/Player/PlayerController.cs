@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             if(_canAttack)
             {
                 _canAttack = false;
-                _equippedWeapon.UseWeapon(this);
+                _equippedWeapon.UseWeapon(this, _weapomSlot.Weapon);
             }
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -261,11 +261,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _canHability1 = false;
         _canMove = false;
-        _equippedWeapon.UseBaseHability1(this);
+        _equippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
         if(_equippedWeapon is Sword)
         {
             yield return new WaitForSeconds(0.2f);
-            _equippedWeapon.UseBaseHability1(this);
+            _equippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
         }  
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         
@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _canHability2 = false;
         _canMove = false;
-        _equippedWeapon.UseBaseHability2(this);
+        _equippedWeapon.UseBaseHability2(this, _weapomSlot.Weapon);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
@@ -287,7 +287,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _canHability3 = false;
         _canMove = false;
-        _equippedWeapon.UseElementalHability1(this);
+        _equippedWeapon.UseElementalHability1(this, _weapomSlot.Weapon);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
@@ -296,7 +296,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _canHability4 = false;
         _canMove = false;
-        _equippedWeapon.UseElementalHability2(this);
+        _equippedWeapon.UseElementalHability2(this, _weapomSlot.Weapon);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);

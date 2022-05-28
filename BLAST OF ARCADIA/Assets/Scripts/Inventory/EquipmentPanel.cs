@@ -5,8 +5,13 @@ using UnityEngine;
 public class EquipmentPanel : MonoBehaviour
 {
     [SerializeField] Transform _weaponSlotParent;
-    [SerializeField] WeaponSlot _weaponSlot;
+    [SerializeField] WeaponSlot  _weaponSlot;
     [SerializeField] UpdateStatus _updateStatus;
+    private GameManager _gm;
+    private void Start()
+    {
+        _gm = GameManager.instance;
+    }
 
     private void OnValidate()
     {
@@ -21,13 +26,16 @@ public class EquipmentPanel : MonoBehaviour
             
             previousWeapon = (WeaponInstance)_weaponSlot.Weapon;
             _weaponSlot.Weapon = weapon;
-            _updateStatus.GetInfo(weapon.Weapon);
+            _updateStatus.GetInfo(weapon.Weapon, weapon);
+            _gm.StoreManager.EquipedWeapon=weapon;
             return true;
 
         }
+        
         _weaponSlot.Weapon = weapon;
         previousWeapon = null;
-        _updateStatus.GetInfo(weapon.Weapon);
+        _updateStatus.GetInfo(weapon.Weapon, weapon);
+        _gm.StoreManager.EquipedWeapon = weapon;
 
         return false;
     }   
