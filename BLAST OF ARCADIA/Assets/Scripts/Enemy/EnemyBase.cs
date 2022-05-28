@@ -59,7 +59,6 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
     public void Die()
     {
-        Debug.Log("AIDEAD");
         Drop();
         Destroy(gameObject);
     }

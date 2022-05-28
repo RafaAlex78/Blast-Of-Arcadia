@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class teste : MonoBehaviour
+public class GiveInitialWeapon : MonoBehaviour
 {
 
     private GameManager _gm;

@@ -20,4 +20,15 @@ public class WeaponDataBaseScript :MonoBehaviour
         }
         return false;
     }
+    public void DeleteWeapon(int id)
+    {
+        Debug.Log("4");
+        for (int i = 0;i < WeaponDataBase.Count;i++)
+        {
+            if (WeaponDataBase[i].Id == id)
+            {
+                _weaponDataBase.RemoveAt(i);
+            }
+        }
+    }
 }

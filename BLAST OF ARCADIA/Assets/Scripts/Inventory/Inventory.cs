@@ -10,15 +10,38 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private ItemSlot[] _itemSlots;
     [SerializeField] private int _soulFragments;
+    [SerializeField] CristalType _cristalType;
+    public enum CristalType
+    {
+        Common,
+        Uncommon,
+        Rare,
+        Legendary
+    }
+    private Dictionary<CristalType,int> _cristals = new Dictionary<CristalType, int>();
+    
 
     public int SoulFragments { get => _soulFragments; set => _soulFragments = value; }
+    public Dictionary<CristalType, int> Cristals { get => _cristals; set => _cristals = value; }
+    public CristalType CristalType1 { get => _cristalType; }
 
     public event Action<WeaponInstance> OnWeaponRightClickEvent;
+    public event Action<WeaponInstance> OnWeaponRightClickEvent2;
     private void Start()
     {
+        
+            Cristals.Add(CristalType.Common,0);
+            Cristals.Add(CristalType.Uncommon,0);
+            Cristals.Add(CristalType.Rare,0);
+            Cristals.Add(CristalType.Legendary,0);
+        
+
+       
+
         for (int i = 0; i < _itemSlots.Length; i++)
         {
             _itemSlots[i].OnRightClickEvent += OnWeaponRightClickEvent;
+            _itemSlots[i].OnRightClickEvent2 += OnWeaponRightClickEvent2;
         }
     }
     private void OnValidate()
@@ -54,6 +77,7 @@ public class Inventory : MonoBehaviour
     }
     public bool RemoveItem(WeaponInstance weapon)
     {
+        Debug.Log("4");
         if(_weapons.Remove(weapon))
         {
             RefreshUI();

@@ -8,6 +8,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
     [SerializeReference] private WeaponInstance _weaponInstance;
     [SerializeField] private ItemToolTip _tooltip;
     public event Action<WeaponInstance> OnRightClickEvent;
+    public event Action<WeaponInstance> OnRightClickEvent2;
+    private GameManager _gm;
     public WeaponInstance Weapon
     {
         get { return _weaponInstance; }
@@ -26,17 +28,39 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
 
         }
     }
-    
+
+    private void Start()
+    {
+        _gm = GameManager.instance;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-    if (eventData !=null &&eventData.button == PointerEventData.InputButton.Right )
+        if(_gm.ShopOpen==false)
         {
 
-            if(Weapon != null && OnRightClickEvent !=null)
+            if (eventData !=null &&eventData.button == PointerEventData.InputButton.Right )
             {
-                OnRightClickEvent(Weapon);
+
+                if(Weapon != null && OnRightClickEvent !=null)
+                {
+                    OnRightClickEvent(Weapon);
+                }
             }
+            return;
+        }
+        else
+        {
+            if (eventData != null && eventData.button == PointerEventData.InputButton.Right)
+            {
+               
+
+                if (Weapon != null && OnRightClickEvent2 != null)
+                {
+                    OnRightClickEvent2(Weapon);
+                }
+            }
+            return ;
         }
     }
 
@@ -62,7 +86,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler
         {
             _tooltip.transform.position = new Vector3(mousePos.x + 200, mousePos.y, mousePos.z);
         }
-        Debug.Log(mousePos);
 
         _tooltip.ShowToolTip(Weapon.Weapon);
     }

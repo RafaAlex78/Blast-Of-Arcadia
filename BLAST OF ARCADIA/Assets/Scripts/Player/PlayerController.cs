@@ -203,44 +203,59 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private void PlayerInputToPause()
     {
+       
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if(_pauseOpen == false)
+            if(_pauseOpen == false && _gm.ShopOpen==false)
             {
 
-            if (_gm.CheckIsPaused()==false)
-            {
-                _gm.IsPaused = true;
-                _gm.Ui.Inventory.SetActive(true);
-                _invetoryOpen = true;
-                return;
-            }
-            else
-            {
-                _gm.IsPaused = false;
-                _gm.Ui.Inventory.SetActive(false);
-                _invetoryOpen = false;
-            }
-            }
-        }
-        if(_invetoryOpen==false)
-        {
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (_gm.CheckIsPaused() == false)
+               if (_gm.CheckIsPaused()==false)
                 {
                     _gm.IsPaused = true;
-                    _pauseOpen=true;
+                    _gm.Ui.Inventory.SetActive(true);
+                    _gm.InventoryOpen = true;
                     return;
                 }
                 else
                 {
-                    _gm.IsPaused = false;
-                    _pauseOpen = false;
-
+                _gm.IsPaused = false;
+                _gm.Ui.Inventory.SetActive(false);
+                _gm.InventoryOpen = false;
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_gm.CheckIsPaused() == false && _gm.CheckInvetoryOpen() == false && _gm.ShopOpen == false)
+            {
+                _gm.IsPaused = true;
+                _pauseOpen = true;
+                return;
+            }
+            if (_gm.CheckIsPaused() && _gm.CheckInvetoryOpen() == false && _gm.ShopOpen == false)
+            {
+                Debug.Log(_gm.CheckIsPaused());
+                Debug.Log(_gm.CheckInvetoryOpen());
+                _gm.IsPaused = false;
+                _pauseOpen = false;
+                return;
+            }
+            if (_gm.CheckIsPaused() && _gm.CheckInvetoryOpen() && _gm.ShopOpen==false)
+            {
+                _gm.IsPaused = false;
+                _gm.InventoryOpen = false;
+                _gm.Ui.Inventory.SetActive(false);
+                return;
+            }
+            if(_gm.ShopOpen)
+            {
+                _gm.IsPaused = false;
+                _gm.InventoryOpen = false;
+                _gm.ShopOpen = false;
+                _gm.Ui.Inventory.SetActive(false);
+            }
+        }
+
     }
     IEnumerator UseAbilityOne()
     {

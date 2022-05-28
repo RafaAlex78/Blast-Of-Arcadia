@@ -6,9 +6,16 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
     [SerializeField] private EquipmentPanel _equipmentPanel;
+    [SerializeField] private WeaponDataBaseScript _dataBase;
+    private GameManager _gm;
     private void Awake()
     {
         _inventory.OnWeaponRightClickEvent += EquipFromInventory;
+        _inventory.OnWeaponRightClickEvent2 += teste;
+    }
+    private void Start()
+    {
+        _gm = GameManager.instance;
     }
     private void EquipFromInventory(WeaponInstance weapon)
     {
@@ -20,7 +27,6 @@ public class InventoryManager : MonoBehaviour
 
     public void Equip(WeaponInstance weapon)
     {
-        Debug.Log("123");
         if (_inventory.RemoveItem(weapon))
         { 
             WeaponInstance previousWeapon;
@@ -28,7 +34,6 @@ public class InventoryManager : MonoBehaviour
 
             if (_equipmentPanel.AddItem(weapon, out previousWeapon))
             {
-                Debug.Log("123");
                 if (previousWeapon != null)
                 {
                     _inventory.AddItem(previousWeapon);
@@ -40,6 +45,12 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
+    }
+    private void teste(WeaponInstance weapon)
+    {
+        _gm.StoreManager.ShowButtons();
+        _gm.StoreManager.WeaponInstance=weapon;
+       
     }
   
 }

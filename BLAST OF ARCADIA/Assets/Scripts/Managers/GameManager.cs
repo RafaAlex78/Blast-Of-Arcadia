@@ -9,12 +9,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager _ui;
     [SerializeField] private Inventory _inventory;
     [SerializeField] private CreateInstance _createInstance;
+    [SerializeField] private StoreManager _storeManager;
+    [SerializeField] private WeaponDataBaseScript _dataBase;
+    private bool _shopOpen=false;
     private bool _isPaused= false;
+    private bool _inventoryOpen = false;
     private int _numberOfEnemies=2;
     public bool IsPaused { get => _isPaused; set => _isPaused = value; }
     public UIManager Ui { get => _ui; set => _ui = value; }
     public int NumberOfEnemies { get => _numberOfEnemies; set => _numberOfEnemies = value; }
     public Inventory Inventory { get => _inventory; set => _inventory = value; }
+    public bool InventoryOpen { get => _inventoryOpen; set => _inventoryOpen = value; }
+    public bool ShopOpen { get => _shopOpen; set => _shopOpen = value; }
+    public StoreManager StoreManager { get => _storeManager; }
+    public WeaponDataBaseScript DataBase { get => _dataBase;}
 
     private void Awake()
     {
@@ -27,6 +35,10 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+    private void Start()
+    {
+       
     }
     private void Update()
     {
@@ -42,6 +54,15 @@ public class GameManager : MonoBehaviour
     public bool CheckIsPaused()
     {
         if(IsPaused == false)
+        {
+            return false;
+        }
+        return true;
+        
+    }
+    public bool CheckInvetoryOpen()
+    {
+        if(InventoryOpen == false)
         {
             return false;
         }
