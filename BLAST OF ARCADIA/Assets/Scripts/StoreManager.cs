@@ -64,26 +64,64 @@ public class StoreManager : MonoBehaviour
             critals *= 1.7f;
         }
         int cristalsNeeded = Mathf.RoundToInt(critals);
-        _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage* 1.2f);
-        _weaponInstance.NewLevel++;
-        _gm.Ui.HideConfirmation();
-        if(_isTheEquipped)
+      
+        if(_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Common)
         {
-
-        _updateStatus.GetInfo(_weaponInstance.Weapon, _weaponInstance);
+            if(_gm.Inventory.Cristals[Inventory.CristalType.Common]>= cristalsNeeded)
+            {
+                _gm.Inventory.Cristals[Inventory.CristalType.Common]-= cristalsNeeded;
+                _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage* 1.2f);
+                _weaponInstance.NewLevel++;               
+                _gm.Ui.UpdateCristals(0, _gm.Inventory.Cristals[Inventory.CristalType.Common]);
+                _gm.Ui.HideConfirmation();
+            }
         }
+        if(_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Uncommon)
+        {
+            if(_gm.Inventory.Cristals[Inventory.CristalType.Uncommon]>= cristalsNeeded)
+            {
+                _gm.Inventory.Cristals[Inventory.CristalType.Uncommon]-= cristalsNeeded;
+                _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage* 1.2f);
+                _weaponInstance.NewLevel++;               
+                _gm.Ui.UpdateCristals(1, _gm.Inventory.Cristals[Inventory.CristalType.Uncommon]);
+                _gm.Ui.HideConfirmation();
+            }
+        }
+        if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare)
+        {
+            if (_gm.Inventory.Cristals[Inventory.CristalType.Rare] >= cristalsNeeded)
+            {
+                _gm.Inventory.Cristals[Inventory.CristalType.Rare] -= cristalsNeeded;
+                _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage * 1.2f);
+                _weaponInstance.NewLevel++;
+                _gm.Ui.UpdateCristals(2, _gm.Inventory.Cristals[Inventory.CristalType.Rare]);
+                _gm.Ui.HideConfirmation();
+            }
+        }
+        if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
+        {
+            if (_gm.Inventory.Cristals[Inventory.CristalType.Legendary] >= cristalsNeeded)
+            {
+                _gm.Inventory.Cristals[Inventory.CristalType.Legendary] -= cristalsNeeded;
+                _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage * 1.2f);
+                _weaponInstance.NewLevel++;
+                _gm.Ui.UpdateCristals(3, _gm.Inventory.Cristals[Inventory.CristalType.Legendary]);
+                _gm.Ui.HideConfirmation();
+            }
+        }
+
 
 
     }
     public void ShowButtons()
     {
         //mostrar custo upgrade
-        _gm.Ui.ShowConfirmation();
+        _gm.Ui.ShowConfirmation(IsTheEquipped);
         float baseCristals = 5;
         int level = WeaponInstance.NewLevel;
         for (int i = 1; i <= level; i++)
         {
-            baseCristals *= 1.5f;
+            baseCristals *= 1.4f;
         }
         float critals = 5;
         for (int nivel = 1; nivel <= _weaponInstance.NewLevel + 1; nivel++)
@@ -97,31 +135,67 @@ public class StoreManager : MonoBehaviour
         int cristalsToGain = Mathf.RoundToInt(baseCristals);
         if (_weaponInstance.Weapon.WeaponRarity==WeaponScriptableObject.Rarity.Common)
         {
-            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[0];
-            _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text="+ "+ cristalsToGain.ToString(); 
+            if(IsTheEquipped)
+            {
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(false);
+            }
+            else
+            {
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
+                _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[0];
+                _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text="+ "+ cristalsToGain.ToString(); 
+
+            }
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[0];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text="- "+ cristalsNeeded.ToString();
         }
         if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Uncommon)
         {
-            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[1];
-            _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+            if (IsTheEquipped)
+            {
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(false);
+            }
+            else
+            {
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
+                _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[1];
+                _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+
+            }
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[1];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
 
         }
         if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare)
         {
-            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[2];
-            _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+            if (IsTheEquipped)
+            {
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(false);
+            }
+            
+            
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
+                _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[2];
+                _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+
+            
+
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[2];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
 
         }
         if (_weaponInstance.Weapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
         {
-            _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[3];
+            if (IsTheEquipped)
+            {
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(false);
+            }
+            else
+            {
+                _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
+                _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[3];
             _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
+            }
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[3];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
 
@@ -129,7 +203,7 @@ public class StoreManager : MonoBehaviour
     }
     public void Sell()
     {
-
+        Debug.Log(_weaponInstance);
         _gm.StoreManager.GiveCristals(_weaponInstance);
         _gm.DataBase.DeleteWeapon(_weaponInstance.Id);
         _gm.Inventory.RemoveItem(_weaponInstance);

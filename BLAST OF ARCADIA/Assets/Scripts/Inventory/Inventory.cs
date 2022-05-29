@@ -11,7 +11,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private ItemSlot[] _itemSlots;
     [SerializeField] private ItemSlot _equippedWeappon;
     [SerializeField] private int _soulFragments;
-    [SerializeField] CristalType _cristalType;
     public enum CristalType
     {
         Common,
@@ -24,7 +23,7 @@ public class Inventory : MonoBehaviour
 
     public int SoulFragments { get => _soulFragments; set => _soulFragments = value; }
     public Dictionary<CristalType, int> Cristals { get => _cristals; set => _cristals = value; }
-    public CristalType CristalType1 { get => _cristalType; }
+    public ItemSlot EquippedWeappon { get => _equippedWeappon; set => _equippedWeappon = value; }
 
     public event Action<WeaponInstance> OnWeaponRightClickEvent;
     public event Action<WeaponInstance> OnWeaponRightClickEvent2;
@@ -45,7 +44,7 @@ public class Inventory : MonoBehaviour
             _itemSlots[i].OnRightClickEvent += OnWeaponRightClickEvent;
             _itemSlots[i].OnRightClickEvent2 += OnWeaponRightClickEvent2;
         }
-        _equippedWeappon.OnRightClickEvent3 += OnWeaponRightClickEvent3;
+        EquippedWeappon.OnRightClickEvent3 += OnWeaponRightClickEvent3;
     }
     private void OnValidate()
     {
@@ -75,7 +74,7 @@ public class Inventory : MonoBehaviour
             return false;
         }
         _weapons.Add(weapon);
-        _equippedWeappon.Tooltip.HideToolTip();
+        EquippedWeappon.Tooltip.HideToolTip();
             
         RefreshUI();
         return true;

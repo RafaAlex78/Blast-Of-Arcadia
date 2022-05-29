@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _soulFragmentsText;
     [SerializeField] private List<TMP_Text> _cristals;
     [SerializeField] private GameObject _ShopConfirmation;
+    [SerializeField] private GameObject _sell;
     [SerializeField] private List<Sprite> _cristalsImage;
     [SerializeField] private GameObject _TypeCristalGain;
     [SerializeField] private GameObject _TypeCristalCost;
@@ -36,9 +37,17 @@ public class UIManager : MonoBehaviour
     {
         _cristals[type].text= number.ToString();
     }
-   public void ShowConfirmation()
+   public void ShowConfirmation(bool IsEquipped)
     {
         _ShopConfirmation.SetActive(true);
+        if (IsEquipped)
+        {
+            _sell.SetActive(false);
+        }
+        else
+        {
+            _sell.SetActive(true);
+        }
     } 
     public void HideConfirmation()
     {
