@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private WeaponInstance _weaponIntance;
 
     [SerializeField] private  List<WeaponInstance> _weapons; 
     [SerializeField] private Transform _itemsParent;
@@ -18,7 +17,7 @@ public class Inventory : MonoBehaviour
         Rare,
         Legendary
     }
-    private Dictionary<CristalType,int> _cristals = new Dictionary<CristalType, int>();
+    private Dictionary<CristalType,int> _cristals = new Dictionary<CristalType, int>(); 
     
 
     public int SoulFragments { get => _soulFragments; set => _soulFragments = value; }

@@ -109,7 +109,11 @@ public class StoreManager : MonoBehaviour
                 _gm.Ui.HideConfirmation();
             }
         }
+        if(IsTheEquipped)
+        {
 
+            _updateStatus.GetInfo(_weaponInstance.Weapon, _weaponInstance);
+        }
 
 
     }
