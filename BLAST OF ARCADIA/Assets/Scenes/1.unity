@@ -3701,11 +3701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f894e8b4e2b77438ca5233065fe6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponIntance:
-    _id: 0
-    _weapon: {fileID: 0}
-    _newDamage: 0
-    _newLevel: 0
   _weapons: []
   _itemsParent: {fileID: 543956371}
   _itemSlots:
@@ -5529,7 +5524,7 @@ MonoBehaviour:
   _angle: 40
   _canAttack: 1
   _loseSpeedOnAttack: 1
-  _timeToAttack: 0.2
+  _timeToAttack: 0.5
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
   _weaponDrop: {fileID: 11400000, guid: 3aa38b0c890afcd439735cab788f2f10, type: 2}
