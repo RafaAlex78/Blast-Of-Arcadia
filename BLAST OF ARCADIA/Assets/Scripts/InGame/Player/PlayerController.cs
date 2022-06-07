@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     [Header("My References")]
     private Rigidbody2D _rigidbody;
     [SerializeField] private WeaponSlot _weapomSlot;
-    [SerializeField] GameManager _gm;
+    private GameManager _gm;
+    private Animator _animator;
+    [SerializeField] private Transform _pistolPos;
+
 
     [Header("conditions")]
     private bool _canMove = true;
@@ -42,10 +45,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     private bool _canHability4 = true;
 
     public float AttackCD { get => _attackCD; set => _attackCD = value; }
+    public Transform PistolPos { get => _pistolPos; }
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
 
     }
     void Start()        
@@ -61,12 +66,23 @@ public class PlayerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+
         if(_weapomSlot.Weapon != null)
         {
         _equippedWeapon = _weapomSlot.Weapon.Weapon;
-
+            if(_equippedWeapon.WeaponType ==Type.Pistol)
+            {
+                _animator.SetBool("PistolEquipped", true);
+                _animator.SetBool("SwordEquipped", false);
+            }
+            if(_equippedWeapon.WeaponType == Type.Sword)
+            {
+                _animator.SetBool("PistolEquipped", false);
+                _animator.SetBool("SwordEquipped", true);
+            }
         }
         _moveInput.x = Input.GetAxisRaw("Horizontal");
+        _animator.SetFloat("Movement", _moveInput.magnitude);
         _moveInput.y = Input.GetAxisRaw("Vertical");
         
         PlayerInputToPause();
@@ -152,11 +168,19 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if(_canAttack)
+            if(_canAttack && _equippedWeapon is Pistol)
             {
                 _canAttack = false;
                 _equippedWeapon.UseWeapon(this, _weapomSlot.Weapon);
+                _animator.SetTrigger("Shoot");
             }
+            if(_canAttack && _equippedWeapon is Sword)
+            {
+                _canAttack = false;
+                StartCoroutine(SwordAttack());
+                
+            }
+            
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -182,7 +206,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (_canHability3 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare || _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
+            if (_canHability3 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare || _canHability3 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
             {
                 StartCoroutine(UseAbilityThree());
 
@@ -199,6 +223,13 @@ public class PlayerController : MonoBehaviour, IDamageable
             }
         }
         
+
+    }
+    IEnumerator SwordAttack()
+    {
+        _animator.SetTrigger("Shoot");
+        yield return new WaitForSeconds(0.3f);
+        _equippedWeapon.UseWeapon(this, _weapomSlot.Weapon);
 
     }
     private void PlayerInputToPause()
@@ -317,12 +348,20 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void TakeDemage(float amount)
     {
         _actualHP-=amount;
+        StartCoroutine(ChangeColor());
         if(_actualHP <= 0)
         {
             Die();
         }
     }
+    IEnumerator ChangeColor()
+    {
+        SpriteRenderer sprite = _rigidbody.GetComponent<SpriteRenderer>();
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = Color.white;
 
+    }
     public void Die()
     {
         _gm.Ui.ReloadScene();

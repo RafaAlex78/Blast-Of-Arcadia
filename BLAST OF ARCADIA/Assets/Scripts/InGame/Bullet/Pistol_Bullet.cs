@@ -6,11 +6,11 @@ public class Pistol_Bullet : MonoBehaviour
 {
     private float _damage;
     private float _range;
-    private Vector2 _playerPos;
+    private Vector2 _pistolPos;
 
     public float Damage { get => _damage; set => _damage = value; }
     public float Range { get => _range; set => _range = value; }
-    public Vector2 PlayerPos { get => _playerPos; set => _playerPos = value; }
+    public Vector2 PistolPos { get => _pistolPos; set => _pistolPos = value; }
     public element WeaponElement { get => _weaponElement; set => _weaponElement = value; }
 
     [SerializeField] private element _weaponElement;
@@ -27,7 +27,7 @@ public class Pistol_Bullet : MonoBehaviour
     private void Update()
     {
     
-        if(Vector2.Distance(PlayerPos,transform.position) >= Range)
+        if(Vector2.Distance(PistolPos,transform.position) >= Range)
         {
             Destroy(gameObject);
         }

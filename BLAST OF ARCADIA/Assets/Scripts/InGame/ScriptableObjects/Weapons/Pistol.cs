@@ -20,9 +20,9 @@ public class Pistol : WeaponScriptableObject
     }
     public override void UseWeapon(PlayerController player,WeaponInstance weaponInstance)
     {
-        GameObject newBullet = Instantiate(_pistolBullet, player.transform.position, player.transform.rotation);
+        GameObject newBullet = Instantiate(_pistolBullet, player.PistolPos.position, player.PistolPos.rotation);
         newBullet.GetComponent<Pistol_Bullet>().Range = Range;
-        newBullet.GetComponent<Pistol_Bullet>().PlayerPos = player.transform.position;
+        newBullet.GetComponent<Pistol_Bullet>().PistolPos = player.PistolPos.position;
         Rigidbody2D bulletRB = newBullet.GetComponent<Rigidbody2D>();
         bulletRB.velocity = newBullet.transform.up * 5;
         Pistol_Bullet bull = newBullet.GetComponent<Pistol_Bullet>();
@@ -92,11 +92,11 @@ public class Pistol : WeaponScriptableObject
     }
     public override void UseBaseHability1(PlayerController player, WeaponInstance weaponInstance)
     {
-        GameObject newHab = Instantiate(_hability1Prefab, player.transform.position, player.transform.rotation);
+        GameObject newHab = Instantiate(_hability1Prefab, player.PistolPos.position, player.PistolPos.rotation);
         Rigidbody2D bull = newHab.GetComponent<Rigidbody2D>();
         bull.velocity = newHab.transform.up * 5;
         P_Base_1 hab1 = newHab.GetComponent<P_Base_1>();
-        hab1.PlayerPos = player.transform.position;
+        hab1.PistolPos = player.PistolPos.position;
         hab1.Damage = weaponInstance.NewDamage + 20;
         switch (WeaponElement)
         {
@@ -126,7 +126,7 @@ public class Pistol : WeaponScriptableObject
 
     public override void UseBaseHability2(PlayerController player,WeaponInstance weaponInstance)
     {
-        GameObject newHab = Instantiate(_hability2Prefab, player.transform.position, player.transform.rotation);
+        GameObject newHab = Instantiate(_hability2Prefab, player.PistolPos.position, player.PistolPos.rotation);
 
         P_Base_2 hab2 = newHab.GetComponentInChildren<P_Base_2>();
 
@@ -196,7 +196,7 @@ public class Pistol : WeaponScriptableObject
         hab3.ApplyNTimes = 6;
         hab3.PerTime = 1.2f;
         HabilityCastTime = 0.2f;
-        HabilityCD =10f;
+        HabilityCD =10f; 
 
     }
 

@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.23f1 (c5d91304a876) revision 12966163'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19044.1706; Version 2009; 64bit' Language: 'pt' Physical Memory: 16221 MB
+OS: 'Windows 10 Pro; OS build 19044.1706; Version 2009; 64bit' Language: 'pt' Physical Memory: 16309 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
@@ -11,31 +11,31 @@ C:\Program Files\Unity\Hub\Editor\2020.3.23f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/aluno/Documents/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA
+D:/RAFA/Documentos/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56168
-Successfully changed project path to: C:/Users/aluno/Documents/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA
-C:/Users/aluno/Documents/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA
+63646
+Successfully changed project path to: D:/RAFA/Documentos/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA
+D:/RAFA/Documentos/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 30.23 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 34.36 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.23f1 (c5d91304a876)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/aluno/Documents/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA/Assets
+[Subsystems] Discovering subsystems at path D:/RAFA/Documentos/GitHub/Blast-Of-Arcadia/BLAST OF ARCADIA/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2489)
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
     Vendor:   
-    VRAM:     8050 MB
-    Driver:   30.0.14.7212
+    VRAM:     6052 MB
+    Driver:   30.0.15.1215
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56616
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56480
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
@@ -43,37 +43,37 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.23f1/
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/PlaybackEngines/LuminSupport/UnityEditor.Lumin.Extensions.dll
-Registered in 0.328066 seconds.
+Registered in 0.003219 seconds.
 Native extension for Lumin target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 29.91 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 37.16 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.893 seconds
+- Completed reload, in  0.522 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2893ms)
-		BeginReloadAssembly (1794ms)
+	ReloadAssembly (522ms)
+		BeginReloadAssembly (40ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (657ms)
-			LoadAssemblies (1806ms)
+		EndReloadAssembly (428ms)
+			LoadAssemblies (39ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (343ms)
+			SetupTypeCache (166ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (20ms)
-			SetupLoadedEditorAssemblies (208ms)
+			RebuildScriptCaches (19ms)
+			SetupLoadedEditorAssemblies (142ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (30ms)
-				BeforeProcessingInitializeOnLoad (101ms)
-				ProcessInitializeOnLoadAttributes (51ms)
+				RefreshPlugins (37ms)
+				BeforeProcessingInitializeOnLoad (12ms)
+				ProcessInitializeOnLoadAttributes (65ms)
 				ProcessInitializeOnLoadMethodAttributes (20ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -81,55 +81,55 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.420678 seconds.
+Registered in 0.003282 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for Lumin target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 29.48 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 36.41 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.410 seconds
+- Completed reload, in  0.946 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3413ms)
-		BeginReloadAssembly (86ms)
+	ReloadAssembly (947ms)
+		BeginReloadAssembly (214ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (13ms)
-		EndReloadAssembly (3289ms)
-			LoadAssemblies (1709ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (681ms)
+			LoadAssemblies (188ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (682ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (29ms)
-			SetupLoadedEditorAssemblies (789ms)
+			SetupTypeCache (213ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (273ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (30ms)
-				BeforeProcessingInitializeOnLoad (53ms)
-				ProcessInitializeOnLoadAttributes (244ms)
-				ProcessInitializeOnLoadMethodAttributes (455ms)
-				AfterProcessingInitializeOnLoad (3ms)
+				RefreshPlugins (36ms)
+				BeforeProcessingInitializeOnLoad (61ms)
+				ProcessInitializeOnLoadAttributes (150ms)
+				ProcessInitializeOnLoadMethodAttributes (14ms)
+				AfterProcessingInitializeOnLoad (6ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.36 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2251 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 99.3 MB.
-System memory in use after: 99.4 MB.
+Unloading 2253 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 99.4 MB.
+System memory in use after: 99.5 MB.
 
-Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2686.
-Total: 1.958000 ms (FindLiveObjects: 0.135500 ms CreateObjectMapping: 0.046900 ms MarkObjects: 1.728100 ms  DeleteObjects: 0.047000 ms)
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2689.
+Total: 2.259400 ms (FindLiveObjects: 0.134800 ms CreateObjectMapping: 0.042800 ms MarkObjects: 2.033400 ms  DeleteObjects: 0.047700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -143,9 +143,629 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/MainMenu.unity
-  artifactKey: Guid(29122d706c8ff5841b58135cdeee2cc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainMenu.unity using Guid(29122d706c8ff5841b58135cdeee2cc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d7a5c10cfba53fae7cb46d3ed8b1faf') in 0.013395 seconds 
-  Import took 0.015742 seconds .
+  path: Assets/Animations/Glum
+  artifactKey: Guid(f1767b28eaed37f4485c23791af23e98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum using Guid(f1767b28eaed37f4485c23791af23e98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f0744a3574533f1692ea178ecdef50b') in 0.007445 seconds 
+  Import took 0.010109 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 6.507111 seconds.
+  path: Assets/Animations/Glum/Idle
+  artifactKey: Guid(2caf12a49c1277444aa84fadfc7bc17b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle using Guid(2caf12a49c1277444aa84fadfc7bc17b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3278c87b6355f20a5a1bd9d6026da7fb') in 0.022544 seconds 
+  Import took 0.025519 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.491290 seconds.
+  path: Assets/Animations/Glum/Idle/1.png
+  artifactKey: Guid(065ab7d8387f51a42942fd301e7447c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/1.png using Guid(065ab7d8387f51a42942fd301e7447c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c022d69f9573835dff940deaf88f30f0') in 0.096348 seconds 
+  Import took 0.099121 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Animations/Glum/Idle/5.png
+  artifactKey: Guid(29db3744f10dfa1459f1ce195ab4fd81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/5.png using Guid(29db3744f10dfa1459f1ce195ab4fd81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '319bc32dd73c1dffeebd7e4bc2745a4a') in 0.017103 seconds 
+  Import took 0.019594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/Animations/Glum/Idle/3.png
+  artifactKey: Guid(208da5f67dbef324997213cbeafa4915) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/3.png using Guid(208da5f67dbef324997213cbeafa4915) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a82d1638288fbbe1f8fe18ef3124aef') in 0.014794 seconds 
+  Import took 0.016937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/Animations/Glum/Idle/2.png
+  artifactKey: Guid(a2e2935e6b9631f4e8937e72fe9020c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/2.png using Guid(a2e2935e6b9631f4e8937e72fe9020c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd21192ea769d0be67a72f2361f4bbe56') in 0.012450 seconds 
+  Import took 0.015064 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000137 seconds.
+  path: Assets/Animations/Glum/Idle/9.png
+  artifactKey: Guid(645c9ce0ed739a640a0d664ace64012c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/9.png using Guid(645c9ce0ed739a640a0d664ace64012c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9d2f36b43ff18a73d6c748c8f82e3fb') in 0.014929 seconds 
+  Import took 0.017311 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/Animations/Glum/Idle/8.png
+  artifactKey: Guid(9a1c36aa8aade5947a5184cf9c35373a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/8.png using Guid(9a1c36aa8aade5947a5184cf9c35373a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b8896366574e2a62d180a41d011a56e') in 0.013185 seconds 
+  Import took 0.015504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000134 seconds.
+  path: Assets/Animations/Glum/Idle/4.png
+  artifactKey: Guid(db1c209dd3eece14cb77898b6231fe9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/4.png using Guid(db1c209dd3eece14cb77898b6231fe9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4db7643ebc3bc4f30aa524fe53e3f2b') in 0.014136 seconds 
+  Import took 0.016537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000122 seconds.
+  path: Assets/Animations/Glum/Idle/7.png
+  artifactKey: Guid(92153e9602b41234aa38355221d7c0f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/7.png using Guid(92153e9602b41234aa38355221d7c0f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b316c07398715aa17e93d03d8b9f4050') in 0.014598 seconds 
+  Import took 0.016934 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005214 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.742 seconds
+Domain Reload Profiling:
+	ReloadAssembly (743ms)
+		BeginReloadAssembly (92ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (600ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (207ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (228ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (63ms)
+				ProcessInitializeOnLoadAttributes (143ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.56 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2229 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 100.5 MB.
+System memory in use after: 100.6 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2703.
+Total: 3.060700 ms (FindLiveObjects: 0.192800 ms CreateObjectMapping: 0.052600 ms MarkObjects: 2.796200 ms  DeleteObjects: 0.018100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 28.922987 seconds.
+  path: Assets/Animations/Glum/Idle/9.controller
+  artifactKey: Guid(82872b2217434084db3800cc82f6b593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/9.controller using Guid(82872b2217434084db3800cc82f6b593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0beeb7bd31832e5fc86f2c7865caa887') in 0.016279 seconds 
+  Import took 0.019165 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/Animations/Glum/Idle/Idle.anim
+  artifactKey: Guid(ed4686c554cdc4347b534d05642d048e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/Idle.anim using Guid(ed4686c554cdc4347b534d05642d048e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3188fcc13d2b280982f1a9eb86af9bd') in 0.003209 seconds 
+  Import took 0.005610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 564.427293 seconds.
+  path: Assets/Animations/Glum/Idle/1 1.png
+  artifactKey: Guid(cde24a58065b6be4aba26462ee219685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/1 1.png using Guid(cde24a58065b6be4aba26462ee219685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a94e89db38a4d7543766d9025f534df') in 0.038085 seconds 
+  Import took 0.041259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000137 seconds.
+  path: Assets/Animations/Glum/Idle/2.5.png
+  artifactKey: Guid(bb1dc298d3582d9468829ef23b07ea36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/2.5.png using Guid(bb1dc298d3582d9468829ef23b07ea36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90837f6e02941a9fb251e4616c0bcf20') in 0.014166 seconds 
+  Import took 0.016650 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000118 seconds.
+  path: Assets/Animations/Glum/Idle/3.6.png
+  artifactKey: Guid(caaa73bc69e7e1646b60f2e1375e35e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/3.6.png using Guid(caaa73bc69e7e1646b60f2e1375e35e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39e8d4583e83d66d9dcf75498e0ef119') in 0.014519 seconds 
+  Import took 0.018119 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/Animations/Glum/Idle/3.4.png
+  artifactKey: Guid(71cbbe092f29e7541a26d8c41dce96b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/3.4.png using Guid(71cbbe092f29e7541a26d8c41dce96b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1c208f0c745e6098f0c7ecafaadaca3') in 0.020902 seconds 
+  Import took 0.023638 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000103 seconds.
+  path: Assets/Animations/Glum/Idle/8 1.png
+  artifactKey: Guid(1da475439ea76614c807cf27e996b2e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/8 1.png using Guid(1da475439ea76614c807cf27e996b2e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5f578aa81e25bc0b75b78319e72251c') in 0.022480 seconds 
+  Import took 0.024739 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000117 seconds.
+  path: Assets/Animations/Glum/Idle/3 1.png
+  artifactKey: Guid(d68b5fafcd0b98f47a507386fad1f73b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/3 1.png using Guid(d68b5fafcd0b98f47a507386fad1f73b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3141ece329b155b53218631b64ad974c') in 0.016690 seconds 
+  Import took 0.018989 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/Animations/Glum/Idle/9 1.png
+  artifactKey: Guid(dbda317ea5fd9584c839a864107f8493) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/9 1.png using Guid(dbda317ea5fd9584c839a864107f8493) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '704ebe4084ab18df4c0700c74516a3e8') in 0.014713 seconds 
+  Import took 0.017226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/Animations/Glum/Idle/7 1.png
+  artifactKey: Guid(14bd9fedbde21f54988927bddef61390) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/7 1.png using Guid(14bd9fedbde21f54988927bddef61390) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e12d1bf9153ca79d903b6418a2011bf') in 0.018649 seconds 
+  Import took 0.020927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000118 seconds.
+  path: Assets/Animations/Glum/Idle/6.png
+  artifactKey: Guid(08de659a79e8c264fb701b22dbd35eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/6.png using Guid(08de659a79e8c264fb701b22dbd35eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e81717860e8f5594e71a16dca1ddc6ba') in 0.012780 seconds 
+  Import took 0.015020 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000112 seconds.
+  path: Assets/Animations/Glum/Idle/2 1.png
+  artifactKey: Guid(16cd653044eb5c24cb2ddc9494e790ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/2 1.png using Guid(16cd653044eb5c24cb2ddc9494e790ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5cfc032a33951d3791a6ae10664e1a3') in 0.011991 seconds 
+  Import took 0.014332 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000111 seconds.
+  path: Assets/Animations/Glum/Idle/1.5.png
+  artifactKey: Guid(f3e7d523f9171f847a9e8eb998436716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/1.5.png using Guid(f3e7d523f9171f847a9e8eb998436716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '430c6e0386bd7d32fbb43cf54f7e46e4') in 0.010875 seconds 
+  Import took 0.013252 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000113 seconds.
+  path: Assets/Animations/Glum/Idle/5 1.png
+  artifactKey: Guid(e0bd78b4c0fa77248b2665f184eaf97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/5 1.png using Guid(e0bd78b4c0fa77248b2665f184eaf97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cdf707fa382d1ab9629042a09d8d9cb') in 0.011798 seconds 
+  Import took 0.014230 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Animations/Glum/Idle/10.png
+  artifactKey: Guid(cb46b02f188522548aeb7673611cdfe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/10.png using Guid(cb46b02f188522548aeb7673611cdfe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb5cc8f3802eab7f823a8dc3954898c2') in 0.011437 seconds 
+  Import took 0.013989 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000107 seconds.
+  path: Assets/Animations/Glum/Idle/4 1.png
+  artifactKey: Guid(1ee17521030020a49bb6484f87ebf5de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/4 1.png using Guid(1ee17521030020a49bb6484f87ebf5de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe0ceca7d728f621203ec68988785bba') in 0.011292 seconds 
+  Import took 0.013628 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.649053 seconds.
+  path: Assets/Animations/Glum/Idle/5.png
+  artifactKey: Guid(29db3744f10dfa1459f1ce195ab4fd81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/5.png using Guid(29db3744f10dfa1459f1ce195ab4fd81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78af5d1177e58ebe3ce8236c3147c24c') in 0.012197 seconds 
+  Import took 0.015850 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000130 seconds.
+  path: Assets/Animations/Glum/Idle/9.png
+  artifactKey: Guid(645c9ce0ed739a640a0d664ace64012c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/9.png using Guid(645c9ce0ed739a640a0d664ace64012c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43e8e46afa5c3747da81a3c30445481c') in 0.011758 seconds 
+  Import took 0.014514 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000109 seconds.
+  path: Assets/Animations/Glum/Idle/8.png
+  artifactKey: Guid(9a1c36aa8aade5947a5184cf9c35373a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/8.png using Guid(9a1c36aa8aade5947a5184cf9c35373a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4874223811be7f484c331315ee7c2437') in 0.009083 seconds 
+  Import took 0.011305 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000120 seconds.
+  path: Assets/Animations/Glum/Idle/7.png
+  artifactKey: Guid(92153e9602b41234aa38355221d7c0f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/7.png using Guid(92153e9602b41234aa38355221d7c0f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2143d9d0f3531f618d288424cf96fbcf') in 0.008794 seconds 
+  Import took 0.011385 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 103.147549 seconds.
+  path: Assets/Animations/Glum/Idle/1a.png
+  artifactKey: Guid(4596b01917e912b4cad0f810c7b33bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/1a.png using Guid(4596b01917e912b4cad0f810c7b33bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b2aabe04ec5c507a1b1781bd2ea2743') in 0.010503 seconds 
+  Import took 0.013883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000127 seconds.
+  path: Assets/Animations/Glum/Idle/2a.png
+  artifactKey: Guid(e859b713771701a49a6513a3de48c8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/2a.png using Guid(e859b713771701a49a6513a3de48c8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '181bcef97d4cb096cd7c0d541057d8f5') in 0.009419 seconds 
+  Import took 0.043190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000144 seconds.
+  path: Assets/Animations/Glum/Idle/3a.png
+  artifactKey: Guid(bdf0298bf7737d54b852fef381802cb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/3a.png using Guid(bdf0298bf7737d54b852fef381802cb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1726872e658e956f1f149b3afebed32f') in 0.010634 seconds 
+  Import took 0.013154 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/Animations/Glum/Idle/3b.png
+  artifactKey: Guid(3298c4aa9ffc06a4cbc4bbd1209fc965) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Idle/3b.png using Guid(3298c4aa9ffc06a4cbc4bbd1209fc965) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be73b95383d6c16b015e3dcdf489f68d') in 0.009517 seconds 
+  Import took 0.011849 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003232 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.775 seconds
+Domain Reload Profiling:
+	ReloadAssembly (776ms)
+		BeginReloadAssembly (103ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (624ms)
+			LoadAssemblies (76ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (211ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (32ms)
+			SetupLoadedEditorAssemblies (237ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (149ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.47 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2229 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 100.6 MB.
+System memory in use after: 100.7 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2706.
+Total: 2.842800 ms (FindLiveObjects: 0.198400 ms CreateObjectMapping: 0.053800 ms MarkObjects: 2.568200 ms  DeleteObjects: 0.021200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4216.261415 seconds.
+  path: Assets/Animations/Glum/Walk
+  artifactKey: Guid(f2f4957967b2a954ca413aa5cee54c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Walk using Guid(f2f4957967b2a954ca413aa5cee54c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1389aa637c41cb28cb63212cc7d927ff') in 0.024114 seconds 
+  Import took 0.039533 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.877865 seconds.
+  path: Assets/Animations/Glum/Walk/1.png
+  artifactKey: Guid(da0cdcce38fd22c47bd4846921a5affc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Walk/1.png using Guid(da0cdcce38fd22c47bd4846921a5affc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85bfe4679896512726feebbf71abda4c') in 0.059287 seconds 
+  Import took 0.068089 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/Animations/Glum/Walk/4.png
+  artifactKey: Guid(e3347a2b2f514b149885e7948f5e4150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Walk/4.png using Guid(e3347a2b2f514b149885e7948f5e4150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66701bb7d881d0fd2010b4048ed1ef2c') in 0.012825 seconds 
+  Import took 0.016737 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/Animations/Glum/Walk/2.png
+  artifactKey: Guid(0e7f578b6bd7ea8478bf5d8fc7f60e46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Walk/2.png using Guid(0e7f578b6bd7ea8478bf5d8fc7f60e46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8375db659abfa648e902b1dcd0bd5e6') in 0.011339 seconds 
+  Import took 0.013779 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/Animations/Glum/Walk/3.png
+  artifactKey: Guid(bf099fde09ffb344ab3da8348333e5b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Walk/3.png using Guid(bf099fde09ffb344ab3da8348333e5b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9a1a5de0459586afded7c70a8d65f2a') in 0.014188 seconds 
+  Import took 0.024948 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005554 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.874 seconds
+Domain Reload Profiling:
+	ReloadAssembly (874ms)
+		BeginReloadAssembly (206ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (68ms)
+		EndReloadAssembly (620ms)
+			LoadAssemblies (95ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (219ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (224ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (63ms)
+				ProcessInitializeOnLoadAttributes (140ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2229 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 100.7 MB.
+System memory in use after: 100.8 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2713.
+Total: 3.783500 ms (FindLiveObjects: 0.337200 ms CreateObjectMapping: 0.075400 ms MarkObjects: 3.348700 ms  DeleteObjects: 0.021100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003393 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.93 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.809 seconds
+Domain Reload Profiling:
+	ReloadAssembly (809ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (669ms)
+			LoadAssemblies (76ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (222ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (262ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (156ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2229 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 100.7 MB.
+System memory in use after: 100.8 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2715.
+Total: 2.393400 ms (FindLiveObjects: 0.183800 ms CreateObjectMapping: 0.044700 ms MarkObjects: 2.149900 ms  DeleteObjects: 0.014400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 82.243114 seconds.
+  path: Assets/Animations/Glum/Walk/Walk.anim
+  artifactKey: Guid(1a291b7114c5ad54a9eba2fa23edecef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Walk/Walk.anim using Guid(1a291b7114c5ad54a9eba2fa23edecef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25f9f63453259c436fdc04c746a517d9') in 0.011535 seconds 
+  Import took 0.034796 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.631760 seconds.
+  path: Assets/Animations/Glum/Walk/1.controller
+  artifactKey: Guid(a6941a0ac16086144a4ab2b5faed0b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Glum/Walk/1.controller using Guid(a6941a0ac16086144a4ab2b5faed0b50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f12e14b771fc78782a1b3e374493e9a') in 0.002740 seconds 
+  Import took 0.006483 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003579 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.943 seconds
+Domain Reload Profiling:
+	ReloadAssembly (943ms)
+		BeginReloadAssembly (89ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (26ms)
+		EndReloadAssembly (806ms)
+			LoadAssemblies (73ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (202ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (329ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (229ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (16ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (88ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.55 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2229 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 100.7 MB.
+System memory in use after: 100.9 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2717.
+Total: 2.464600 ms (FindLiveObjects: 0.199300 ms CreateObjectMapping: 0.050800 ms MarkObjects: 2.198700 ms  DeleteObjects: 0.014800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

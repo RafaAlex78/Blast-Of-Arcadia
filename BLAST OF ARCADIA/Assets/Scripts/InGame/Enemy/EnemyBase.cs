@@ -64,13 +64,13 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
     private void Drop()
     {
-        _gm.NumberOfEnemies--;
         _gm.CreateInstance(_weaponDrop);
         Instantiate(_soulFragmentPrefab, transform.position, transform.rotation);
     }
 
     public void TakeDemage(float amount)
     {
+        StartCoroutine(ChangeColor());
         if(_weakness == HitElement)
         {
             _hP -= amount * 2f;
@@ -87,7 +87,15 @@ public class EnemyBase : MonoBehaviour, IDamageable
             _hP = 100;
         }
     }
-     IEnumerator Dps(int applyDamageNTimes, float damage, float perTime)
+    IEnumerator ChangeColor()
+    {
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = Color.white;
+
+    }
+    IEnumerator Dps(int applyDamageNTimes, float damage, float perTime)
     {
         int appliedTimes = 0;
         while (appliedTimes < applyDamageNTimes)

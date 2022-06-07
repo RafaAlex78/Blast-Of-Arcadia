@@ -7,13 +7,16 @@ public class Slime : EnemyBase
 {
     [Header("State")]
     [SerializeField] EnemyState _currenState = EnemyState.Patrol;
+    private Rigidbody2D _rb;
+    private Animator _animator;
     public EnemyState CurrenState { get => _currenState; set => _currenState = value; }
 
     private void Start()
     {
     
          _soulFragmentPrefab.GetComponent<SoulFragments>().SoulFragment = Random.Range(1, 5);
-        
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -27,6 +30,7 @@ public class Slime : EnemyBase
                 break;
         
         }
+       
 
     }
     public enum EnemyState
@@ -48,7 +52,7 @@ public class Slime : EnemyBase
     }
     private void Chase()
     {
-       
+       _animator.SetBool("CanChase",true);
         transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
         Vector2 dir = _player.transform.position - transform.position;
         transform.up = dir;
@@ -73,13 +77,14 @@ public class Slime : EnemyBase
             Speed = Speed / 6;
 
         }
+        _animator.SetTrigger("Attack");
+
         yield return new WaitForSeconds(_timeToAttack);
         float distance = Vector2.Distance(transform.position, _player.transform.position);
-
         
         if (Vector2.Angle(transform.position, _player.transform.position) <= _angle && distance <= _attackRange)
         {
-
+            Debug.Log("damage");
             _player.GetComponent<IDamageable>()?.TakeDemage(_damage);
         }
         yield return new WaitForSeconds(0.8f);

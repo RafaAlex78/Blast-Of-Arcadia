@@ -14,11 +14,9 @@ public class GameManager : MonoBehaviour
     private bool _shopOpen=false;
     private bool _isPaused= false;
     private bool _inventoryOpen = false;
-    private int _numberOfEnemies=2;
 
     public bool IsPaused { get => _isPaused; set => _isPaused = value; }
     public UIManager Ui { get => _ui; set => _ui = value; }
-    public int NumberOfEnemies { get => _numberOfEnemies; set => _numberOfEnemies = value; }
     public Inventory Inventory { get => _inventory; set => _inventory = value; }
     public bool InventoryOpen { get => _inventoryOpen; set => _inventoryOpen = value; }
     public bool ShopOpen { get => _shopOpen; set => _shopOpen = value; }

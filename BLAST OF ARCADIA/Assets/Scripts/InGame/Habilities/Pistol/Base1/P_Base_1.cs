@@ -7,7 +7,7 @@ public class P_Base_1 : MonoBehaviour
 {
     private float _damage;
     private float _distance;
-    private Vector2 _playerPos;
+    private Vector2 _pistolPos;
 
     public enum element
     {
@@ -21,7 +21,7 @@ public class P_Base_1 : MonoBehaviour
     [SerializeField] private element _weaponElement;
 
     public float Damage { get => _damage; set => _damage = value; }
-    public Vector2 PlayerPos { get => _playerPos; set => _playerPos = value; }
+    public Vector2 PistolPos { get => _pistolPos; set => _pistolPos = value; }
     public element WeaponElement { get => _weaponElement; set => _weaponElement = value; }
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class P_Base_1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _distance = Vector2.Distance(PlayerPos, transform.position);
+        _distance = Vector2.Distance(PistolPos, transform.position);
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,7 +58,7 @@ public class P_Base_1 : MonoBehaviour
                     break;
             }
             
-            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage+_distance);
+            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage+(_distance*2));
             Destroy(gameObject);
 
         }
@@ -67,32 +67,5 @@ public class P_Base_1 : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("1");
-        if (other.CompareTag("Enemy"))
-        {
-            switch (WeaponElement)
-            {
-                case element.None:
-                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.None;
-                    break;
-                case element.Fire:
-                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Fire;
-                    break;
-                case element.Ice:
-                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Ice;
-                    break;
-                case element.Poison:
-                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Poison;
-                    break;
-                case element.Lightning:
-                    other.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Lightning;
-                    break;
-            }
-
-            other.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage + _distance);
-
-        }
-    }
+   
 }

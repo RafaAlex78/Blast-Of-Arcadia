@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _TypeCristalGain;
     [SerializeField] private GameObject _TypeCristalCost;
 
+    
+
 
     public GameObject Inventory { get => _inventory; set => _inventory = value; }
     public GameObject TypeCristalGain { get => _TypeCristalGain; set => _TypeCristalGain = value; }
@@ -32,6 +34,11 @@ public class UIManager : MonoBehaviour
     public void UpdateSFToUI(int newSF)
     {
         _soulFragmentsText.text = newSF.ToString();
+
+        if(_soulFragmentsText.text== "ola")
+        {
+
+        }
     }
     public void UpdateCristals(int type,int number)
     {
