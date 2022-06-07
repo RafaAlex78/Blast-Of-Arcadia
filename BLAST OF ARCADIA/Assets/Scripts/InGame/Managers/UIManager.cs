@@ -25,6 +25,10 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        if (_cristals.Count ==2)
+        {
+            Debug.Log("maybe é isto");
+        }
         Inventory.SetActive(false);
     }
     public void ReloadScene()

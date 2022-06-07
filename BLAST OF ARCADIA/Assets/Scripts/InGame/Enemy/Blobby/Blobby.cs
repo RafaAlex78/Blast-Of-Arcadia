@@ -89,7 +89,7 @@ public class Blobby : EnemyBase
         yield return new WaitForSeconds(0.5f);
         if (distance <= _attackRange)
         {
-
+            
             GameObject projectile = Instantiate(_arrow, transform.position, transform.rotation);
             projectile.GetComponent<Blobby_Projectile>().Damage = _damage;
             Rigidbody2D ArrowRB = projectile.GetComponent<Rigidbody2D>();

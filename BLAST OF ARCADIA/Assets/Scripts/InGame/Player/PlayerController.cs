@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             }
             if(_equippedWeapon.WeaponType == Type.Sword)
             {
+
                 _animator.SetBool("PistolEquipped", false);
                 _animator.SetBool("SwordEquipped", true);
             }

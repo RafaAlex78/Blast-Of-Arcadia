@@ -11,6 +11,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] protected float _damage;
     [SerializeField] protected float _attackRange;
     [SerializeField] protected float _targetRange;
+
+    //Glum unico com isto implementado
+    //Alterar outros quando houver tempo
+    [SerializeField] protected float _startAttack;
     [SerializeField] protected float _angle;
     [SerializeField] protected bool _canAttack = true;
     [SerializeField] protected bool _loseSpeedOnAttack;
@@ -46,6 +50,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         Gizmos.DrawWireSphere(transform.position, _targetRange);
         Gizmos.DrawWireSphere(transform.position, _attackRange);
+        Gizmos.DrawWireSphere(transform.position, _startAttack);
         Vector2 line = transform.up * _attackRange;
         Vector2 rotateLeftLine = Quaternion.AngleAxis(_angle / 2, transform.forward) * line;
         Vector2 rotateRightLine = Quaternion.AngleAxis(-_angle / 2, transform.forward) * line;
@@ -59,12 +64,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
     public void Die()
     {
+
         Drop();
         Destroy(gameObject);
     }
     private void Drop()
     {
-        _gm.CreateInstance(_weaponDrop);
+
+        //_gm.CreateInstance(_weaponDrop);
         Instantiate(_soulFragmentPrefab, transform.position, transform.rotation);
     }
 
@@ -82,7 +89,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
         }
 
         if (_hP <=0)
-        {            
+        {
+            Debug.Log(_weaponDrop);
+
             Die();
             _hP = 100;
         }
