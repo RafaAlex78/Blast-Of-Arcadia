@@ -145,11 +145,17 @@ public class StoreManager : MonoBehaviour
             }
             else
             {
+                RectTransform rect = _gm.Ui.TypeCristalGain.GetComponent<RectTransform>();
+                rect.sizeDelta = new Vector2(50, 50);
+
                 _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
                 _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[0];
                 _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text="+ "+ cristalsToGain.ToString(); 
 
             }
+            RectTransform rect2 = _gm.Ui.TypeCristalCost.GetComponent<RectTransform>();
+            rect2.sizeDelta = new Vector2(50, 50);
+
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[0];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text="- "+ cristalsNeeded.ToString();
         }
@@ -161,11 +167,17 @@ public class StoreManager : MonoBehaviour
             }
             else
             {
+                RectTransform rect = _gm.Ui.TypeCristalGain.GetComponent<RectTransform>();
+                rect.sizeDelta = new Vector2(50, 50);
+
                 _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
                 _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[1];
                 _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
 
             }
+            RectTransform rect2 = _gm.Ui.TypeCristalCost.GetComponent<RectTransform>();
+            rect2.sizeDelta = new Vector2(50, 50);
+
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[1];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
 
@@ -176,14 +188,17 @@ public class StoreManager : MonoBehaviour
             {
                 _gm.Ui.TypeCristalGain.gameObject.SetActive(false);
             }
-            
-            
+            else
+            {
                 _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
+                RectTransform rect = _gm.Ui.TypeCristalGain.GetComponent<RectTransform>();
+                rect.sizeDelta = new Vector2(50, 50);
                 _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[2];
                 _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
 
-            
-
+            }
+            RectTransform rect2 = _gm.Ui.TypeCristalCost.GetComponent<RectTransform>();
+            rect2.sizeDelta = new Vector2(50, 50);
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[2];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
 
@@ -197,13 +212,19 @@ public class StoreManager : MonoBehaviour
             else
             {
                 _gm.Ui.TypeCristalGain.gameObject.SetActive(true);
+                RectTransform rect = _gm.Ui.TypeCristalGain.GetComponent<RectTransform>();
+                rect.sizeDelta = new Vector2(40, 97);
                 _gm.Ui.TypeCristalGain.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[3];
             _gm.Ui.TypeCristalGain.GetComponentInChildren<TMP_Text>().text = "+ " + cristalsToGain.ToString();
             }
+            RectTransform rect2 = _gm.Ui.TypeCristalCost.GetComponent<RectTransform>();
+            rect2.sizeDelta = new Vector2(40, 97);
+
             _gm.Ui.TypeCristalCost.GetComponent<Image>().sprite = _gm.Ui.CristalsImage[3];
             _gm.Ui.TypeCristalCost.GetComponentInChildren<TMP_Text>().text = "- " + cristalsNeeded.ToString();
 
         }
+        Debug.Log(_gm.Ui.TypeCristalCost.GetComponent<RectTransform>().sizeDelta);
     }
     public void Sell()
     {
