@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private float _maxHP = 100;
     [SerializeField] private float _actualHP;
 
+    [Header("Potions")]
+    [SerializeField] List<GameObject> _potions;
+    private int _potionsAvailable;
+
     [Header("Movement")]
     private Vector2 _moveInput;
     [SerializeField] private float _movementSpeed;
@@ -60,6 +64,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             _actualHP = _maxHP;
         }
+        _potionsAvailable = 3;
+        _gm.Ui.UpdateHpBar(_actualHP, _maxHP);
         _sideSpeed = _movementSpeed / 1.5f;
     }
 
@@ -87,6 +93,40 @@ public class PlayerController : MonoBehaviour, IDamageable
         _moveInput.y = Input.GetAxisRaw("Vertical");
         
         PlayerInputToPause();
+        if(_equippedWeapon != null)
+        { 
+        switch (_equippedWeapon.WeaponRarity)
+        {
+            case WeaponScriptableObject.Rarity.Common:
+                _gm.Ui.HablitiesImage[0].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[1].gameObject.SetActive(false);
+                _gm.Ui.HablitiesImage[2].gameObject.SetActive(false);
+                _gm.Ui.HablitiesImage[3].gameObject.SetActive(false);
+                break;
+            case WeaponScriptableObject.Rarity.Uncommon:
+                _gm.Ui.HablitiesImage[0].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[1].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[2].gameObject.SetActive(false);
+                _gm.Ui.HablitiesImage[3].gameObject.SetActive(false);
+                break;
+            case WeaponScriptableObject.Rarity.Rare:
+                _gm.Ui.HablitiesImage[0].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[1].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[2].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[3].gameObject.SetActive(false);
+                break;
+            case WeaponScriptableObject.Rarity.Legendary:
+                _gm.Ui.HablitiesImage[0].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[1].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[2].gameObject.SetActive(true);
+                _gm.Ui.HablitiesImage[3].gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+
+        
+        }
         if(_gm.CheckIsPaused() == false)
         {
             if (_equippedWeapon != null)
@@ -223,6 +263,18 @@ public class PlayerController : MonoBehaviour, IDamageable
 
             }
         }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(_potionsAvailable >0 && _actualHP!=_maxHP)
+            {
+            _actualHP += _maxHP / 4;
+            _potionsAvailable--;
+            _potions[_potionsAvailable].SetActive(false);
+                _gm.Ui.UpdateHpBar(_actualHP, _maxHP);
+
+            }
+
+        }
         
 
     }
@@ -302,6 +354,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         
         _canMove = true;
+        _gm.Ui.UpdateAblitiesCD(1, _equippedWeapon.HabilityCD);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability1 = true;
     } 
@@ -312,6 +365,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _equippedWeapon.UseBaseHability2(this, _weapomSlot.Weapon);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
+        _gm.Ui.UpdateAblitiesCD(2, _equippedWeapon.HabilityCD);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability2 = true;
     }
@@ -322,6 +376,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _equippedWeapon.UseElementalHability1(this, _weapomSlot.Weapon);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
+        _gm.Ui.UpdateAblitiesCD(3, _equippedWeapon.HabilityCD);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability3 = true;
     }IEnumerator UseAbilityFour()
@@ -329,8 +384,10 @@ public class PlayerController : MonoBehaviour, IDamageable
         _canHability4 = false;
         _canMove = false;
         _equippedWeapon.UseElementalHability2(this, _weapomSlot.Weapon);
+        
         yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
         _canMove = true;
+        _gm.Ui.UpdateAblitiesCD(4, _equippedWeapon.HabilityCD);
         yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
         _canHability4 = true;
     }
@@ -349,6 +406,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void TakeDemage(float amount)
     {
         _actualHP-=amount;
+        _gm.Ui.UpdateHpBar(_actualHP, _maxHP);
+    
         StartCoroutine(ChangeColor());
         if(_actualHP <= 0)
         {

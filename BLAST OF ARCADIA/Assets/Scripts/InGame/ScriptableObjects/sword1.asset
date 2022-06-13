@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
   m_Name: sword1
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 205f8023384c5b2499b9d43506f81304, type: 3}
+  _icon: {fileID: 21300000, guid: 59cada177a7453a4a89ff66adcdf943a, type: 3}
   _name: SWOOOD
   _damage: 5
   _range: 0.7
   _angle: 46
-  _habilityCD: 2.5
-  _habilityCastTime: 1.2
+  _habilityCD: 10.5
+  _habilityCastTime: 0.7
   _level: 5
   _weaponType: 0
-  _weaponRarity: 2
+  _weaponRarity: 3
   _weaponElement: 1
   _hability1Prefab: {fileID: 3741784157230723770, guid: 4c39c37377279bd4d882e364ca38f28d, type: 3}
   _hability2Prefab: {fileID: 8032430868629080469, guid: 3beb11ae32719c24689568181dab41c7, type: 3}
