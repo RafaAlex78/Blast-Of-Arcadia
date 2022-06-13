@@ -19,8 +19,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image _circleBar;
     [SerializeField] private Image _extraBar;
     [SerializeField] float _currentHeaklhp;
+    [SerializeField] float _maxHP;
 
-    private float _circlePercentage = 0.75f;
+    private float _circlePercentage = 1.25f;
     
 
 
@@ -78,8 +79,21 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        float healthPercentage = _currentHeaklhp / 100;
-        float circleFill = healthPercentage / _circlePercentage;
-        _circleBar.fillAmount = circleFill;
+        float healthPercentage1 = _currentHeaklhp / (_maxHP/4*3);
+        float healthPercentage2 = _currentHeaklhp / (_maxHP / 4);
+        if(_currentHeaklhp <= _maxHP / 4 * 3)
+        {
+        _extraBar.fillAmount = healthPercentage1;
+            _circleBar.fillAmount = 0;
+        }
+        if(_currentHeaklhp>= _maxHP / 4 * 3)
+        {
+            _extraBar.fillAmount = 1;
+            _circleBar.fillAmount = _currentHeaklhp / (_maxHP*2);
+        }
+        Debug.Log(_currentHeaklhp / _maxHP / 4 );
+        Debug.Log(_currentHeaklhp >= _maxHP / 4 * 3);
+        //float circleFill = healthPercentage / _circlePercentage;
+        
     }
 }
