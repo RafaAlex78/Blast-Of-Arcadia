@@ -81,18 +81,37 @@ public class UIManager : MonoBehaviour
     {
         float healthPercentage1 = _currentHeaklhp / (_maxHP/4*3);
         float healthPercentage2 = _currentHeaklhp / (_maxHP / 4);
-        if(_currentHeaklhp <= _maxHP / 4 * 3)
+        if(_currentHeaklhp <= _maxHP * 0.75f)
         {
         _extraBar.fillAmount = healthPercentage1;
             _circleBar.fillAmount = 0;
         }
-        if(_currentHeaklhp>= _maxHP / 4 * 3)
+        if(_currentHeaklhp>= _maxHP * 0.75f)
         {
+           
             _extraBar.fillAmount = 1;
-            _circleBar.fillAmount = _currentHeaklhp / (_maxHP*2);
+            Debug.Log((_currentHeaklhp - _maxHP*0.75f) / 25);
+
+            _circleBar.fillAmount = (((_currentHeaklhp - _maxHP * 0.75f) / (_maxHP*0.25f))* 0.75f)+ 0.25f;
+            //(_currentHeaklhp - 0.75f) * 0.25
+
+
+            /*        float bar1full = (_maxHP / 4) * 3;
+                float bar2MaxHp = _maxHP - bar1full;
+
+                _circleBar.fillAmount = 0.25f+((_currentHeaklhp -bar1full)/bar2MaxHp);
+            Debug.Log((_currentHeaklhp - bar1full) / bar2MaxHp);
+            Debug.Log((_currentHeaklhp - bar1full) / bar2MaxHp);*/
         }
-        Debug.Log(_currentHeaklhp / _maxHP / 4 );
-        Debug.Log(_currentHeaklhp >= _maxHP / 4 * 3);
+        /*
+        1 - 25
+        x - currenthp- maxhp*0.75(0.14) 
+
+        1 - 0.75
+        x - currenthp
+
+        */
+
         //float circleFill = healthPercentage / _circlePercentage;
         
     }
