@@ -17,15 +17,15 @@ MonoBehaviour:
   _damage: 5
   _range: 5
   _angle: 0
-  _habilityCD: 15
-  _habilityCastTime: 0.5
+  _habilityCD: 10
+  _habilityCastTime: 0.2
   _level: 1
   _weaponType: 1
-  _weaponRarity: 1
+  _weaponRarity: 3
   _weaponElement: 2
   _pistolBullet: {fileID: 4522093662352460384, guid: e5ca7664e240a0b47a659640732f48ee, type: 3}
   _hability1Prefab: {fileID: 2432028131487857452, guid: acdbde6d2c753ef44b027d7b2594d761, type: 3}
   _hability2Prefab: {fileID: 761994832760160424, guid: d404a2264501c0f43ad9c65547faf2cf, type: 3}
   _hability3Prefab: {fileID: 9136439564962749644, guid: 7a86993f108501d4baa162b50465b10b, type: 3}
   _hability4Prefab: {fileID: 6654106657234403095, guid: 028083a8c54c8564bb23450c525ef445, type: 3}
-  _shootCount: 5
+  _shootCount: 2
