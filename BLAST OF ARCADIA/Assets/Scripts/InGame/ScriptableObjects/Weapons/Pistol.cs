@@ -7,6 +7,7 @@ using UnityEngine;
 public class Pistol : WeaponScriptableObject
 {
     [SerializeField] private GameObject _pistolBullet;
+    [SerializeField] private GameObject _pistolBullet2;
     [SerializeField] private GameObject _hability1Prefab;
     [SerializeField] private GameObject _hability2Prefab;
     [SerializeField] private GameObject _hability3Prefab;
@@ -20,14 +21,17 @@ public class Pistol : WeaponScriptableObject
     }
     public override void UseWeapon(PlayerController player,WeaponInstance weaponInstance)
     {
-        GameObject newBullet = Instantiate(_pistolBullet, player.PistolPos.position, player.PistolPos.rotation);
-        newBullet.GetComponent<Pistol_Bullet>().Range = Range;
-        newBullet.GetComponent<Pistol_Bullet>().PistolPos = player.PistolPos.position;
-        Rigidbody2D bulletRB = newBullet.GetComponent<Rigidbody2D>();
-        bulletRB.velocity = newBullet.transform.up * 5;
-        Pistol_Bullet bull = newBullet.GetComponent<Pistol_Bullet>();
+        
+        
+        
         if (_shootCount< 5)
         {
+            GameObject newBullet = Instantiate(_pistolBullet, player.PistolPos.position, player.PistolPos.rotation);
+            newBullet.GetComponent<Pistol_Bullet>().Range = Range;
+            newBullet.GetComponent<Pistol_Bullet>().PistolPos = player.PistolPos.position;
+            Rigidbody2D bulletRB = newBullet.GetComponent<Rigidbody2D>();
+            bulletRB.velocity = newBullet.transform.up * 5;
+            Pistol_Bullet bull = newBullet.GetComponent<Pistol_Bullet>();
             player.AttackCD = 0.3f;
             _shootCount++;
            
@@ -60,6 +64,12 @@ public class Pistol : WeaponScriptableObject
         }
         else
         {
+            GameObject newBullet = Instantiate(_pistolBullet2, player.PistolPos.position, player.PistolPos.rotation);
+            newBullet.GetComponent<Pistol_Bullet>().Range = Range;
+            newBullet.GetComponent<Pistol_Bullet>().PistolPos = player.PistolPos.position;
+            Rigidbody2D bulletRB = newBullet.GetComponent<Rigidbody2D>();
+            bulletRB.velocity = newBullet.transform.up * 5;
+            Pistol_Bullet bull = newBullet.GetComponent<Pistol_Bullet>();
             switch (WeaponElement)
             {
                 case Element.None:
