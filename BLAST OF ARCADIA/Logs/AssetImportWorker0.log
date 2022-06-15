@@ -652,3 +652,4 @@ Received Import Request.
 Start importing Assets/Images/Walls/Rectangular Palette.prefab using Guid(61dc18ffd6335dd4c9d913d908ac8ab2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee38f53baf4de45fa6bdbb7f0c4fe823') in 0.014530 seconds 
   Import took 0.017311 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
