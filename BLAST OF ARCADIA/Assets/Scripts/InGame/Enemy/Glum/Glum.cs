@@ -12,6 +12,7 @@ public class Glum : EnemyBase
 
     private void Start()
     {
+        _gm = GameManager.instance;
 
         _soulFragmentPrefab.GetComponent<SoulFragments>().SoulFragment = Random.Range(1, 5);
         _rb = GetComponent<Rigidbody2D>();

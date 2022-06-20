@@ -12,7 +12,10 @@ public class P_Elemental_1 : MonoBehaviour
     private bool _collided =false;
     private float _timer1 = 0;
     private float _timer2 = 0;
+    private bool _gotBigger =false;
+    private Animator _animator;
     [SerializeField] private element _weaponElement;
+    [SerializeField] private GameObject _circle;
 
     public enum element
     {
@@ -51,11 +54,21 @@ public class P_Elemental_1 : MonoBehaviour
             Destroy(transform.parent.gameObject);
 
         }
+        //if(_gotBigger)
+        //{
+        //    transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * 500);
+
+
+        //}
+    }
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
     }
     private void Bigger()
     {
-        gameObject.transform.localScale = new Vector3(4, 4, 1);
-
+        //gameObject.transform.localScale = new Vector3(2, 2, 1);
+        //_gotBigger=true;
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,7 +76,10 @@ public class P_Elemental_1 : MonoBehaviour
 
         if (collision.CompareTag("Enemy"))
         {
-            Bigger();
+            //Bigger();
+            this.GetComponent<CircleCollider2D>().radius = 6.8f;
+            _circle.SetActive(true);
+            _animator.SetBool("Start", true);
             _collided = true;
             collision.GetComponent<EnemyBase>().Speed = collision.GetComponent<EnemyBase>().Speed / 2;
             switch (WeaponElement)

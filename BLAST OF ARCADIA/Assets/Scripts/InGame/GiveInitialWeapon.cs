@@ -7,6 +7,8 @@ public class GiveInitialWeapon : MonoBehaviour
 
     private GameManager _gm;
     [SerializeField] WeaponScriptableObject _startWeapon;
+    [SerializeField] TutorialManager _tM;
+    
     private void Start()
     {
         _gm = GameManager.instance;
@@ -17,7 +19,9 @@ public class GiveInitialWeapon : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             _gm.CreateInstance(_startWeapon);
-          //  Destroy(gameObject);
+            Destroy(gameObject);
+            _tM.Info2.SetActive(true);
+            _gm.IsPaused = true;
         }
     }
 }

@@ -45,6 +45,8 @@ public class S_Element_Hab2 : MonoBehaviour
         
         if (_expended)
         {
+            transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * -500);
+
             _timer2 += Time.deltaTime;
 
         }
@@ -56,7 +58,7 @@ public class S_Element_Hab2 : MonoBehaviour
     private void Bigger()
     {
         _expended = true;
-        gameObject.transform.localScale = new Vector3(7, 7, 1);
+        gameObject.transform.localScale = new Vector3(1.5f, 1.5f, -1);
         GetComponent<Rigidbody2D>().velocity = transform.up * 0;
 
 

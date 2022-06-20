@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private GameManager _gm;
     private Animator _animator;
     [SerializeField] private Transform _pistolPos;
+    [SerializeField] private TutorialManager _tutorial;
 
 
     [Header("conditions")]
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public float AttackCD { get => _attackCD; set => _attackCD = value; }
     public Transform PistolPos { get => _pistolPos; }
+    public WeaponScriptableObject EquippedWeapon { get => _equippedWeapon; set => _equippedWeapon = value; }
 
     private void Awake()
     {
@@ -72,16 +74,16 @@ public class PlayerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-
+        _moveInput.Normalize();
         if(_weapomSlot.Weapon != null)
         {
-        _equippedWeapon = _weapomSlot.Weapon.Weapon;
-            if(_equippedWeapon.WeaponType ==Type.Pistol)
+        EquippedWeapon = _weapomSlot.Weapon.Weapon;
+            if(EquippedWeapon.WeaponType ==Type.Pistol)
             {
                 _animator.SetBool("PistolEquipped", true);
                 _animator.SetBool("SwordEquipped", false);
             }
-            if(_equippedWeapon.WeaponType == Type.Sword)
+            if(EquippedWeapon.WeaponType == Type.Sword)
             {
 
                 _animator.SetBool("PistolEquipped", false);
@@ -93,9 +95,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         _moveInput.y = Input.GetAxisRaw("Vertical");
         
         PlayerInputToPause();
-        if(_equippedWeapon != null)
+        if(EquippedWeapon != null)
         { 
-        switch (_equippedWeapon.WeaponRarity)
+        switch (EquippedWeapon.WeaponRarity)
         {
             case WeaponScriptableObject.Rarity.Common:
                 _gm.Ui.HablitiesImage[0].gameObject.SetActive(true);
@@ -129,7 +131,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         if(_gm.CheckIsPaused() == false)
         {
-            if (_equippedWeapon != null)
+            if (EquippedWeapon != null)
             {
                 PlayerInput();
             }
@@ -161,12 +163,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private void OnDrawGizmos()
     {
-        if (_equippedWeapon != null)
+        if (EquippedWeapon != null)
         {
-        Gizmos.DrawWireSphere(transform.position, _equippedWeapon.Range);
-        Vector2 line = transform.up * _equippedWeapon.Range;
-        Vector2 rotateLeftLine = Quaternion.AngleAxis(_equippedWeapon.Angle / 2, transform.forward) * line;
-        Vector2 rotateRightLine = Quaternion.AngleAxis(-_equippedWeapon.Angle / 2, transform.forward) * line;
+        Gizmos.DrawWireSphere(transform.position, EquippedWeapon.Range);
+        Vector2 line = transform.up * EquippedWeapon.Range;
+        Vector2 rotateLeftLine = Quaternion.AngleAxis(EquippedWeapon.Angle / 2, transform.forward) * line;
+        Vector2 rotateRightLine = Quaternion.AngleAxis(-EquippedWeapon.Angle / 2, transform.forward) * line;
 
         Debug.DrawRay(transform.position, rotateRightLine, Color.blue);
         Debug.DrawRay(transform.position, rotateLeftLine, Color.blue);
@@ -178,7 +180,10 @@ public class PlayerController : MonoBehaviour, IDamageable
         if(_canMove)
         {
             Movement();
-
+            if(_moveInput== Vector2.zero)
+            {
+                _rigidbody.angularVelocity = 0;
+            }
         }
 
     }
@@ -209,13 +214,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if(_canAttack && _equippedWeapon is Pistol)
+            if(_canAttack && EquippedWeapon is Pistol)
             {
                 _canAttack = false;
-                _equippedWeapon.UseWeapon(this, _weapomSlot.Weapon);
+                EquippedWeapon.UseWeapon(this, _weapomSlot.Weapon);
                 _animator.SetTrigger("Shoot");
             }
-            if(_canAttack && _equippedWeapon is Sword)
+            if(_canAttack && EquippedWeapon is Sword)
             {
                 _canAttack = false;
                 StartCoroutine(SwordAttack());
@@ -239,7 +244,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (_canHability2 &&  _equippedWeapon.WeaponRarity != WeaponScriptableObject.Rarity.Common)
+            if (_canHability2 &&  EquippedWeapon.WeaponRarity != WeaponScriptableObject.Rarity.Common)
             {
                 StartCoroutine(UseAbilityTwo());
 
@@ -247,7 +252,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (_canHability3 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare || _canHability3 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
+            if (_canHability3 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare || _canHability3 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
             {
                 StartCoroutine(UseAbilityThree());
 
@@ -256,7 +261,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (_canHability4 && _equippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
+            if (_canHability4 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
             {
                 StartCoroutine(UseAbilityFour());
 
@@ -282,7 +287,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _animator.SetTrigger("Shoot");
         yield return new WaitForSeconds(0.3f);
-        _equippedWeapon.UseWeapon(this, _weapomSlot.Weapon);
+        EquippedWeapon.UseWeapon(this, _weapomSlot.Weapon);
 
     }
     private void PlayerInputToPause()
@@ -345,50 +350,50 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _canHability1 = false;
         _canMove = false;
-        _equippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
-        if(_equippedWeapon is Sword)
+        EquippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
+        if(EquippedWeapon is Sword)
         {
             yield return new WaitForSeconds(0.2f);
-            _equippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
+            EquippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
         }  
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
         
         _canMove = true;
-        _gm.Ui.UpdateAblitiesCD(1, _equippedWeapon.HabilityCD);
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
+        _gm.Ui.UpdateAblitiesCD(1, EquippedWeapon.HabilityCD);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
         _canHability1 = true;
     } 
     IEnumerator UseAbilityTwo()
     {
         _canHability2 = false;
         _canMove = false;
-        _equippedWeapon.UseBaseHability2(this, _weapomSlot.Weapon);
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
+        EquippedWeapon.UseBaseHability2(this, _weapomSlot.Weapon);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
         _canMove = true;
-        _gm.Ui.UpdateAblitiesCD(2, _equippedWeapon.HabilityCD);
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
+        _gm.Ui.UpdateAblitiesCD(2, EquippedWeapon.HabilityCD);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
         _canHability2 = true;
     }
     IEnumerator UseAbilityThree()
     {
         _canHability3 = false;
         _canMove = false;
-        _equippedWeapon.UseElementalHability1(this, _weapomSlot.Weapon);
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
+        EquippedWeapon.UseElementalHability1(this, _weapomSlot.Weapon);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
         _canMove = true;
-        _gm.Ui.UpdateAblitiesCD(3, _equippedWeapon.HabilityCD);
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
+        _gm.Ui.UpdateAblitiesCD(3, EquippedWeapon.HabilityCD);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
         _canHability3 = true;
     }IEnumerator UseAbilityFour()
     {
         _canHability4 = false;
         _canMove = false;
-        _equippedWeapon.UseElementalHability2(this, _weapomSlot.Weapon);
+        EquippedWeapon.UseElementalHability2(this, _weapomSlot.Weapon);
         
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCastTime);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
         _canMove = true;
-        _gm.Ui.UpdateAblitiesCD(4, _equippedWeapon.HabilityCD);
-        yield return new WaitForSeconds(_equippedWeapon.HabilityCD);
+        _gm.Ui.UpdateAblitiesCD(4, EquippedWeapon.HabilityCD);
+        yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
         _canHability4 = true;
     }
     IEnumerator Dash()
@@ -433,6 +438,28 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             ICollectable collectable = collision.transform.GetComponent<ICollectable>();
             collectable.Collect(this);
+        }
+        if(collision.gameObject.name== "ShowInfo3")
+        {
+            _tutorial.Info3.SetActive(true);
+            _gm.IsPaused = true;
+            Destroy(collision.gameObject);
+        } 
+        if(collision.gameObject.name== "ShowInfo4")
+        {
+            _tutorial.Info4.SetActive(true);
+            _gm.IsPaused = true;
+            Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.name== "ShowInfo5")
+        {
+            _tutorial.Info5.SetActive(true);
+            _gm.IsPaused = true;
+            Destroy(collision.gameObject);
+        }  
+        if(collision.gameObject.name== "Load Scene")
+        {
+            _gm.Ui.EndTutorial();
         }
     }
 

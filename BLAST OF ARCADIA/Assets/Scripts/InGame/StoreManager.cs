@@ -19,6 +19,11 @@ public class StoreManager : MonoBehaviour
     private void Start()
     {
         _gm = GameManager.instance;
+        _gm.Inventory.Cristals.Add(Inventory.CristalType.Common, 0);
+        _gm.Inventory.Cristals.Add(Inventory.CristalType.Uncommon, 0);
+        _gm.Inventory.Cristals.Add(Inventory.CristalType.Rare, 0);
+        _gm.Inventory.Cristals.Add(Inventory.CristalType.Legendary, 0);
+      
 
     }
     public void GiveCristals(WeaponInstance weaponInstance)

@@ -13,8 +13,9 @@ public class Slime : EnemyBase
 
     private void Start()
     {
-    
-         _soulFragmentPrefab.GetComponent<SoulFragments>().SoulFragment = Random.Range(1, 5);
+        _gm = GameManager.instance;
+
+        _soulFragmentPrefab.GetComponent<SoulFragments>().SoulFragment = Random.Range(1, 5);
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }

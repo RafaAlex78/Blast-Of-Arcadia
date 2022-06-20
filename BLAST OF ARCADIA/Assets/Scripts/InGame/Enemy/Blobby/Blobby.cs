@@ -20,6 +20,8 @@ public class Blobby : EnemyBase
 
     private void Start()
     {
+        _gm = GameManager.instance;
+
         _soulFragmentPrefab.GetComponent<SoulFragments>().SoulFragment = Random.Range(3, 10);
     
     }

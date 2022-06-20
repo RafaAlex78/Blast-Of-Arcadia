@@ -173,4 +173,8 @@ public class UIManager : MonoBehaviour
                base.Equals(obj) &&
                EqualityComparer<List<Image>>.Default.Equals(_hablitiesImage, manager._hablitiesImage);
     }
+    public void EndTutorial()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }

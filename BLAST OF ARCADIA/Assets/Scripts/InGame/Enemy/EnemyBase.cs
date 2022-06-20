@@ -58,10 +58,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
         Debug.DrawRay(transform.position, rotateRightLine, Color.blue);
         Debug.DrawRay(transform.position, rotateLeftLine, Color.blue);
     }
-    private void Awake()
-    {
-        _gm = GameManager.instance;
-    }
+   
+    
     public void Die()
     {
 
@@ -70,8 +68,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
     private void Drop()
     {
-
-        //_gm.CreateInstance(_weaponDrop);
+        Debug.Log(_weaponDrop);
+        _gm.CreateInstance(_weaponDrop);
         Instantiate(_soulFragmentPrefab, transform.position, transform.rotation);
     }
 
