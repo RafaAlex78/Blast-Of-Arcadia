@@ -133,7 +133,9 @@ MonoBehaviour:
   _timeToAttack: 0.5
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
-  _weaponDrop: {fileID: 11400000, guid: 50dccbe53d46d3e43b682db733e3166d, type: 2}
+  _weaponDtrop: {fileID: 8100568549401784789, guid: b93c98f8067940a46ba4f4b598e53c3e, type: 3}
+  _weaponsDrop:
+  - {fileID: 11400000, guid: b3c1f5a3be732af4f8e8a884ff323fe9, type: 2}
   _player: {fileID: 0}
   _currenState: 0
 --- !u!61 &831019841642760845

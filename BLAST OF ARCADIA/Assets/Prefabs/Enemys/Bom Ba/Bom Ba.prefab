@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6709277632136819290
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,8 @@ MonoBehaviour:
   _timeToAttack: 0
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
-  _weaponDrop: {fileID: 11400000, guid: 50dccbe53d46d3e43b682db733e3166d, type: 2}
+  _weaponDtrop: {fileID: 8100568549401784789, guid: b93c98f8067940a46ba4f4b598e53c3e, type: 3}
+  _weaponsDrop: []
   _player: {fileID: 0}
   _currenState: 0
   _explosionRadious: 3.5

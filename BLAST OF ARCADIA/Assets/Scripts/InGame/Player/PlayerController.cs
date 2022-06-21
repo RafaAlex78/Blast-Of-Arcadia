@@ -461,6 +461,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             _gm.Ui.EndTutorial();
         }
+        if(collision.gameObject.name == "EnterDungeon")
+        {
+            _gm.Ui.EnterDungeon.SetActive(true);
+            _gm.IsPaused=true;
+        }
+        if(collision.gameObject.name == "Exit")
+        {
+            _gm.Ui.ExitDungeon.SetActive(true);
+            _gm.IsPaused=true;
+        }
     }
 
 }

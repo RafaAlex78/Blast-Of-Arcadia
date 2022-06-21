@@ -117,11 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9718cead0f7787b469ebc733ccb5397f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hP: 100
-  speed: 0.5
+  _hP: 60
+  speed: 1
   _hitElement: 0
   _weakness: 0
-  _damage: 20
+  _damage: 10
   _attackRange: 1.25
   _targetRange: 6.5
   _startAttack: 0.87
@@ -131,7 +131,9 @@ MonoBehaviour:
   _timeToAttack: 0.5
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
-  _weaponDrop: {fileID: 11400000, guid: 3aa38b0c890afcd439735cab788f2f10, type: 2}
+  _weaponDtrop: {fileID: 8100568549401784789, guid: b93c98f8067940a46ba4f4b598e53c3e, type: 3}
+  _weaponsDrop:
+  - {fileID: 11400000, guid: b3c1f5a3be732af4f8e8a884ff323fe9, type: 2}
   _player: {fileID: 0}
   _currenState: 0
 --- !u!61 &2567983339466817787

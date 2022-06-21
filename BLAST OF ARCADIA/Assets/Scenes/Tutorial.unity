@@ -18903,7 +18903,7 @@ MonoBehaviour:
   - {fileID: 163863669}
   - {fileID: 1525027849}
   - {fileID: 662619611}
-  _movementSpeed: 2
+  _movementSpeed: 3
   _dashCD: 1
   _weapomSlot: {fileID: 436458662}
   _pistolPos: {fileID: 363814970}

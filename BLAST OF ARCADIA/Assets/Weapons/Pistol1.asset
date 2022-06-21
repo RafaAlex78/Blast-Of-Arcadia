@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: PIPI
   _damage: 5
   _range: 5
-  _angle: 0
+  _angle: -22.59
   _habilityCD: 1.5
   _habilityCastTime: 0.1
   _level: 1

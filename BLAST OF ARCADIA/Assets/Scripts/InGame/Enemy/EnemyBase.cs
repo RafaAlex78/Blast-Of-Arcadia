@@ -21,7 +21,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] protected float _timeToAttack;
     [SerializeField] protected GameManager _gm;
     [SerializeField] protected GameObject _soulFragmentPrefab;
-    [SerializeField] protected WeaponScriptableObject _weaponDrop;
+    [SerializeField] protected GameObject _weaponDtrop;
+    [SerializeField] protected List<WeaponScriptableObject> _weaponsDrop;
 
     [SerializeField] protected PlayerController _player;
     private float _dotTimer;
@@ -36,6 +37,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         {
             _dotTimer += Time.deltaTime;
         }
+        
     }
     public enum element
     {
@@ -68,8 +70,15 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
     private void Drop()
     {
-        Debug.Log(_weaponDrop);
-        _gm.CreateInstance(_weaponDrop);
+        //_gm.CreateInstance(_weaponDrop);
+        int x = Random.Range(0, 2);
+        if(x==0)
+        {
+            int y = Random.Range(0, _weaponsDrop.Count);
+            _weaponDtrop.transform.GetComponent<WeaponDrop>().Drop = _weaponsDrop[y];
+            Instantiate(_weaponDtrop, transform.position, transform.rotation);
+        }
+        
         Instantiate(_soulFragmentPrefab, transform.position, transform.rotation);
     }
 
@@ -88,7 +97,6 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         if (_hP <=0)
         {
-            Debug.Log(_weaponDrop);
 
             Die();
             _hP = 100;

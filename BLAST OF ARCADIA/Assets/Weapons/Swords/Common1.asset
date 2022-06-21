@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
-  m_Name: Uncommon1
+  m_Name: Common1
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 59cada177a7453a4a89ff66adcdf943a, type: 3}
-  _name: Sword
+  _name: SHHI
   _damage: 2
   _range: 0.7
   _angle: 46
@@ -21,7 +21,7 @@ MonoBehaviour:
   _habilityCastTime: 0.2
   _level: 1
   _weaponType: 0
-  _weaponRarity: 1
+  _weaponRarity: 0
   _weaponElement: 0
   _hability1Prefab: {fileID: 3741784157230723770, guid: 4c39c37377279bd4d882e364ca38f28d, type: 3}
   _hability2Prefab: {fileID: 8032430868629080469, guid: 3beb11ae32719c24689568181dab41c7, type: 3}

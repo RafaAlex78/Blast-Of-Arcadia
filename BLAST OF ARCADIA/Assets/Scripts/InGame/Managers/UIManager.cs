@@ -10,11 +10,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _inventory;
     [SerializeField] private TMP_Text _soulFragmentsText;
     [SerializeField] private List<TMP_Text> _cristals;
-    [SerializeField] private GameObject _ShopConfirmation;
+    [SerializeField] private GameObject _shopConfirmation;
     [SerializeField] private GameObject _sell;
     [SerializeField] private List<Sprite> _cristalsImage;
-    [SerializeField] private GameObject _TypeCristalGain;
-    [SerializeField] private GameObject _TypeCristalCost;
+    [SerializeField] private GameObject _typeCristalGain;
+    [SerializeField] private GameObject _typeCristalCost;
+    [SerializeField] private GameObject _enterDungeon;
+    [SerializeField] private GameObject _exitDungeon;
 
     [SerializeField] private List<Image> _hablitiesImage;
 
@@ -23,15 +25,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private List<float> _timers;
     [SerializeField] private List<bool> _startTimer;
     [SerializeField] private List<float> _abilitieCD;
+    private GameManager _gm;
 
     
 
 
     public GameObject Inventory { get => _inventory; set => _inventory = value; }
-    public GameObject TypeCristalGain { get => _TypeCristalGain; set => _TypeCristalGain = value; }
+    public GameObject TypeCristalGain { get => _typeCristalGain; set => _typeCristalGain = value; }
     public List<Sprite> CristalsImage { get => _cristalsImage; set => _cristalsImage = value; }
-    public GameObject TypeCristalCost { get => _TypeCristalCost; set => _TypeCristalCost = value; }
+    public GameObject TypeCristalCost { get => _typeCristalCost; set => _typeCristalCost = value; }
     public List<Image> HablitiesImage { get => _hablitiesImage; set => _hablitiesImage = value; }
+    public GameObject EnterDungeon { get => _enterDungeon; set => _enterDungeon = value; }
+    public GameObject ExitDungeon { get => _exitDungeon; set => _exitDungeon = value; }
 
     private void Start()
     {
@@ -40,6 +45,7 @@ public class UIManager : MonoBehaviour
             Debug.Log("maybe é isto");
         }
         Inventory.SetActive(false);
+        _gm = GameManager.instance;
     }
     public void ReloadScene()
     {
@@ -60,7 +66,7 @@ public class UIManager : MonoBehaviour
     }
    public void ShowConfirmation(bool IsEquipped)
     {
-        _ShopConfirmation.SetActive(true);
+        _shopConfirmation.SetActive(true);
         if (IsEquipped)
         {
             _sell.SetActive(false);
@@ -72,7 +78,7 @@ public class UIManager : MonoBehaviour
     } 
     public void HideConfirmation()
     {
-        _ShopConfirmation.SetActive(false);
+        _shopConfirmation.SetActive(false);
     }
     private void Update()
     {
@@ -177,4 +183,5 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    
 }
