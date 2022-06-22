@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Transform> _spawns;
     [SerializeField] private PlayerController _player;
     [SerializeField] private List<Transform> _easyEnemySpawns;
+    [SerializeField] private List<Transform> _mediumEnemySpawns;
+    [SerializeField] private List<Transform> _hardEnemySpawns;
     [SerializeField] private List<GameObject> _enemies;
+    [SerializeField] private List<GameObject> _enemiesSpawned;
     private bool _shopOpen=false;
     private bool _isPaused= false;
     private bool _inventoryOpen = false;
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     public StoreManager StoreManager { get => _storeManager; }
     public WeaponDataBaseScript DataBase { get => _dataBase;}
     public PlayerController Player { get => _player; set => _player = value; }
+    public List<Transform> HardEnemySpawns { get => _hardEnemySpawns; set => _hardEnemySpawns = value; }
 
     private void Awake()
     {
@@ -82,7 +86,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _easyEnemySpawns.Count; i++)
         {
             int x = Random.Range(0, 2);
-            Instantiate(_enemies[x], _easyEnemySpawns[i].position, _easyEnemySpawns[i].rotation);
+            GameObject enemy = Instantiate(_enemies[x], _easyEnemySpawns[i].position, _easyEnemySpawns[i].rotation);
+            _enemiesSpawned.Add(enemy);
         }
         Player.transform.position = _spawns[1].transform.position;
         _ui.EnterDungeon.SetActive(false);
@@ -90,6 +95,13 @@ public class GameManager : MonoBehaviour
     } 
     public void MediumDungeon()
     {
+       
+        for (int i = 0; i < _mediumEnemySpawns.Count; i++)
+        {
+            int x = Random.Range(0, 3);
+           GameObject enemy = Instantiate(_enemies[x], _mediumEnemySpawns[i].position, _mediumEnemySpawns[i].rotation);
+            _enemiesSpawned.Add(enemy);
+        }
         Player.transform.position = _spawns[2].transform.position;
         _ui.EnterDungeon.SetActive(false);
         _isPaused = false;
@@ -97,6 +109,12 @@ public class GameManager : MonoBehaviour
     }
     public void HardDungeon()
     {
+        for (int i = 0; i < _hardEnemySpawns.Count; i++)
+        {
+            int x = Random.Range(1, 4);
+            GameObject enemy = Instantiate(_enemies[x], _hardEnemySpawns[i].position, _hardEnemySpawns[i].rotation);
+            _enemiesSpawned.Add(enemy);
+        }
         Player.transform.position = _spawns[3].transform.position;
         _ui.EnterDungeon.SetActive(false);
         _isPaused = false;
@@ -104,9 +122,17 @@ public class GameManager : MonoBehaviour
     public void ExitDungeon()
     {
         _isPaused = false;
-
+        for (int i = 0; i < _enemiesSpawned.Count; i++)
+        {
+        if(_enemiesSpawned[i] != null)
+            {
+                Destroy(_enemiesSpawned[i]);
+            }
+           
+        }
         _player.transform.position = _spawns[0].transform.position;
         _ui.ExitDungeon.SetActive(false);
+        _enemiesSpawned.Clear();
     }
     public void DontExitDungeon()
     {

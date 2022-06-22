@@ -2243,6 +2243,12 @@ MonoBehaviour:
   _createInstance: {fileID: 1133138902}
   _storeManager: {fileID: 459868286}
   _dataBase: {fileID: 141421215}
+  _spawns: []
+  _player: {fileID: 0}
+  _easyEnemySpawns: []
+  _mediumEnemySpawns: []
+  _enemies: []
+  _enemiesSpawned: []
 --- !u!4 &195680602
 Transform:
   m_ObjectHideFlags: 0
@@ -4240,15 +4246,17 @@ MonoBehaviour:
   - {fileID: 1449743258}
   - {fileID: 1088756811}
   - {fileID: 244333193}
-  _ShopConfirmation: {fileID: 441463117}
+  _shopConfirmation: {fileID: 441463117}
   _sell: {fileID: 411805412}
   _cristalsImage:
   - {fileID: 21300000, guid: b0a731fdd8d986449bf4debce2c88a62, type: 3}
   - {fileID: 21300000, guid: 2d565a0f15bf2de47afc1896c574fedb, type: 3}
   - {fileID: 21300000, guid: d4cab6d975fd5e243b7a64925299032d, type: 3}
   - {fileID: 21300000, guid: 455faaa4af1e3164682a675c9cde718b, type: 3}
-  _TypeCristalGain: {fileID: 301888739}
-  _TypeCristalCost: {fileID: 454006615}
+  _typeCristalGain: {fileID: 301888739}
+  _typeCristalCost: {fileID: 454006615}
+  _enterDungeon: {fileID: 0}
+  _exitDungeon: {fileID: 0}
   _hablitiesImage:
   - {fileID: 144357197}
   - {fileID: 612826329}

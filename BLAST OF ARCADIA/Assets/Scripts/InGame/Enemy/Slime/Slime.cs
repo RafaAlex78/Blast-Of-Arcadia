@@ -31,7 +31,7 @@ public class Slime : EnemyBase
                 break;
         
         }
-       
+        
 
     }
     public enum EnemyState

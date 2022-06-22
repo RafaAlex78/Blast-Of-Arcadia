@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
-  m_Name: sword1
+  m_Name: Rare2
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 59cada177a7453a4a89ff66adcdf943a, type: 3}
-  _name: SWOOOD
-  _damage: 5
+  _name: Spar
+  _damage: 15
   _range: 0.7
   _angle: 46
-  _habilityCD: 10.5
-  _habilityCastTime: 0.7
-  _level: 5
+  _habilityCD: 2.5
+  _habilityCastTime: 0.2
+  _level: 3
   _weaponType: 0
-  _weaponRarity: 3
-  _weaponElement: 1
+  _weaponRarity: 2
+  _weaponElement: 0
   _hability1Prefab: {fileID: 3741784157230723770, guid: 4c39c37377279bd4d882e364ca38f28d, type: 3}
   _hability2Prefab: {fileID: 8032430868629080469, guid: 3beb11ae32719c24689568181dab41c7, type: 3}
   _hability3Prefab: {fileID: 56746900692091535, guid: e15ae0dc2e659484093079c39b2c4a7c, type: 3}
