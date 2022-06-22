@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _typeCristalCost;
     [SerializeField] private GameObject _enterDungeon;
     [SerializeField] private GameObject _exitDungeon;
+    [SerializeField] private GameObject _pauseMenu;
 
     [SerializeField] private List<Image> _hablitiesImage;
 
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
     public List<Image> HablitiesImage { get => _hablitiesImage; set => _hablitiesImage = value; }
     public GameObject EnterDungeon { get => _enterDungeon; set => _enterDungeon = value; }
     public GameObject ExitDungeon { get => _exitDungeon; set => _exitDungeon = value; }
+    public GameObject PauseMenu { get => _pauseMenu; set => _pauseMenu = value; }
 
     private void Start()
     {
@@ -183,5 +185,12 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
-    
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

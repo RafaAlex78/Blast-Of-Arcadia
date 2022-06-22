@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Transform> _hardEnemySpawns;
     [SerializeField] private List<GameObject> _enemies;
     [SerializeField] private List<GameObject> _enemiesSpawned;
+
+    [SerializeField] private GameObject _PressToEnterDungeon;
+
     private bool _shopOpen=false;
     private bool _isPaused= false;
     private bool _inventoryOpen = false;
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     public WeaponDataBaseScript DataBase { get => _dataBase;}
     public PlayerController Player { get => _player; set => _player = value; }
     public List<Transform> HardEnemySpawns { get => _hardEnemySpawns; set => _hardEnemySpawns = value; }
+    public GameObject PressToEnterDungeon { get => _PressToEnterDungeon; set => _PressToEnterDungeon = value; }
 
     private void Awake()
     {
@@ -138,5 +142,10 @@ public class GameManager : MonoBehaviour
     {
          _isPaused = false;
         _ui.ExitDungeon.SetActive(false);
+    }
+    public void ResumeGame()
+    {
+        _isPaused=false;
+        _ui.PauseMenu.SetActive(false);
     }
 }

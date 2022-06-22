@@ -275,6 +275,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             _actualHP += _maxHP / 4;
             _potionsAvailable--;
             _potions[_potionsAvailable].SetActive(false);
+                _actualHP = Mathf.Clamp(_actualHP, 0, _maxHP);
                 _gm.Ui.UpdateHpBar(_actualHP, _maxHP);
 
             }
@@ -319,12 +320,12 @@ public class PlayerController : MonoBehaviour, IDamageable
             {
                 _gm.IsPaused = true;
                 _pauseOpen = true;
+                _gm.Ui.PauseMenu.SetActive(true);
                 return;
             }
             if (_gm.CheckIsPaused() && _gm.CheckInvetoryOpen() == false && _gm.ShopOpen == false)
             {
-                Debug.Log(_gm.CheckIsPaused());
-                Debug.Log(_gm.CheckInvetoryOpen());
+                
                 _gm.IsPaused = false;
                 _pauseOpen = false;
                 return;
@@ -461,16 +462,34 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             _gm.Ui.EndTutorial();
         }
-        if(collision.gameObject.name == "EnterDungeon")
-        {
-            _gm.Ui.EnterDungeon.SetActive(true);
-            _gm.IsPaused=true;
-        }
+       
         if(collision.gameObject.name == "Exit")
         {
             _gm.Ui.ExitDungeon.SetActive(true);
             _gm.IsPaused=true;
         }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "EnterDungeon")
+        {
+            _gm.PressToEnterDungeon.SetActive(true);
+
+            if (Input.GetKey(KeyCode.U))
+        {
+            if (_gm.ShopOpen == false)
+            {
+                 _gm.Ui.EnterDungeon.SetActive(true);
+                 _gm.IsPaused = true;
+            }
+
+        }
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _gm.PressToEnterDungeon.SetActive(false);
     }
 
 }

@@ -133,7 +133,15 @@ MonoBehaviour:
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
   _weaponDtrop: {fileID: 8100568549401784789, guid: b93c98f8067940a46ba4f4b598e53c3e, type: 3}
-  _weaponsDrop: []
+  _weaponsDrop:
+  - {fileID: 11400000, guid: 35c94eaa2e091714489ad6aa4ec25c80, type: 2}
+  - {fileID: 11400000, guid: 4fc97693973ae7a4dbbb2840a4c87038, type: 2}
+  - {fileID: 11400000, guid: 94de60de1110e164a9b9939cfc5bf1a7, type: 2}
+  - {fileID: 11400000, guid: 25e33a7c65a5caf44a37dad0854e9b8c, type: 2}
+  - {fileID: 11400000, guid: 50dccbe53d46d3e43b682db733e3166d, type: 2}
+  - {fileID: 11400000, guid: 3aa38b0c890afcd439735cab788f2f10, type: 2}
+  - {fileID: 11400000, guid: de1ea834436fca0459d499f2cb95412e, type: 2}
+  - {fileID: 11400000, guid: ad4ae47bebfc82643ae4b35bdb167e60, type: 2}
   _player: {fileID: 0}
   _currenState: 0
   _arrow: {fileID: 4364581293579482164, guid: 28ac2975eef11c74da00227c4763cc1d, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
   m_Name: Uncommun2
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 59cada177a7453a4a89ff66adcdf943a, type: 3}
   _name: Stir
   _damage: 10
   _range: 0.7

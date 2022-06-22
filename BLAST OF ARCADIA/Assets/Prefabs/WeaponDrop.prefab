@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62abd722926876498c619115cd876d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _drop: {fileID: 11400000, guid: b3c1f5a3be732af4f8e8a884ff323fe9, type: 2}
+  _drop: {fileID: 11400000, guid: 4435a5f522533a8478c372173c09b92b, type: 2}
   _sprites:
-  - {fileID: 21300000, guid: 59cada177a7453a4a89ff66adcdf943a, type: 3}
+  - {fileID: 21300000, guid: 8533ee33306a4c240808404ee43af3f8, type: 3}
   - {fileID: 21300000, guid: f3b8b763e1dd0d64b889e54056015789, type: 3}
 --- !u!61 &439082305
 BoxCollider2D:
