@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecb4dbeeced9594a964c8586539347d, type: 3}
   m_Name: Commun2
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: f3b8b763e1dd0d64b889e54056015789, type: 3}
+  _icon: {fileID: 21300000, guid: 50262a98ef52ee14980ba35e698c3973, type: 3}
   _name: Prio
   _damage: 3
   _range: 5

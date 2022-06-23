@@ -46,7 +46,7 @@ public class TutorialManager : MonoBehaviour
         }   
         if(_wall3 != null)
         {
-           if(_gm.Inventory.Cristals[Inventory.CristalType.Uncommon] != 0)
+           if(_gm.Inventory.Cristals[Inventory.CristalType.Legendary] != 0)
             {
                 Destroy(_wall3);
             }

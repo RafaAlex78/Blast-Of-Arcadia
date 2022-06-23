@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecb4dbeeced9594a964c8586539347d, type: 3}
   m_Name: Legendary2
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: f3b8b763e1dd0d64b889e54056015789, type: 3}
+  _icon: {fileID: 21300000, guid: 5314a3a04ab0b30468d67e98351b291a, type: 3}
   _name: Sugar
   _damage: 25
   _range: 5

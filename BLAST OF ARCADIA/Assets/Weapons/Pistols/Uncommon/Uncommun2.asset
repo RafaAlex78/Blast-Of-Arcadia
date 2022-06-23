@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecb4dbeeced9594a964c8586539347d, type: 3}
   m_Name: Uncommun2
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: f3b8b763e1dd0d64b889e54056015789, type: 3}
+  _icon: {fileID: 21300000, guid: ecd59733a6e38c74c8f28c7a2da44233, type: 3}
   _name: Salvo
   _damage: 7
   _range: 5

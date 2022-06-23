@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecb4dbeeced9594a964c8586539347d, type: 3}
   m_Name: Rare2
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: f3b8b763e1dd0d64b889e54056015789, type: 3}
+  _icon: {fileID: 21300000, guid: b45ba14dae3807542af29bf282a0d3d7, type: 3}
   _name: Battery
   _damage: 15
   _range: 5
   _angle: -22.59
-  _habilityCD: 0
-  _habilityCastTime: 0
+  _habilityCD: 1.5
+  _habilityCastTime: 0.1
   _level: 3
   _weaponType: 1
   _weaponRarity: 2

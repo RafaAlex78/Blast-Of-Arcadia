@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
   m_Name: Rare1
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 59cada177a7453a4a89ff66adcdf943a, type: 3}
+  _icon: {fileID: 21300000, guid: 53bfb678335f5d14ca41d303c6c8eeaf, type: 3}
   _name: RUUU
   _damage: 10
   _range: 0.7

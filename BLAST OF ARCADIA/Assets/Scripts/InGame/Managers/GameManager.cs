@@ -148,4 +148,10 @@ public class GameManager : MonoBehaviour
         _isPaused=false;
         _ui.PauseMenu.SetActive(false);
     }
+    public void CloseEnterDgungeon()
+    {
+        Ui.EnterDungeon.SetActive(false);
+        IsPaused = false;
+    }
 }
+

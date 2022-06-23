@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7322cffcc75674587094e4344937db, type: 3}
   m_Name: Common1
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 8533ee33306a4c240808404ee43af3f8, type: 3}
+  _icon: {fileID: 21300000, guid: 59bd57c1db3eb0f46b657e5f50f716ef, type: 3}
   _name: SHHI
   _damage: 2
   _range: 0.7
