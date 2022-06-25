@@ -58,7 +58,7 @@ public class P_Base_2 : MonoBehaviour
             }
 
             collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage);
-            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 4, PerTime);
+            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage*0.15f, PerTime);
             collision.GetComponent<EnemyBase>().Speed = collision.GetComponent<EnemyBase>().Speed / 2;
 
         }

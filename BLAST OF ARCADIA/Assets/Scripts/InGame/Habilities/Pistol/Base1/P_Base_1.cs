@@ -57,8 +57,8 @@ public class P_Base_1 : MonoBehaviour
                     collision.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Lightning;
                     break;
             }
-            
-            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage+(_distance*2));
+            Debug.Log(_distance);
+            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage+_distance);
             Destroy(gameObject);
 
         }
@@ -67,5 +67,12 @@ public class P_Base_1 : MonoBehaviour
             Destroy(gameObject);
         }
     }
-   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag != "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

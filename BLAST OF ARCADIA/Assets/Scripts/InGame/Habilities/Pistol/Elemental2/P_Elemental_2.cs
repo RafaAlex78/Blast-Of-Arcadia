@@ -65,8 +65,8 @@ public class P_Elemental_2 : MonoBehaviour
                     collision.GetComponent<EnemyBase>().HitElement = EnemyBase.element.Lightning;
                     break;
             }
-            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage);
-            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 4, PerTime);
+            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage*2);
+            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage*0.45f, PerTime);
             Destroy(gameObject);
         }
 

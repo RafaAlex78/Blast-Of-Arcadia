@@ -95,7 +95,7 @@ public class Pistol : WeaponScriptableObject
                     break;
             }
             player.AttackCD = 1f;
-            newBullet.GetComponent<Pistol_Bullet>().Damage = weaponInstance.NewDamage* 1.2f;
+            newBullet.GetComponent<Pistol_Bullet>().Damage = weaponInstance.NewDamage+3;
             _shootCount = 0;
         }
       
@@ -107,7 +107,7 @@ public class Pistol : WeaponScriptableObject
         bull.velocity = newHab.transform.up * 5;
         P_Base_1 hab1 = newHab.GetComponent<P_Base_1>();
         hab1.PistolPos = player.PistolPos.position;
-        hab1.Damage = weaponInstance.NewDamage + 20;
+        hab1.Damage = weaponInstance.NewDamage;
         switch (WeaponElement)
         {
             case Element.None:
@@ -131,7 +131,7 @@ public class Pistol : WeaponScriptableObject
                 break;
         }
         HabilityCastTime = 0.1f;
-        HabilityCD = 1.5f;
+        HabilityCD = 3.5f;
     }
 
     public override void UseBaseHability2(PlayerController player,WeaponInstance weaponInstance)
@@ -140,7 +140,7 @@ public class Pistol : WeaponScriptableObject
 
         P_Base_2 hab2 = newHab.GetComponentInChildren<P_Base_2>();
 
-        hab2.Damage = weaponInstance.NewDamage +20;
+        hab2.Damage = weaponInstance.NewDamage +3;
 
         switch (WeaponElement)
         {
@@ -169,7 +169,7 @@ public class Pistol : WeaponScriptableObject
 
 
         HabilityCastTime = 0.3f;
-        HabilityCD = 6.5f;
+        HabilityCD = 7.5f;
     }
 
     public override void UseElementalHability1(PlayerController player, WeaponInstance weaponInstance)
@@ -178,7 +178,7 @@ public class Pistol : WeaponScriptableObject
 
         P_Elemental_1 hab3 = newHab.GetComponentInChildren<P_Elemental_1>();
 
-        hab3.Damage = weaponInstance.NewDamage +35;
+        hab3.Damage = weaponInstance.NewDamage +5;
 
         switch (WeaponElement)
         {
@@ -206,7 +206,7 @@ public class Pistol : WeaponScriptableObject
         hab3.ApplyNTimes = 6;
         hab3.PerTime = 1.2f;
         HabilityCastTime = 0.2f;
-        HabilityCD =10f; 
+        HabilityCD =13f; 
 
     }
 
@@ -221,7 +221,7 @@ public class Pistol : WeaponScriptableObject
                 GameObject newHab = Instantiate(_hability4Prefab, player.transform.position, player.transform.rotation);
                 P_Elemental_2 hab4 = newHab.GetComponent<P_Elemental_2>();
                 hab4.Speed = 2 * (i + 1);
-                hab4.Damage = weaponInstance.NewDamage + 50;
+                hab4.Damage = weaponInstance.NewDamage + 8;
                 hab4.Target = objectsHit[temp].gameObject;
                 hab4.ApplyNTimes = 3;
                 hab4.PerTime = 1.4f;
@@ -229,7 +229,7 @@ public class Pistol : WeaponScriptableObject
            temp++;
         }
         HabilityCastTime = 0.5f;
-        HabilityCD = 15f;
+        HabilityCD = 22f;
 
     }
 

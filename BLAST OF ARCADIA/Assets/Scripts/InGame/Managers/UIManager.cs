@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _enterDungeon;
     [SerializeField] private GameObject _exitDungeon;
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _startGameInfo;
 
     [SerializeField] private List<Image> _hablitiesImage;
 
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour
     public GameObject EnterDungeon { get => _enterDungeon; set => _enterDungeon = value; }
     public GameObject ExitDungeon { get => _exitDungeon; set => _exitDungeon = value; }
     public GameObject PauseMenu { get => _pauseMenu; set => _pauseMenu = value; }
+    public GameObject StartGameInfo { get => _startGameInfo; set => _startGameInfo = value; }
 
     private void Start()
     {
@@ -128,6 +130,17 @@ public class UIManager : MonoBehaviour
                 _timers[3] = 0;
             }
         }
+        if(_startTimer[4])
+        {
+            HablitiesImage[4].fillAmount = 0;
+            _timers[4] += Time.deltaTime;
+            HablitiesImage[4].fillAmount = _timers[4] / _abilitieCD[4];
+            if (_timers[4] >= _abilitieCD[4])
+            {
+                _startTimer[4] = false;
+                _timers[4] = 0;
+            }
+        }
     }
     public void UpdateAblitiesCD(int habilitieNumber,  float cd)
     {
@@ -150,7 +163,6 @@ public class UIManager : MonoBehaviour
         {
 
             _extraBar.fillAmount = 1;
-            Debug.Log((currenthP - maxHp * 0.75f) / 25);
 
             _circleBar.fillAmount = (((currenthP - maxHp * 0.75f) / (maxHp * 0.25f)) * 0.75f) + 0.25f;
             //(_currentHeaklhp - 0.75f) * 0.25
@@ -192,5 +204,9 @@ public class UIManager : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void CloseStartGameInfo()
+    {
+       StartGameInfo.SetActive(false);
     }
 }

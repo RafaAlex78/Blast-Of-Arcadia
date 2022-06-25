@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       
     }
     private void Update()
     {
@@ -70,6 +69,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
         return true;
+
         
     }
     public bool CheckInvetoryOpen()
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
         return true;
-        
+
     }
     public void CreateInstance(WeaponScriptableObject weapon)
     {
@@ -147,6 +147,7 @@ public class GameManager : MonoBehaviour
     {
         _isPaused=false;
         _ui.PauseMenu.SetActive(false);
+        _player.PauseOpen = false;
     }
     public void CloseEnterDgungeon()
     {

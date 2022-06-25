@@ -21,6 +21,7 @@ public class GiveInitialWeapon : MonoBehaviour
             _gm.CreateInstance(_startWeapon);
             Destroy(gameObject);
             _tM.Info2.SetActive(true);
+
             _gm.IsPaused = true;
         }
     }

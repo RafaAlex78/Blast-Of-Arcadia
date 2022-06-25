@@ -26,9 +26,9 @@ public class Sell_Upgrade : MonoBehaviour
                 _openShopWord.SetActive(false);
                 _ShowButton.SetActive(true);
                 _gm.IsPaused = true;
-            _gm.InventoryOpen = true;
-            _gm.ShopOpen = true;
-            _gm.Ui.Inventory.SetActive(true);
+                 _gm.InventoryOpen = true;
+                 _gm.ShopOpen = true;
+                 _gm.Ui.Inventory.SetActive(true);
             }
            
         }

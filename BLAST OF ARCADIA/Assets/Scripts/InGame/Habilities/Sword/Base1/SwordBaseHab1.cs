@@ -37,7 +37,7 @@ public class SwordBaseHab1 : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
 
-            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage);
+            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage*0.65f);
             Destroy(gameObject);
             switch (WeaponElement)
             {

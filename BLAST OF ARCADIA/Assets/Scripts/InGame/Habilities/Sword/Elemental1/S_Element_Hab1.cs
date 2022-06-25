@@ -32,12 +32,13 @@ public class S_Element_Hab1 : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
+        Debug.Log("uad");
         
         if (Vector2.Distance(PlayerPos, transform.position) >= Range )
         {
             Destroy(transform.parent.gameObject);
         }
-        if (_timer >=1.6f)
+        if (_timer >= 0.4f)
         {
             GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
         }
@@ -68,7 +69,7 @@ public class S_Element_Hab1 : MonoBehaviour
                     break;
             }
 
-            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 2, PerTime);
+            collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage*0.20f, PerTime);
 
         }
     }

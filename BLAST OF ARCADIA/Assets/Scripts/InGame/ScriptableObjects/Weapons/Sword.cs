@@ -66,7 +66,7 @@ public class Sword : WeaponScriptableObject
         SwordBaseHab1 hab1 = newHab.GetComponent<SwordBaseHab1>();
         hab1.Range = Range*4;
         hab1.PlayerPos = player.transform.position;
-        hab1.Damage = weaponInstance.NewDamage +10;
+        hab1.Damage = weaponInstance.NewDamage;
         switch (WeaponElement)
         {
             case Element.None:
@@ -92,7 +92,7 @@ public class Sword : WeaponScriptableObject
                 break;
         }
         HabilityCastTime = 0.2f;
-        HabilityCD = 2.5f;
+        HabilityCD = 4f;
     } 
     
     public override void UseBaseHability2(PlayerController player, WeaponInstance weaponInstance)
@@ -106,7 +106,7 @@ public class Sword : WeaponScriptableObject
             hab2.Speed = 5;
             hab2.Range = Range*6;
             hab2.PlayerPos= player.transform.position;
-            hab2.Damage = weaponInstance.NewDamage + 25;
+            hab2.Damage = weaponInstance.NewDamage + 2;
             switch (WeaponElement)
             {
                 case Element.None:
@@ -133,7 +133,7 @@ public class Sword : WeaponScriptableObject
             }
         }
         HabilityCastTime = 0.3f;
-        HabilityCD = 2.5f;
+        HabilityCD = 6.5f;
     }
 
     public override void UseElementalHability1(PlayerController player, WeaponInstance weaponInstance)
@@ -146,11 +146,10 @@ public class Sword : WeaponScriptableObject
         {
             GameObject newHab = Instantiate(_hability3Prefab, player.transform.position, player.transform.rotation);
             Rigidbody2D bull = newHab.GetComponentInChildren<Rigidbody2D>();
-
             S_Element_Hab1 hab3 = bull.GetComponent<S_Element_Hab1>();
             hab3.Range = Range*10;
             hab3.PlayerPos = player.transform.position;
-            hab3.Damage = weaponInstance.NewDamage +30;
+            hab3.Damage = weaponInstance.NewDamage +5;
             hab3.Speed = 4;
             hab3.ApplyNTimes = 8;
             hab3.PerTime = 0.5f;
@@ -179,7 +178,7 @@ public class Sword : WeaponScriptableObject
                     break;
             }
             HabilityCastTime = 0.4f;
-            HabilityCD = 5.5f;
+            HabilityCD = 12.5f;
         }
     }
 
@@ -197,7 +196,7 @@ public class Sword : WeaponScriptableObject
             S_Element_Hab2 hab4 = bull.GetComponent<S_Element_Hab2>();
             hab4.Range = Range * 10;
             hab4.PlayerPos = player.transform.position;
-            hab4.Damage = weaponInstance.NewDamage +40;
+            hab4.Damage = weaponInstance.NewDamage +8;
             hab4.Speed = 7;
             switch (WeaponElement)
             {
@@ -224,7 +223,7 @@ public class Sword : WeaponScriptableObject
                     break;
             }
             HabilityCastTime = 0.7f;
-            HabilityCD = 10.5f;
+            HabilityCD = 24f;
         }
     }
 }

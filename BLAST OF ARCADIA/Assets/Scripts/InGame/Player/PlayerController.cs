@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private float _attackCD;
     private bool _invetoryOpen=false;
     private bool _pauseOpen=false;
+    private bool _canCastAbilitie=true;
     [SerializeField] private WeaponScriptableObject _equippedWeapon;
 
     [Header("Habilities")]
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float AttackCD { get => _attackCD; set => _attackCD = value; }
     public Transform PistolPos { get => _pistolPos; }
     public WeaponScriptableObject EquippedWeapon { get => _equippedWeapon; set => _equippedWeapon = value; }
+    public bool PauseOpen { get => _pauseOpen; set => _pauseOpen = value; }
 
     private void Awake()
     {
@@ -237,14 +239,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if(_canHability1)
+            if(_canHability1 && _canCastAbilitie)
             {
                 StartCoroutine(UseAbilityOne());
             }          
         } 
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (_canHability2 &&  EquippedWeapon.WeaponRarity != WeaponScriptableObject.Rarity.Common)
+            if (_canHability2 &&  EquippedWeapon.WeaponRarity != WeaponScriptableObject.Rarity.Common  && _canCastAbilitie)
             {
                 StartCoroutine(UseAbilityTwo());
 
@@ -252,7 +254,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (_canHability3 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare || _canHability3 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
+            if (_canHability3 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Rare || _canHability3 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary && _canCastAbilitie)
             {
                 StartCoroutine(UseAbilityThree());
 
@@ -261,7 +263,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         } 
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (_canHability4 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary)
+            if (_canHability4 && EquippedWeapon.WeaponRarity == WeaponScriptableObject.Rarity.Legendary && _canCastAbilitie)
             {
                 StartCoroutine(UseAbilityFour());
 
@@ -296,7 +298,8 @@ public class PlayerController : MonoBehaviour, IDamageable
        
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if(_pauseOpen == false && _gm.ShopOpen==false)
+
+            if(PauseOpen == false && _gm.ShopOpen==false)
             {
 
                if (_gm.CheckIsPaused()==false)
@@ -311,6 +314,7 @@ public class PlayerController : MonoBehaviour, IDamageable
                 _gm.IsPaused = false;
                 _gm.Ui.Inventory.SetActive(false);
                 _gm.InventoryOpen = false;
+
                 }
             }
         }
@@ -319,7 +323,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (_gm.CheckIsPaused() == false && _gm.CheckInvetoryOpen() == false && _gm.ShopOpen == false)
             {
                 _gm.IsPaused = true;
-                _pauseOpen = true;
+                PauseOpen = true;
                 _gm.Ui.PauseMenu.SetActive(true);
                 return;
             }
@@ -330,26 +334,28 @@ public class PlayerController : MonoBehaviour, IDamageable
                 _pauseOpen = false;
                 return;
             }
-            if (_gm.CheckIsPaused() && _gm.CheckInvetoryOpen() && _gm.ShopOpen==false)
+            if (_gm.CheckIsPaused() && _gm.CheckInvetoryOpen() && _gm.ShopOpen == false)
             {
                 _gm.IsPaused = false;
                 _gm.InventoryOpen = false;
                 _gm.Ui.Inventory.SetActive(false);
                 return;
             }
-            if(_gm.ShopOpen)
-            {
-                _gm.IsPaused = false;
-                _gm.InventoryOpen = false;
-                _gm.ShopOpen = false;
-                _gm.Ui.Inventory.SetActive(false);
-            }
+            //if(_gm.ShopOpen)
+            //{
+            //    _gm.IsPaused = false;
+            //    _gm.InventoryOpen = false;
+            //    _gm.ShopOpen = false;
+            //    _gm.Ui.Inventory.SetActive(false);
+            //}
         }
 
     }
     IEnumerator UseAbilityOne()
     {
         _canHability1 = false;
+        _canCastAbilitie = false;
+
         _canMove = false;
         EquippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
         if(EquippedWeapon is Sword)
@@ -358,7 +364,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             EquippedWeapon.UseBaseHability1(this, _weapomSlot.Weapon);
         }  
         yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
-        
+        _canCastAbilitie = true;
         _canMove = true;
         _gm.Ui.UpdateAblitiesCD(1, EquippedWeapon.HabilityCD);
         yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
@@ -366,44 +372,79 @@ public class PlayerController : MonoBehaviour, IDamageable
     } 
     IEnumerator UseAbilityTwo()
     {
+        _canCastAbilitie = false;
+
         _canHability2 = false;
         _canMove = false;
         EquippedWeapon.UseBaseHability2(this, _weapomSlot.Weapon);
         yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
         _canMove = true;
+        _canCastAbilitie = true;
         _gm.Ui.UpdateAblitiesCD(2, EquippedWeapon.HabilityCD);
         yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
         _canHability2 = true;
     }
     IEnumerator UseAbilityThree()
     {
+        _canCastAbilitie = false;
+
         _canHability3 = false;
         _canMove = false;
         EquippedWeapon.UseElementalHability1(this, _weapomSlot.Weapon);
         yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
         _canMove = true;
+        _canCastAbilitie = true;
         _gm.Ui.UpdateAblitiesCD(3, EquippedWeapon.HabilityCD);
         yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
         _canHability3 = true;
     }IEnumerator UseAbilityFour()
     {
+        _canCastAbilitie = false;
+
         _canHability4 = false;
         _canMove = false;
         EquippedWeapon.UseElementalHability2(this, _weapomSlot.Weapon);
         
         yield return new WaitForSeconds(EquippedWeapon.HabilityCastTime);
         _canMove = true;
+        _canCastAbilitie = true;
         _gm.Ui.UpdateAblitiesCD(4, EquippedWeapon.HabilityCD);
         yield return new WaitForSeconds(EquippedWeapon.HabilityCD);
         _canHability4 = true;
     }
     IEnumerator Dash()
     {
+        
         _canDash = false;
         Debug.Log("1");
-        _rigidbody.AddForce(transform.up * 6500, ForceMode2D.Force);
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //transform.position = new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z);
+            _rigidbody.AddForce(transform.up * 4500, ForceMode2D.Force);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+            //transform.position = new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z);
+            _rigidbody.AddForce(transform.up * 4500, ForceMode2D.Force);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+            //transform.position = new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z);
+            _rigidbody.AddForce(transform.up * 4500, ForceMode2D.Force);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+            //transform.position = new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z);
+            _rigidbody.AddForce(transform.up * 4500, ForceMode2D.Force);
+        }
+        _gm.Ui.UpdateAblitiesCD(5, 4);
         yield return new WaitForSeconds(4);
         _canDash = true;
+        
 
 
     }
@@ -445,18 +486,23 @@ public class PlayerController : MonoBehaviour, IDamageable
             _tutorial.Info3.SetActive(true);
             _gm.IsPaused = true;
             Destroy(collision.gameObject);
-        } 
-        if(collision.gameObject.name== "ShowInfo4")
+            Cursor.visible = true;
+
+        }
+        if (collision.gameObject.name== "ShowInfo4")
         {
             _tutorial.Info4.SetActive(true);
             _gm.IsPaused = true;
             Destroy(collision.gameObject);
+            Cursor.visible = true;
+
         }
-        if(collision.gameObject.name== "ShowInfo5")
+        if (collision.gameObject.name== "ShowInfo5")
         {
             _tutorial.Info5.SetActive(true);
             _gm.IsPaused = true;
             Destroy(collision.gameObject);
+            Cursor.visible = true;
         }  
         if(collision.gameObject.name== "Load Scene")
         {
@@ -467,6 +513,17 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             _gm.Ui.ExitDungeon.SetActive(true);
             _gm.IsPaused=true;
+            Cursor.visible = true;
+        }
+
+        if(collision.gameObject.name == "GetPotions")
+        {
+            _potionsAvailable = 3;
+            _potions[0].SetActive(true);
+            _potions[1].SetActive(true);
+            _potions[2].SetActive(true);
+            _actualHP = _maxHP;
+            _gm.Ui.UpdateHpBar(_actualHP,_maxHP);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -480,7 +537,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (_gm.ShopOpen == false)
             {
                  _gm.Ui.EnterDungeon.SetActive(true);
-                 _gm.IsPaused = true;
+                    Cursor.visible = true;
+                    _gm.IsPaused = true;
             }
 
         }

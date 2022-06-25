@@ -33,7 +33,7 @@ public class SwordBaseHab2 : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
         }
-        if(_timer>=1)
+        if(_timer>=0.3f)
         {
             GetComponent<PolygonCollider2D>().enabled = true;
 

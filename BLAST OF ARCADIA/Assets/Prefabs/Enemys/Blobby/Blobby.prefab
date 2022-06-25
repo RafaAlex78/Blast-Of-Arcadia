@@ -118,18 +118,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5764012bfec26ad44b2fa878cfc5c775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hP: 100
+  _hP: 500
   speed: 1
   _hitElement: 0
   _weakness: 0
-  _damage: 1
+  _damage: 20
   _attackRange: 5
   _targetRange: 8.57
   _startAttack: 0
   _angle: 0
   _canAttack: 1
   _loseSpeedOnAttack: 0
-  _timeToAttack: 1.5
+  _timeToAttack: 1
   _gm: {fileID: 0}
   _soulFragmentPrefab: {fileID: 1812513067786578391, guid: fe8a0847b2aa6474da81e88184c0a213, type: 3}
   _weaponDtrop: {fileID: 8100568549401784789, guid: b93c98f8067940a46ba4f4b598e53c3e, type: 3}

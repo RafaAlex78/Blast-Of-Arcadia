@@ -32,7 +32,7 @@ public class S_Element_Hab2 : MonoBehaviour
     {
        
         _timer1 += Time.deltaTime;
-        if (_timer1 >= 1.6f && Vector2.Distance(PlayerPos, transform.position) <= Range && _expended == false)
+        if (_timer1 >= 0.7f && Vector2.Distance(PlayerPos, transform.position) <= Range && _expended == false)
         {
             GetComponent<Rigidbody2D>().velocity = transform.up * Speed;
         }
@@ -70,7 +70,7 @@ public class S_Element_Hab2 : MonoBehaviour
         {
             Bigger();
            
-            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage);
+            collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage*1.30f);
             switch (WeaponElement)
             {
                 case element.None:
@@ -108,7 +108,7 @@ public class S_Element_Hab2 : MonoBehaviour
         {
             if (_timer2 >= 5.9)
             {
-                collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage * 4);
+                collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage*2.15f);
                 switch (WeaponElement)
                 {
                     case element.None:

@@ -112,12 +112,12 @@ public class P_Elemental_1 : MonoBehaviour
             if (_timer2 <= _timeToExplode)
             {
                 Debug.Log("1");
-                collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 4, PerTime);
+                collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage*0.13f, PerTime);
             }
             else
             {
-                collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage * 2.5f);
-                collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage / 4, PerTime);
+                collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage * 1.25f);
+                collision.GetComponent<EnemyBase>().StartDps(ApplyNTimes, Damage * 0.13f, PerTime);
 
                 switch (WeaponElement)
                 {

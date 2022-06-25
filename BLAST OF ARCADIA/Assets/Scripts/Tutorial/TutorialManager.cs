@@ -58,25 +58,30 @@ public class TutorialManager : MonoBehaviour
     {
         _info1.SetActive(false);
         _gm.IsPaused = false;
-    } 
+
+    }
     public void Hide2()
     {
         _info2.SetActive(false);
         _gm.IsPaused = false;
-    } 
+
+    }
     public void Hide3()
     {
         Info3.SetActive(false);
         _gm.IsPaused = false;
+
     }
     public void Hide4()
     {
         Info4.SetActive(false);
         _gm.IsPaused = false;
+
     }
     public void Hide5()
     {
         Info5.SetActive(false);
         _gm.IsPaused = false;
+
     }
 }

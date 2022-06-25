@@ -33,7 +33,6 @@ public class Inventory : MonoBehaviour
             //Cristals.Add(CristalType.Common,0);
             //Cristals.Add(CristalType.Uncommon,0);
             //Cristals.Add(CristalType.Rare,0);
-            //Cristals.Add(CristalType.Legendary,0);
         
 
        

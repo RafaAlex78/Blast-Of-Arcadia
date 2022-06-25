@@ -32,7 +32,7 @@ public class StoreManager : MonoBehaviour
         int level = weaponInstance.NewLevel;
         for (int i = 1; i <= level; i++)
         {
-            baseCristals *= 1.4f;
+            baseCristals *= 1.15f;
         }
         int cristals = Mathf.RoundToInt(baseCristals);
         switch (weaponInstance.Weapon.WeaponRarity)
@@ -66,7 +66,7 @@ public class StoreManager : MonoBehaviour
         float critals = 5;
         for (int nivel = 1; nivel <= _weaponInstance.NewLevel+1; nivel++)
         {
-            critals *= 1.7f;
+            critals *= 1.2f;
         }
         int cristalsNeeded = Mathf.RoundToInt(critals);
       
@@ -75,7 +75,7 @@ public class StoreManager : MonoBehaviour
             if(_gm.Inventory.Cristals[Inventory.CristalType.Common]>= cristalsNeeded)
             {
                 _gm.Inventory.Cristals[Inventory.CristalType.Common]-= cristalsNeeded;
-                _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage* 1.2f);
+                _weaponInstance.NewDamage = Mathf.RoundToInt(_weaponInstance.NewDamage* 1.45f);
                 _weaponInstance.NewLevel++;               
                 _gm.Ui.UpdateCristals(0, _gm.Inventory.Cristals[Inventory.CristalType.Common]);
                 _gm.Ui.HideConfirmation();
@@ -130,12 +130,12 @@ public class StoreManager : MonoBehaviour
         int level = WeaponInstance.NewLevel;
         for (int i = 1; i <= level; i++)
         {
-            baseCristals *= 1.4f;
+            baseCristals *= 1.15f;
         }
         float critals = 5;
         for (int nivel = 1; nivel <= _weaponInstance.NewLevel + 1; nivel++)
         {
-            critals *= 1.7f;
+            critals *= 1.2f;
         }
         int cristalsNeeded = Mathf.RoundToInt(critals);
 
