@@ -13,6 +13,7 @@ public class P_Elemental_1 : MonoBehaviour
     private float _timer1 = 0;
     private float _timer2 = 0;
     private bool _gotBigger =false;
+    private float _enemySpeed;
     private Animator _animator;
     [SerializeField] private element _weaponElement;
     [SerializeField] private GameObject _circle;
@@ -76,6 +77,7 @@ public class P_Elemental_1 : MonoBehaviour
 
         if (collision.CompareTag("Enemy"))
         {
+            _enemySpeed = collision.GetComponent<EnemyBase>().Speed;
             //Bigger();
             this.GetComponent<CircleCollider2D>().radius = 6.8f;
             _circle.SetActive(true);
@@ -140,7 +142,7 @@ public class P_Elemental_1 : MonoBehaviour
                 Debug.Log("2");
 
             }
-
+            collision.GetComponent<EnemyBase>().Speed = _enemySpeed;
 
         }
     }

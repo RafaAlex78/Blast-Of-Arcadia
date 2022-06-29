@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Legendary2
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: b3853844febcda64791eb40aa362ab58, type: 3}
-  _name: SIUUU
+  _name: Lightbringer
   _damage: 27
   _range: 0.7
   _angle: 46

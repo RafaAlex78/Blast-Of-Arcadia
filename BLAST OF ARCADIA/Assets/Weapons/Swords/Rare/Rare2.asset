@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rare2
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 53bfb678335f5d14ca41d303c6c8eeaf, type: 3}
-  _name: Spar
+  _name: Sword of Anger
   _damage: 15
   _range: 0.7
   _angle: 46

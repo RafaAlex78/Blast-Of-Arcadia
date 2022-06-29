@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: b45ba14dae3807542af29bf282a0d3d7, type: 3}
   _name: Battery
-  _damage: 15
+  _damage: 13
   _range: 5
   _angle: -22.59
   _habilityCD: 1.5

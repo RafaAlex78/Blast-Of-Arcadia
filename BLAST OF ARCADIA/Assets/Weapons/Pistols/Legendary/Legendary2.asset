@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 5314a3a04ab0b30468d67e98351b291a, type: 3}
   _name: Sugar
-  _damage: 25
+  _damage: 23
   _range: 5
   _angle: -22.59
   _habilityCD: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
   _level: 3
   _weaponType: 1
   _weaponRarity: 3
-  _weaponElement: 3
+  _weaponElement: 1
   _pistolBullet: {fileID: 4522093662352460384, guid: e5ca7664e240a0b47a659640732f48ee, type: 3}
   _pistolBullet2: {fileID: 1750638117064071419, guid: 66028a3f07c65d84486c18af018ced48, type: 3}
   _hability1Prefab: {fileID: 2432028131487857452, guid: acdbde6d2c753ef44b027d7b2594d761, type: 3}

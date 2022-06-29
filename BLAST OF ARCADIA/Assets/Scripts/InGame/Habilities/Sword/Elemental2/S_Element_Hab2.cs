@@ -10,6 +10,7 @@ public class S_Element_Hab2 : MonoBehaviour
     private Vector2 _playerPos;
     private float _timer1 = 0;
     private float _timer2 = 0;
+    private float _enemySpeed;
     [SerializeField] private bool _expended = false;
     [SerializeField] private element _weaponElement;
 
@@ -68,6 +69,7 @@ public class S_Element_Hab2 : MonoBehaviour
 
         if (collision.CompareTag("Enemy"))
         {
+            _enemySpeed = collision.GetComponent<EnemyBase>().Speed;
             Bigger();
            
             collision.GetComponent<Rigidbody2D>().GetComponent<IDamageable>().TakeDemage(Damage*1.30f);
@@ -128,7 +130,8 @@ public class S_Element_Hab2 : MonoBehaviour
                         break;
                 }
             }
-      
+            collision.GetComponent<EnemyBase>().Speed = _enemySpeed;
+
         }
     }
 }
